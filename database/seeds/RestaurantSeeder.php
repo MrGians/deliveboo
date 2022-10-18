@@ -17,7 +17,7 @@ class RestaurantSeeder extends Seeder
         $new_restaurant->name = 'Pizzeria del team 1';
         $new_restaurant->description = 'Facciamo delle pizze veramente molto buone';
         $new_restaurant->address = 'Via del Team, N.1';
-        $new_restaurant->logo = '';
+        $new_restaurant->logo = 'restaurants_logos/placeholder.png';
         $new_restaurant->p_iva = '12345678901';
         $new_restaurant->save();
     }

@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" novalidate>
                         @csrf
                         {{-- Name --}}
                         <div class="form-group row">
@@ -99,7 +99,7 @@
                             <label for="p_iva" class="col-md-4 col-form-label text-md-right">Partita IVA</label>
 
                             <div class="col-md-6">
-                                <input id="p_iva" type="p_iva" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" required>
+                                <input id="p_iva" type="text" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" maxlength="11" required>
 
                                 @error('p_iva')
                                     <span class="invalid-feedback" role="alert">
