@@ -1958,7 +1958,11 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("p", [_vm._v("Sono il App.vue")]);
+  return _c("div", {
+    staticClass: "content"
+  }, [_c("main", {
+    staticClass: "container"
+  }, [_c("router-view")], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
