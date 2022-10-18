@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -53,6 +55,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'restaurant_name' => ['required', 'string'],
+            'restaurant_address' => ['required', 'string'],
+            'restaurant_description' => ['required', 'string'],
+            'restaurant_logo' => ['required', 'image', 'mimes:jpeg,jpg,png,svg'],
+            'p_iva' => ['required', 'string','size:11', 'unique:restaurants'],
         ]);
     }
 
@@ -64,10 +71,34 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // Creating new user instance
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        // Creating new restaurant instance
+        $user_restaurant = new Restaurant();
+        $user_restaurant->user_id = $user->id;
+        $user_restaurant->name = $data['restaurant_name'];
+        $user_restaurant->description = $data['restaurant_description'];
+        $user_restaurant->address = $data['restaurant_address'];
+
+        // Check restaurant logo
+        if(array_key_exists('restaurant_logo', $data)){
+            $data['restaurant_logo'] = Storage::put('restaurants_logos', $data['restaurant_logo']);
+        } else $data['restaurant_logo'] = 'restaurants_logos/placeholder.png';
+        
+        $user_restaurant->logo = $data['restaurant_logo'];
+        $user_restaurant->p_iva = $data['p_iva'];
+        $user_restaurant->save();
+
+
+
+
+
+
+        return $user;
     }
 }
