@@ -21,6 +21,9 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     // Homepage Route
     Route::get('/', 'HomeController@index')->name('home');
 
+    // Restaurants Route
+    Route::delete('/restaurants/{restaurant}', 'RestaurantController@destroy')->name('restaurants.destroy');
+
     // 404 Route
     Route::get('/{any}', function () {
         abort('404');
@@ -30,4 +33,4 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
 // Guests Route (check front.js)
 Route::get('/', function () {
     return view('guests.home');
-})->where('any', '.*');
+})->name('guests.home')->where('any', '.*');

@@ -40,6 +40,12 @@
             </div>
             </div>
         </div>
+        {{-- Delete Restaurant --}}
+        <form action="{{ route('admin.restaurants.destroy', ['restaurant' => $current_user->restaurant]) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Cancella definitivamente il tuo ristorante</button>
+        </form>
     </div>
 </div>
 @endsection
