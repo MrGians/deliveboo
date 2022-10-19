@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
 
             $table->string('name');
-            $table->smallInt('price');
+            $table->float('price', 6,2);
             $table->string('description');
             $table->string('image');
             $table->boolean('is_visible')->default(0);
