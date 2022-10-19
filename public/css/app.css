@@ -9240,3 +9240,6 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.rounded-5 {
+  border-radius: 50px;
+}
