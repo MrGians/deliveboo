@@ -24,6 +24,11 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     // Restaurants Route
     Route::delete('/restaurants/{restaurant}', 'RestaurantController@destroy')->name('restaurants.destroy');
 
+    //Products Route
+    Route::resource('/products', 'ProductController');
+    Route::patch('/products/{product}/toggle', 'productController@isVisible')->name('products.isVisible');
+    
+
     // 404 Route
     Route::get('/{any}', function () {
         abort('404');
