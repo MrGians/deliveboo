@@ -16,7 +16,7 @@
         {{-- Description --}}
         <div class="col-12">
             <div class="form-group">
-                <label for="description">Categoria</label>
+                <label for="description">Descrizione</label>
                 <textarea class="form-control" id="description" name="description">{{ old('description', $product->description) }}</textarea>
             </div>
         </div>

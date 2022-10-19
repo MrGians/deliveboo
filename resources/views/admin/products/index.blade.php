@@ -26,7 +26,7 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->price }}</td>
             <td class="align-middle">
-                <form action="{{ route('admin.products.toggle', $product) }}" method="POST">
+                <form action="{{ route('admin.products.isVisible', $product) }}" method="POST">
                   @method('PATCH')
                   @csrf
                   <button class="btn btn-outline">
