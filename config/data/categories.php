@@ -1,0 +1,23 @@
+<?php 
+return [
+    ['label' => 'Pizzeria', 'id' => 1],
+    ['label' => 'Fast Food', 'id' => 2],
+    ['label' => 'Gourmet', 'id' => 3],
+    ['label' => 'Ristorante', 'id' => 4],
+    ['label' => 'Rosticceria', 'id' => 5],
+    ['label' => 'Paninoteca', 'id' => 6],
+    ['label' => 'Trattoria', 'id' => 7],
+    ['label' => 'Osteria', 'id' => 8],
+    ['label' => 'Americano', 'id' => 9],
+    ['label' => 'Cinese', 'id' => 10],
+    ['label' => 'Giapponese', 'id' => 11],
+    ['label' => 'Colazione', 'id' => 12],
+    ['label' => 'Thailandese', 'id' => 13],
+    ['label' => 'Creperia', 'id' => 14],
+    ['label' => 'Vegetariano', 'id' => 15],
+    ['label' => 'Poke', 'id' => 16],
+    ['label' => 'Greco', 'id' => 17],
+    ['label' => 'Pesce', 'id' => 18],
+    ['label' => 'Carne', 'id' => 19],
+    ['label' => 'Latino-americana', 'id' => 20],
+];
