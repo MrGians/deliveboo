@@ -20,5 +20,6 @@ class RestaurantSeeder extends Seeder
         $new_restaurant->logo = 'restaurants_logos/placeholder.png';
         $new_restaurant->p_iva = '12345678901';
         $new_restaurant->save();
+        $new_restaurant->categories()->attach([1,3]);
     }
 }
