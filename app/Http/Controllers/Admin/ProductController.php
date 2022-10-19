@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return redirect()->route('admin.restaurant.index', compact('products'));
+        return view('admin.products.index', compact('products'));
     }
 
     /**
@@ -25,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $product = new Product();
+        return view('admin.products.create', compact('product'));
     }
 
     /**
@@ -58,7 +60,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
