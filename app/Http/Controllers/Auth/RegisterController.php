@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
+use App\Models\Category;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -58,6 +59,7 @@ class RegisterController extends Controller
             'restaurant_name' => ['required', 'string'],
             'restaurant_address' => ['required', 'string'],
             'restaurant_description' => ['required', 'string'],
+            'categories' => ['required', 'exists:categories,id'],
             'restaurant_logo' => ['required', 'image', 'mimes:jpeg,jpg,png,svg'],
             'p_iva' => ['required', 'string','size:11', 'unique:restaurants'],
         ]);
@@ -93,12 +95,15 @@ class RegisterController extends Controller
         $user_restaurant->logo = $data['restaurant_logo'];
         $user_restaurant->p_iva = $data['p_iva'];
         $user_restaurant->save();
-
-
-
-
-
-
+        
+        // Check restaurant categories
+        if (array_key_exists('categories', $data)) $user_restaurant->categories()->attach($data['categories']);
         return $user;
+    }
+
+    public function showRegistrationForm()
+    {
+        $categories = Category::all();
+        return view("auth.register", compact("categories"));
     }
 }

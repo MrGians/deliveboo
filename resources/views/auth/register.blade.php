@@ -66,6 +66,41 @@
                                 @enderror
                             </div>
                         </div>
+
+                        {{-- Category --}}
+                        <div class="form-group row">
+                            {{-- Nuovo --}}
+                            <div class="col-md-6 offset-md-4">
+                                <div class="accordion @if(!old('categories') && $errors->any()) is-invalid @endif" id="accordionExample">
+                                    <div class="card">
+                                      <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Categorie
+                                          </button>
+                                        </h2>
+                                      </div>
+                                  
+                                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            @forelse ($categories as $category)
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="category-{{ $category->label }}" value="{{ $category->id }}" name="categories[]" @if(in_array($category->id, old('categories', []))) checked @endif>
+                                                    <label class="form-check-label" for="category-{{ $category->label }}">{{ $category->label }}</label>
+                                                </div>
+                                            @empty 
+                                          @endforelse
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                @if (!old('categories') && $errors->any())
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>Devi selezionare almeno una categoria per il tuo ristorante</strong>
+                                    </span> 
+                                @endif
+                            </div>
+                        </div>
                         {{-- Restaurant Logo --}}
                         <div class="form-group row">
                             <label for="restaurant_logo" class="col-md-4 col-form-label text-md-right">Logo Ristorante</label>
