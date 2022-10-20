@@ -30,12 +30,12 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     
 
     // 404 Route
-    Route::get('/{any}', function () {
+    Route::get('/{any?}', function () {
         abort('404');
     })->where('any', '.*');
 });
 
 // Guests Route (check front.js)
-Route::get('/', function () {
+Route::get('/{any?}', function () {
     return view('guests.home');
 })->name('guests.home')->where('any', '.*');
