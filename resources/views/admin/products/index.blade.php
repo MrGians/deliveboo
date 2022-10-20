@@ -43,7 +43,7 @@
                 <a class="btn btn-sm btn-warning mr-2" href="{{ route('admin.products.edit', $product) }}">
                     <i class="fa-solid fa-pencil"></i>
                 </a>
-                <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="delete-form">
+                <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="delete-form delete-product">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-sm btn-danger" type="submit">

@@ -37288,6 +37288,39 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/confirm_delete.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/confirm_delete.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var formsToDelete = document.querySelectorAll(".delete-form");
+formsToDelete.forEach(function (form) {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var target = 'questo';
+    var element = "elemento";
+    var cls = form.classList;
+    switch (true) {
+      case cls.contains("delete-product"):
+        element = "Prodotto";
+        console.log(element);
+        break;
+      case cls.contains("delete-null"):
+        element = "";
+        break;
+      case cls.contains("delete-null"):
+        element = "";
+        break;
+    }
+    var confirmation = confirm("Vuoi cancellare definitivamente ".concat(target, " ").concat(element, "? L'azione \xE8 irreversibile"));
+    if (confirmation) form.submit();
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/admin/image_thumb.js":
 /*!*******************************************!*\
   !*** ./resources/js/admin/image_thumb.js ***!
@@ -37319,6 +37352,7 @@ imageField.addEventListener('input', function () {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./admin/image_thumb */ "./resources/js/admin/image_thumb.js");
+__webpack_require__(/*! ./admin/confirm_delete */ "./resources/js/admin/confirm_delete.js");
 
 /***/ }),
 
