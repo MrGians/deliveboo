@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card rounded-5 mt-5 pb-5">
+            <div class="card rounded-5 mt-5 pb-5 shadow">
                 <div class="text-center pt-5">
                     <h3 class="font-weight-bold">Registrati</h3>
                 </div>
@@ -15,7 +15,7 @@
                         {{-- Name --}}
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                <input id="name" type="text" class="form-control rounded-pill @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
+                                <input id="name" type="text" class="mb-3 shadow form-control rounded-pill @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -27,7 +27,7 @@
                         {{-- Email --}}
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                <input id="email" type="email" class="form-control rounded-pill @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email"> 
+                                <input id="email" type="email" class="mb-3 shadow form-control rounded-pill @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email"> 
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                         {{-- Restaurant Name --}}
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                <input id="restaurant_name" type="text" class="form-control rounded-pill @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required placeholder="Nome Ristorante"> 
+                                <input id="restaurant_name" type="text" class="mb-3 shadow form-control rounded-pill @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required placeholder="Nome Ristorante"> 
 
                                 @error('restaurant_name')
                                     <span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
                         {{-- Restaurant Description --}}
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                <textarea id="restaurant_description" class="form-control rounded-pill @error('restaurant_description') is-invalid @enderror" name="restaurant_description" required placeholder="Descrizione ristorante">{{ old('restaurant_description') }}</textarea>
+                                <textarea id="restaurant_description" class="mb-3 shadow form-control rounded-pill @error('restaurant_description') is-invalid @enderror" name="restaurant_description" required placeholder="Descrizione ristorante">{{ old('restaurant_description') }}</textarea>
 
                                 @error('restaurant_description')
                                     <span class="invalid-feedback" role="alert">
@@ -65,12 +65,12 @@
                         <div class="form-group row">
                             {{-- Nuovo --}}
                             <div class="col-md-6 offset-md-3">
-                                <div class="accordion @if(!old('categories') && $errors->any()) is-invalid @endif" id="accordionExample">
-                                    <div class="card">
+                                <div class="accordion mb-3 @if(!old('categories') && $errors->any()) is-invalid @endif" id="accordionExample">
+                                    <div class="card shadow rounded-5">
                                       <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
-                                          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Categorie
+                                          <button class="shadow-none btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Seleziona categorie
                                           </button>
                                         </h2>
                                       </div>
@@ -98,7 +98,7 @@
                         {{-- Restaurant Logo --}}
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                <input id="restaurant_logo" type="file" class="@error('restaurant_logo') is-invalid @enderror" name="restaurant_logo" required>
+                                <input id="restaurant_logo" type="file" class="mb-3 @error('restaurant_logo') is-invalid @enderror" name="restaurant_logo" required>
 
                                 @error('restaurant_logo')
                                     <span class="invalid-feedback" role="alert">
@@ -110,7 +110,7 @@
                         {{-- Restaurant Address --}}
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                <input id="restaurant_address" type="text" class="form-control rounded-pill @error('restaurant_address') is-invalid @enderror" name="restaurant_address" value="{{ old('restaurant_address') }}" required placeholder="Indirizzo ristorante">
+                                <input id="restaurant_address" type="text" class="mb-3 shadow form-control rounded-pill @error('restaurant_address') is-invalid @enderror" name="restaurant_address" value="{{ old('restaurant_address') }}" required placeholder="Indirizzo ristorante">
 
                                 @error('restaurant_address')
                                     <span class="invalid-feedback" role="alert">
@@ -122,7 +122,7 @@
                         {{-- Restaurant P.IVA --}}
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                <input id="p_iva" type="text" class="form-control rounded-pill @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" maxlength="11" required placeholder="Partita IVA">
+                                <input id="p_iva" type="text" class="mb-3 shadow form-control rounded-pill @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" maxlength="11" required placeholder="Partita IVA">
 
                                 @error('p_iva')
                                     <span class="invalid-feedback" role="alert">
@@ -134,7 +134,7 @@
                         {{-- Password --}}
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                <input id="password" type="password" class="form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+                                <input id="password" type="password" class="mb-3 shadow form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -146,7 +146,7 @@
                         {{-- Confirm Password --}}
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                <input id="password-confirm" type="password" class="form-control rounded-pill" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password"> 
+                                <input id="password-confirm" type="password" class="mb-3 shadow form-control rounded-pill" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password"> 
                             </div>
                         </div>
 

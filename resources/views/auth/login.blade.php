@@ -4,18 +4,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card rounded-5 mt-5 pb-5">
+            <div class="card rounded-5 mt-5 pb-5 shadow">
                 <div class="text-center pt-5">
                     <h3 class="font-weight-bold">Accedi</h3>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body ">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                <input placeholder="Inserisci la tua e-mail" id="email" type="email" class="form-control rounded-pill mb-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input placeholder="Inserisci la tua e-mail" id="email" type="email" class="shadow form-control rounded-pill mb-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -27,7 +27,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-3">
-                                <input placeholder="Inserisci la tua password" id="password" type="password" class="form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input placeholder="Inserisci la tua password" id="password" type="password" class="shadow form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
                             </div>  
                             <div class="col-md-6 offset-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="form-check-input shadow" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
     
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
@@ -64,7 +64,7 @@
                         <div class="col-md-6 mx-auto text-center">
                             <div class="left-and-right-line text-center pb-2">
                                 <hr>
-                                <h6>Vuoi registrare il tuo ristorante?</h6>
+                                <h6>Sei un ristoratore?</h6>
                                 <hr>
                             </div>
                         </div> 
