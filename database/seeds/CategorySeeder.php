@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -10,15 +11,16 @@ class CategorySeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
         $categories = config('data.categories'); 
-
-        foreach ($categories as $category) {
-            $new_category = new Category();
-            $new_category->id = $category['id'];
-            $new_category->label = $category['label'];
-            $new_category->save();
-        }
+                    
+                    foreach ($categories as $category) {
+                        $new_category = new Category();
+                        $new_category->id = $category['id'];
+                        $new_category->label = $category['label'];
+                        $new_category->save();
+                    }
+                    $new_restaurant->categories()->attach($restaurant_category_ids);
     }
 }
