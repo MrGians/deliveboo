@@ -18,7 +18,9 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        if($restaurant->logo) Storage::delete($restaurant->logo);
+        if($restaurant->logo && $restaurant->logo !== 'restaurants_logos/placeholder.png'){
+            Storage::delete($restaurant->logo);
+        } 
         $restaurant->owner->delete();
         return redirect()->route('guests.home');
     }
