@@ -46,7 +46,7 @@
         <div class="col-11">
             <div class="form-group">
                 <label for="image">Immagine</label>
-                <input type="file" class="@error('image') is-invalid @enderror" id="image-field" name="image">
+                <input type="file" class="@error('image') is-invalid @enderror" id="image" name="image">
                 @error('image')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
         {{-- image-preview --}}
         <div class="col-1">
             <img src="{{ asset('storage/'.$product->image) }}" 
-                alt="{{ $product->name }}" class="img-fluid" id="preview">
+                alt="{{ $product->name }}" class="img-fluid" id="thumb">
         </div>
         {{-- is_visible --}}
         <div class="col-12">

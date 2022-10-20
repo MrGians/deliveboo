@@ -37288,6 +37288,28 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/image_thumb.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/image_thumb.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var placeholder = "http://127.0.0.1:8000/storage/products_image/placeholder.png";
+var imageField = document.getElementById('image');
+var preview = document.getElementById('thumb');
+imageField.addEventListener('input', function () {
+  if (imageField.files && imageField.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(imageField.files[0]);
+    reader.onload = function (event) {
+      preview.src = event.target.result;
+    };
+  } else preview.src = placeholder;
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -37296,6 +37318,7 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./admin/image_thumb */ "./resources/js/admin/image_thumb.js");
 
 /***/ }),
 
