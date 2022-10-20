@@ -2,3 +2,59 @@
 .rounded-5 {
     border-radius: 50px;
 }
+
+// container
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+// d-flex 
+
+.d-flex {
+    display: flex;
+}
+
+// align-items-center
+
+.align-items-center {
+    align-items: center;
+}
+
+
+// justify-content-center
+
+.justify-content-center {
+    justify-content: center;
+}
+
+// justify-content-around
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+// font-weight-bold
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+// padding
+
+.padding {
+    padding: 200px 200px;
+}
+
+// text-center
+
+.text-center {
+    text-align: center;
+}
+
+// a text decoration
+
+a {
+    text-decoration: none;
+}
