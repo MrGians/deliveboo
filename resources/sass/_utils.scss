@@ -2,3 +2,21 @@
 .rounded-5 {
     border-radius: 50px;
 }
+
+
+
+//Access form style
+.left-and-right-line{
+    display: flex;
+    align-items: center;
+    
+    & > hr{
+        flex-grow: 1;
+        width: 20%;
+    }
+    & > h6{
+        flex-grow: 1;
+        width: 50%;
+    }
+}
+

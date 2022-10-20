@@ -4,18 +4,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+            <div class="card rounded-5 mt-5 pb-5">
+                <div class="text-center pt-5">
+                    <h3 class="font-weight-bold">Registrati</h3>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" novalidate>
                         @csrf
                         {{-- Name --}}
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <div class="col-md-6 offset-md-3">
+                                <input id="name" type="text" class="form-control rounded-pill @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -26,10 +26,8 @@
                         </div>
                         {{-- Email --}}
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <div class="col-md-6 offset-md-3">
+                                <input id="email" type="email" class="form-control rounded-pill @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email"> 
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -40,10 +38,8 @@
                         </div>
                         {{-- Restaurant Name --}}
                         <div class="form-group row">
-                            <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">Nome Ristorante</label>
-
-                            <div class="col-md-6">
-                                <input id="restaurant_name" type="text" class="form-control @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required>
+                            <div class="col-md-6 offset-md-3">
+                                <input id="restaurant_name" type="text" class="form-control rounded-pill @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required placeholder="Nome Ristorante"> 
 
                                 @error('restaurant_name')
                                     <span class="invalid-feedback" role="alert">
@@ -54,10 +50,8 @@
                         </div>
                         {{-- Restaurant Description --}}
                         <div class="form-group row">
-                            <label for="restaurant_description" class="col-md-4 col-form-label text-md-right">Descrizione Ristorante</label>
-
-                            <div class="col-md-6">
-                                <textarea id="restaurant_description" class="form-control @error('restaurant_description') is-invalid @enderror" name="restaurant_description" required>{{ old('restaurant_description') }}</textarea>
+                            <div class="col-md-6 offset-md-3">
+                                <textarea id="restaurant_description" class="form-control rounded-pill @error('restaurant_description') is-invalid @enderror" name="restaurant_description" required placeholder="Descrizione ristorante">{{ old('restaurant_description') }}</textarea>
 
                                 @error('restaurant_description')
                                     <span class="invalid-feedback" role="alert">
@@ -70,7 +64,7 @@
                         {{-- Category --}}
                         <div class="form-group row">
                             {{-- Nuovo --}}
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-3">
                                 <div class="accordion @if(!old('categories') && $errors->any()) is-invalid @endif" id="accordionExample">
                                     <div class="card">
                                       <div class="card-header" id="headingOne">
@@ -103,10 +97,8 @@
                         </div>
                         {{-- Restaurant Logo --}}
                         <div class="form-group row">
-                            <label for="restaurant_logo" class="col-md-4 col-form-label text-md-right">Logo Ristorante</label>
-
-                            <div class="col-md-6">
-                                <input id="restaurant_logo" type="file" class="form-control @error('restaurant_logo') is-invalid @enderror" name="restaurant_logo" required>
+                            <div class="col-md-6 offset-md-3">
+                                <input id="restaurant_logo" type="file" class="@error('restaurant_logo') is-invalid @enderror" name="restaurant_logo" required>
 
                                 @error('restaurant_logo')
                                     <span class="invalid-feedback" role="alert">
@@ -117,10 +109,8 @@
                         </div>
                         {{-- Restaurant Address --}}
                         <div class="form-group row">
-                            <label for="restaurant_address" class="col-md-4 col-form-label text-md-right">Indirizzo Ristorante</label>
-
-                            <div class="col-md-6">
-                                <input id="restaurant_address" type="text" class="form-control @error('restaurant_address') is-invalid @enderror" name="restaurant_address" value="{{ old('restaurant_address') }}" required>
+                            <div class="col-md-6 offset-md-3">
+                                <input id="restaurant_address" type="text" class="form-control rounded-pill @error('restaurant_address') is-invalid @enderror" name="restaurant_address" value="{{ old('restaurant_address') }}" required placeholder="Indirizzo ristorante">
 
                                 @error('restaurant_address')
                                     <span class="invalid-feedback" role="alert">
@@ -131,10 +121,8 @@
                         </div>
                         {{-- Restaurant P.IVA --}}
                         <div class="form-group row">
-                            <label for="p_iva" class="col-md-4 col-form-label text-md-right">Partita IVA</label>
-
-                            <div class="col-md-6">
-                                <input id="p_iva" type="text" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" maxlength="11" required>
+                            <div class="col-md-6 offset-md-3">
+                                <input id="p_iva" type="text" class="form-control rounded-pill @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" maxlength="11" required placeholder="Partita IVA">
 
                                 @error('p_iva')
                                     <span class="invalid-feedback" role="alert">
@@ -145,10 +133,8 @@
                         </div>
                         {{-- Password --}}
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <div class="col-md-6 offset-md-3">
+                                <input id="password" type="password" class="form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -159,18 +145,29 @@
                         </div>
                         {{-- Confirm Password --}}
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <div class="col-md-6 offset-md-3">
+                                <input id="password-confirm" type="password" class="form-control rounded-pill" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password"> 
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                        {{-- Register button --}}
+                        <div class="form-group row">
+                            <div class="col-md-6 mx-auto text-center">
+                                <button type="submit" class="btn btn-primary w-50 rounded-pill">
+                                    Registrati
                                 </button>
+                            </div>
+                        </div> 
+                        <div class="col-md-6 mx-auto text-center">
+                            <div class="left-and-right-line text-center pb-2">
+                                <hr>
+                                <h6>Hai già un'account?</h6>
+                                <hr>
+                            </div>
+                        </div> 
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 mx-auto text-center">
+                                <a class=" btn btn-primary w-50 rounded-pill" href="{{ route('login') }}">Accedi</a>
                             </div>
                         </div>
                     </form>
