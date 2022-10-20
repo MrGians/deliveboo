@@ -10,21 +10,36 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $product->name) }}">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $product->name) }}">
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
         </div>
         {{-- Description --}}
         <div class="col-12">
             <div class="form-group">
                 <label for="description">Descrizione</label>
-                <textarea class="form-control" id="description" name="description">{{ old('description', $product->description) }}</textarea>
+                <textarea class="form-control  @error('description') is-invalid @enderror" id="description" name="description">{{ old('description', $product->description) }}</textarea>
+                @error('description')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
         </div>
         {{-- Price --}}
         <div class="col-12">
             <div class="form-group">
                 <label for="price">Price</label>
-                <input type="number" step="0.01" class="form-control" id="price" name="price" value="{{ old('price', $product->price) }}">
+                <input type="number" step="0.01" class="form-control  @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price', $product->price) }}">
+                @error('price')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
         </div>
         {{-- Image --}}
@@ -32,6 +47,11 @@
             <div class="form-group">
                 <label for="image">Immagine</label>
                 <input type="file" class="@error('image') is-invalid @enderror" id="image-field" name="image">
+                @error('image')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
         </div>
         {{-- image-preview --}}
