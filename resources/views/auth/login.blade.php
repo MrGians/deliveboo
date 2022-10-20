@@ -15,7 +15,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                <input placeholder="Inserisci la tua e-mail" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input placeholder="Inserisci la tua e-mail" id="email" type="email" class="form-control rounded-pill mb-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -25,9 +25,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-3">
-                                <input placeholder="Inserisci la tua password" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input placeholder="Inserisci la tua password" id="password" type="password" class="form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -55,23 +55,25 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-md-6 mx-auto">
-                                <button type="submit" class="btn btn-primary w-100 rounded-pill">
+                            <div class="col-md-6 mx-auto text-center">
+                                <button type="submit" class="btn btn-primary w-50 rounded-pill">
                                     Accedi
                                 </button>
-                                
                             </div>
-                        </div>  
-                        <div class="text-center pb-2">
-                            <h6>Vuoi registrare il tuo ristorante?</h6>
-                        </div>
+                        </div> 
+                        <div class="col-md-6 mx-auto text-center">
+                            <div class="left-and-right-line text-center pb-2">
+                                <hr>
+                                <h6>Vuoi registrare il tuo ristorante?</h6>
+                                <hr>
+                            </div>
+                        </div> 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 mx-auto">
-                                <a class=" btn btn-primary w-100 rounded-pill" href="{{ route('register') }}">Registrati</a>
+                            <div class="col-md-6 mx-auto text-center">
+                                <a class=" btn btn-primary w-50 rounded-pill" href="{{ route('register') }}">Registrati</a>
                             </div>
                         </div>       
-                    </form>
-                        
+                    </form>   
                 </div>
             </div>
         </div>
