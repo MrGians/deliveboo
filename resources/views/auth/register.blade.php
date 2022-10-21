@@ -14,10 +14,10 @@
                         @csrf
                         {{-- Name --}}
                         <div class="form-group row">
-                            <label for="name" class="col-md-6 offset-md-3 col-form-label">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-6 offset-md-3 col-form-label">{{ __('Nome') }}</label>
 
                             <div class="col-md-6 offset-md-3">
-                                <input id="name" type="text" class="mb-3 shadow form-control rounded-pill @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
+                                <input id="name" type="text" class="mb-3 shadow form-control rounded-pill @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nome">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                         </div>
                         {{-- Email --}}
                         <div class="form-group row">
-                            <label for="email" class="col-md-6 offset-md-3 col-form-label">{{ __('E-mail address') }}</label>
+                            <label for="email" class="col-md-6 offset-md-3 col-form-label">{{ __('Indirizo Email') }}</label>
 
                             <div class="col-md-6 offset-md-3">
                                 <input id="email" type="email" class="mb-3 shadow form-control rounded-pill @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email"> 
@@ -42,10 +42,10 @@
                         </div>
                         {{-- Restaurant Name --}}
                         <div class="form-group row">
-                            <label for="restaurant_name" class="col-md-6 offset-md-3 col-form-label">{{ __('Name restaurant') }}</label>
+                            <label for="restaurant_name" class="col-md-6 offset-md-3 col-form-label">{{ __('Nome ristorante') }}</label>
 
                             <div class="col-md-6 offset-md-3">
-                                <input id="restaurant_name" type="text" class="mb-3 shadow form-control rounded-pill @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required placeholder="Name restaurant"> 
+                                <input id="restaurant_name" type="text" class="mb-3 shadow form-control rounded-pill @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required placeholder="Nome ristorante"> 
 
                                 @error('restaurant_name')
                                     <span class="invalid-feedback" role="alert">
@@ -56,10 +56,10 @@
                         </div>
                         {{-- Restaurant Description --}}
                         <div class="form-group row">
-                            <label for="restaurant_description" class="col-md-6 offset-md-3 col-form-label">{{ __('Restaurant description') }}</label>
+                            <label for="restaurant_description" class="col-md-6 offset-md-3 col-form-label">{{ __('Descrizione ristorante') }}</label>
 
                             <div class="col-md-6 offset-md-3">
-                                <textarea id="restaurant_description" class="mb-3 shadow form-control rounded-pill @error('restaurant_description') is-invalid @enderror" name="restaurant_description" required placeholder="Restaurant description">{{ old('restaurant_description') }}</textarea>
+                                <textarea id="restaurant_description" class="mb-3 shadow form-control rounded-pill @error('restaurant_description') is-invalid @enderror" name="restaurant_description" required placeholder="Descrizione ristorante">{{ old('restaurant_description') }}</textarea>
 
                                 @error('restaurant_description')
                                     <span class="invalid-feedback" role="alert">
@@ -77,7 +77,7 @@
                                       <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
                                           <button class="shadow-none btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Select categories
+                                            Seleziona categorie
                                           </button>
                                         </h2>
                                       </div>
@@ -104,7 +104,7 @@
                         </div>
                         {{-- Restaurant Logo --}}
                         <div class="form-group row">
-                            <label for="restaurant_logo" class="col-md-6 offset-md-3 col-form-label">{{ __('Restaurant logo') }}</label>
+                            <label for="restaurant_logo" class="col-md-6 offset-md-3 col-form-label">{{ __('Logo ristorante') }}</label>
 
                             <div class="col-md-6 offset-md-3">
                                 <input id="restaurant_logo" type="file" class="mb-3 @error('restaurant_logo') is-invalid @enderror" name="restaurant_logo" required>
@@ -118,7 +118,7 @@
                         </div>
                         {{-- Restaurant Address --}}
                         <div class="form-group row">
-                            <label for="restaurant_address" class="col-md-6 offset-md-3 col-form-label">{{ __('Restaurant address') }}</label>
+                            <label for="restaurant_address" class="col-md-6 offset-md-3 col-form-label">{{ __('Indirizzo ristorante') }}</label>
 
                             <div class="col-md-6 offset-md-3">
                                 <input id="restaurant_address" type="text" class="mb-3 shadow form-control rounded-pill @error('restaurant_address') is-invalid @enderror" name="restaurant_address" value="{{ old('restaurant_address') }}" required placeholder="Indirizzo ristorante">
@@ -132,10 +132,10 @@
                         </div>
                         {{-- Restaurant P.IVA --}}
                         <div class="form-group row">
-                            <label for="p_iva" class="col-md-6 offset-md-3 col-form-label">{{ __('VAT number') }}</label>
+                            <label for="p_iva" class="col-md-6 offset-md-3 col-form-label">{{ __('Partita IVA') }}</label>
 
                             <div class="col-md-6 offset-md-3">
-                                <input id="p_iva" type="text" class="mb-3 shadow form-control rounded-pill @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" maxlength="11" required placeholder="VAT number">
+                                <input id="p_iva" type="text" class="mb-3 shadow form-control rounded-pill @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" maxlength="11" required placeholder="Partita IVA">
 
                                 @error('p_iva')
                                     <span class="invalid-feedback" role="alert">
@@ -160,10 +160,10 @@
                         </div>
                         {{-- Confirm Password --}}
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-6 offset-md-3 col-form-label">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-6 offset-md-3 col-form-label">{{ __('Conferma password') }}</label>
 
                             <div class="col-md-6 offset-md-3">
-                                <input id="password-confirm" type="password" class="mb-3 shadow form-control rounded-pill" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password"> 
+                                <input id="password-confirm" type="password" class="mb-3 shadow form-control rounded-pill" name="password_confirmation" required autocomplete="new-password" placeholder="Conferma password"> 
                             </div>
                         </div>
 
