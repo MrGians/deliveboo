@@ -17,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $restaurant= Auth::id();
+        $products = Product::where('restaurant_id', $restaurant)->get();
         return view('admin.products.index', compact('products'));
     }
 
@@ -87,6 +88,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        //Check product of other restaurant
+        if(Auth::id() !== $product->restaurant_id) return view('admin.products.index');
+        
         return view('admin.products.show', compact('product'));
     }
 
@@ -98,6 +102,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        //Check product of other restaurant
+        if(Auth::id() !== $product->restaurant_id) return view('admin.products.index');
+
         return view('admin.products.edit', compact('product'));
     }
 
