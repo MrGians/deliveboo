@@ -17,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $restaurant= Auth::id();
+        $products = Product::where('restaurant_id', $restaurant)->get();
         return view('admin.products.index', compact('products'));
     }
 
