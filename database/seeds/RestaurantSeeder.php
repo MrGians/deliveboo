@@ -20,11 +20,11 @@ class RestaurantSeeder extends Seeder
         // Get from DB ids array of users
         $user_ids = User::pluck('id')->toArray();
 
-        foreach(config('data.restaurants') as $key => $restaurant){
+        foreach(config('data.restaurants') as $index => $restaurant){
             $new_restaurant = new Restaurant();
 
             // Assign user to each restaurant
-            $new_restaurant->user_id = $user_ids[$key];
+            $new_restaurant->user_id = $user_ids[$index];
 
             $new_restaurant->name = $restaurant['name'];
             $new_restaurant->description = $restaurant['description'];
