@@ -2,164 +2,43 @@
 return [
     [
         'name' => 'Pizzeria da Ciro',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
+        'description' => 'Locale di alta qualità dove si mangia benissimo',
+        'address' => 'Via delle Vie, N.1',
+        'logo' => 'restaurants_logos/placeholder.png',
+        'p_iva' => '12345678909',
         'id' => 1,
 
     ],
     [
         'name' => 'Burger King',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
+        'description' => 'Locale di alta qualità dove si mangia benissimo',
+        'address' => 'Via delle Vie, N.2',
+        'logo' => 'restaurants_logos/placeholder.png',
+        'p_iva' => '12345678902',
         'id' => 2
     ],
     [
         'name' => 'La Piadineria',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
+        'description' => 'Locale di alta qualità dove si mangia benissimo',
+        'address' => 'Via delle Vie, N.3',
+        'logo' => 'restaurants_logos/placeholder.png',
+        'p_iva' => '12345678903',
         'id' => 3
     ],
     [
         'name' => "L'Ostrica Ubriaca",
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
+        'description' => 'Locale di alta qualità dove si mangia benissimo',
+        'address' => 'Via delle Vie, N.4',
+        'logo' => 'restaurants_logos/placeholder.png',
+        'p_iva' => '12345678904',
         'id' => 4
     ],
     [
         'name' => 'Ginza',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
+        'description' => 'Locale di alta qualità dove si mangia benissimo',
+        'address' => 'Via delle Vie, N.5',
+        'logo' => 'restaurants_logos/placeholder.png',
+        'p_iva' => '12345678905',
         'id' => 5
-    ],
-    [
-        'name' => 'Fuku',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 6
-    ],
-    [
-        'name' => 'Da Romolo',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 7
-    ],
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 8
-    ],
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 9
-    ]
-    ,
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 10
-    ],
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 11
-    ],
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 12
-    ],
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 13
-    ],
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 14
-    ],
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 15
-    ],
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 16
-    ],
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 17
-    ],
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 18
-    ],
-    [
-        'name' => '',
-                'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 19
-    ],
-    [
-        'name' => '',
-        'description' => '',
-        'address' => '',
-        'logo' => '',
-        'p_iva' => '',
-        'id' => 20
     ],
 ];
