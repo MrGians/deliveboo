@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Product;
+use App\Models\Restaurant;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -12,13 +13,29 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $new_product = new Product();
-        $new_product->restaurant_id = 1;
-        $new_product->name = 'Pizza Margherita';
-        $new_product->description = 'Pizza super buona';
-        $new_product->price = 10.2;
-        $new_product->image = 'products_image/placeholder.png';
-        $new_product->is_visible = 0;
-        $new_product->save();
+
+        // Get from DB ids array of restaurant
+        $restaurant_ids = Restaurant::pluck('id')->toArray();
+
+        // For every restaurant on DB insert products
+        foreach($restaurant_ids as $restaurant_id){
+
+            foreach(config('data.products') as $product){
+
+                $new_product = new Product();
+                // Assign reference Restaurant to each Product
+                $new_product->restaurant_id = $restaurant_id;
+
+                $new_product->name = $product['name'];
+                $new_product->description = $product['description'];
+                $new_product->price = $product['price'];
+                $new_product->image = $product['image'];
+                $new_product->is_visible = rand(0,1);
+                $new_product->save();
+
+            }
+        }
+
+
     }
 }
