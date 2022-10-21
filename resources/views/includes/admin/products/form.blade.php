@@ -56,7 +56,7 @@
         </div>
         {{-- image-preview --}}
         <div class="col-1">
-            <img src="{{ asset('storage/'.$product->image) }}" 
+            <img src="{{ $product->image ? asset('storage/'.$product->image) : asset('storage/products_image/placeholder.png') }}" 
                 alt="{{ $product->name }}" class="img-fluid" id="thumb">
         </div>
         {{-- is_visible --}}

@@ -37331,15 +37331,18 @@ formsToDelete.forEach(function (form) {
 var placeholder = "http://127.0.0.1:8000/storage/products_image/placeholder.png";
 var imageField = document.getElementById('image');
 var preview = document.getElementById('thumb');
-imageField.addEventListener('input', function () {
-  if (imageField.files && imageField.files[0]) {
-    var reader = new FileReader();
-    reader.readAsDataURL(imageField.files[0]);
-    reader.onload = function (event) {
-      preview.src = event.target.result;
-    };
-  } else preview.src = placeholder;
-});
+if (imageField !== null) {
+  imageField.addEventListener('input', function () {
+    if (imageField.files && imageField.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(imageField.files[0]);
+      reader.onload = function (event) {
+        preview.src = event.target.result;
+      };
+    } else preview.src = placeholder;
+  });
+}
+;
 
 /***/ }),
 
