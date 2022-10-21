@@ -2,6 +2,9 @@
 
 use App\Models\Restaurant;
 use Illuminate\Database\Seeder;
+use App\Models\Category;
+use App\User;
+use Faker\Generator as Faker;
 
 class RestaurantSeeder extends Seeder
 {
@@ -10,28 +13,37 @@ class RestaurantSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $new_restaurant = new Restaurant();
+        // Get from DB ids array of categories
         $category_ids = Category::pluck('id')->toArray();
-       
-        $new_restaurant->user_id = 1;
-        $new_restaurant->name = 'Pizzeria del team 1';
-        $new_restaurant->description = 'Facciamo delle pizze veramente molto buone';
-        $new_restaurant->address = 'Via del Team, N.1';
-        $new_restaurant->logo = 'restaurants_logos/placeholder.png';
-        $new_restaurant->p_iva = '12345678901';
-        $new_restaurant->save();
-        
-        $restaurant_category_ids = [];
+        // Get from DB ids array of users
+        $user_ids = User::pluck('id')->toArray();
 
-        foreach($category_ids as $category_id){
+        foreach(config('data.restaurants') as $key => $restaurant){
+            $new_restaurant = new Restaurant();
 
-            if(count($restaurant_category_ids) < 5){
-                if($faker->boolean()) $restaurant_category_ids[] = $category_id; 
-            }
-        };
-        $new_restaurant->categories()->attach([$restaurant_category_ids]);
+            // Assign user to each restaurant
+            $new_restaurant->user_id = $user_ids[$key];
+
+            $new_restaurant->name = $restaurant['name'];
+            $new_restaurant->description = $restaurant['description'];
+            $new_restaurant->address = $restaurant['address'];
+            $new_restaurant->logo = $restaurant['logo'];
+            $new_restaurant->p_iva = $restaurant['p_iva'];
+            $new_restaurant->save();
+
+            // Randomize relation category-restaurant with Faker
+            // Max categories for each restaurant: 5
+            $restaurant_category_ids = [];
+            foreach($category_ids as $category_id){
+    
+                if(count($restaurant_category_ids) < 5){
+                    if($faker->boolean()) $restaurant_category_ids[] = $category_id; 
+                }
+            };
+            $new_restaurant->categories()->attach([$restaurant_category_ids]);
+        }
     }
 
 }
