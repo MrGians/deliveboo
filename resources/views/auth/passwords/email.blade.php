@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card rounded-5 mt-5 pb-5 shadow">
                 <div class="text-center pt-5">
-                    <h3 class="font-weight-bold">Reset password</h3>
+                    <h3 class="font-weight-bold">Ripristino password</h3>
                 </div>
 
                 <div class="card-body">
@@ -20,10 +20,10 @@
                         @csrf
 
                         <div class="form-group row mb-4">
-                            <label for="email" class="col-md-6 offset-md-3 col-form-label">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-6 offset-md-3 col-form-label">{{ __('Indirizzo Email') }}</label>
 
                             <div class="col-md-6 offset-md-3">
-                                <input id="email" type="email" class="form-control shadow rounded-pill @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email address">
+                                <input id="email" type="email" class="form-control shadow rounded-pill @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Inserisci la tua e-mail">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 mx-auto text-center">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Password Reset') }}
+                                    {{ __('Ripristina Password') }}
                                 </button>
                             </div>
                         </div>
