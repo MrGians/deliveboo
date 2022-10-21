@@ -15,12 +15,11 @@ class CategorySeeder extends Seeder
     {
         $categories = config('data.categories'); 
                     
-                    foreach ($categories as $category) {
-                        $new_category = new Category();
-                        $new_category->id = $category['id'];
-                        $new_category->label = $category['label'];
-                        $new_category->save();
-                    }
-                    $new_restaurant->categories()->attach($restaurant_category_ids);
+            foreach ($categories as $category) {
+                $new_category = new Category();
+                $new_category->id = $category['id'];
+                $new_category->label = $category['label'];
+                $new_category->save();
+            }
     }
 }
