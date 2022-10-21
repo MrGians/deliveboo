@@ -42,7 +42,7 @@ class RestaurantSeeder extends Seeder
                     if($faker->boolean()) $restaurant_category_ids[] = $category_id; 
                 }
             };
-            $new_restaurant->categories()->attach([$restaurant_category_ids]);
+            $new_restaurant->categories()->attach($restaurant_category_ids);
         }
     }
 
