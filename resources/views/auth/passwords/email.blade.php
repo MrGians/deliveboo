@@ -23,7 +23,7 @@
                             <label for="email" class="col-md-6 offset-md-3 col-form-label">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6 offset-md-3">
-                                <input id="email" type="email" class="form-control shadow @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email address">
+                                <input id="email" type="email" class="form-control shadow rounded-pill @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email address">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
