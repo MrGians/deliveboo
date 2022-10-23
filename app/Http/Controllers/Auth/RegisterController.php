@@ -53,7 +53,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'restaurant_name' => ['required', 'string'],
@@ -62,6 +62,34 @@ class RegisterController extends Controller
             'categories' => ['required', 'exists:categories,id'],
             'restaurant_logo' => ['required', 'image', 'mimes:jpeg,jpg,png,svg'],
             'p_iva' => ['required', 'string','size:11', 'unique:restaurants'],
+        ], [
+            'name.required' => 'Il nome è obbligatorio',
+            'name.string' => 'Il nome deve essere una stringa',
+            'name.max' => 'Il nome può contenere massimo :max caratteri',
+            'email.required' => 'l\'email è obbligatoria',
+            'email.string' => 'l\'email deve essere una stringa',
+            'email.email' => 'l\'email deve essere in un formato valido (example@gmail.com)',
+            'email.max' => 'l\'email può contenere massimo :max caratteri',
+            'email.unique' => 'Questa email è già stata registrata sul sito',
+            'password.required' => 'La password è obbligatoria',
+            'password.string' => 'La password deve essere un stringa',
+            'password.min' => 'La password deve contenere almeno :min caratteri',
+            'password.confirmed' => 'La password deve essere confermata',
+            'restaurant_name.required' => 'Il nome del ristorante è obbligatorio',
+            'restaurant_name.string' => 'Il nome del ristorante deve essere una stringa',
+            'restaurant_address.required' => 'L\'indirizzo del ristorante è obbligatorio',
+            'restaurant_address.string' => 'L\'indirizzo del ristorante deve essere una stringa',
+            'restaurant_description.required' => 'La descrizione del ristorante è obbligatoria',
+            'restaurant_description.string' => 'La descrizione del ristorante deve essere una stringa',
+            'categories.required' => 'La categoria del ristorante è obbligatoria',
+            'categories.exists' => 'La categoria del ristorante deve essere presente tra quelle in lista',
+            'restaurant_logo.required' => 'Il logo del ristorante è obbligatorio',
+            'restaurant_logo.image' => 'Il logo del ristorante deve essere di un\'estensione valida (jpeg,jpg,png,svg)',
+            'restaurant_logo.mimes' => 'Il logo del ristorante deve essere di un\'estensione valida (jpeg,jpg,png,svg)',
+            'p_iva.required' => 'La Partita Iva è obbligatoria',
+            'p_iva.string' => 'La Partita Iva deve essere una stringa',
+            'p_iva.size' => 'La Partita Iva deve contenere esattamente :size caratteri',
+            'p_iva.unique' => 'Questa Partita Iva è già stata registrata in precedenza',
         ]);
     }
 
