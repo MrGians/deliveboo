@@ -13,4 +13,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Restaurant');
     } 
+
+    public function orders()
+    {
+        return $this->belongsToMany('App\Models\Order');
+    }
 }
