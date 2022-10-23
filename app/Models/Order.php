@@ -17,4 +17,9 @@ class Order extends Model
     {
         return $this->belongsToMany('App\Models\Product');
     }
+
+    public function sum($product_price, $quantity){
+        $total = $product_price * $quantity;
+        return $total;
+    }
 }
