@@ -21,9 +21,6 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     // Homepage Route
     Route::get('/', 'HomeController@index')->name('home');
 
-    // Restaurants Route
-    Route::delete('/restaurants/{restaurant}', 'RestaurantController@destroy')->name('restaurants.destroy');
-
     //Products Route
     Route::resource('products', 'ProductController');
     Route::patch('/products/{product}/toggle', 'productController@isVisible')->name('products.isVisible');
