@@ -12,11 +12,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $new_user = new User();
-        $new_user->name = 'admin';
-        $new_user->email = 'admin@gmail.com';
-        $new_user->password = bcrypt('password');
-        $new_user->save();
+
+        foreach(config('data.users') as $user){
+            $new_user = new User();
+            $new_user->name = $user['name'];
+            $new_user->email = $user['email'];
+            $new_user->password = bcrypt('password');
+            $new_user->save();
+        }
         
     }
 }

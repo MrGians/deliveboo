@@ -20,7 +20,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->text('description');
-            $table->string('logo')->unique();
+            $table->string('logo');
             $table->char('p_iva', 11)->unique();
             $table->timestamps();
         });
