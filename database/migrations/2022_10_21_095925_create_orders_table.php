@@ -17,7 +17,6 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
-            $table->dateTime('date');
             $table->enum('status', config('data.order_status'))->default('Non pagato');
             $table->smallInteger('amount');
             $table->string('email');
