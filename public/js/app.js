@@ -37370,7 +37370,6 @@ if (document.querySelector("form.login_form")) {
     emailErrorBox.classList.add("d-none");
     emailErrorMsg.innerText = "";
   };
-  console.log(ciao);
 
   // # Functions to reset fields & errors
   var resetPassword = function resetPassword() {

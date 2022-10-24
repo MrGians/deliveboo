@@ -9,7 +9,7 @@
                     <h3 class="font-weight-bold">Accedi</h3>
                 </div>
 
-                <div class="card-body ">
+                <div class="card-body">
                     <form method="POST" id="login_form" class="login_form" action="{{ route('login') }}" novalidate>
                         @csrf
 
