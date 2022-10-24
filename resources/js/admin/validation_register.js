@@ -30,9 +30,11 @@ if (document.querySelector("form.register-form")) {
     );
 
     // | 'categories' field & box errors
-    const categoriesInput = document.getElementById("categories");
-    const categoriesErrorBox = document.getElementById("categories-error-box");
-    const categoriesErrorMsg = document.getElementById("categories-error-msg");
+    // TODO FIX CATEGORIES
+    // const categoriesInput = document.getElementsByClassName("categories");
+    // console.log(categoriesInput);
+    // const categoriesErrorBox = document.getElementById("categories-error-box");
+    // const categoriesErrorMsg = document.getElementById("categories-error-msg");
 
     // | 'restaurant_logo' field & box errors
     const restaurantLogoInput = document.getElementById("restaurant_logo");
@@ -89,11 +91,11 @@ if (document.querySelector("form.register-form")) {
         restaurantDescriptionErrorMsg.innerText = "";
     };
 
-    const resetCategories = () => {
-        categoriesInput.className = "accordion mb-3";
-        categoriesErrorBox.classList.add("d-none");
-        categoriesErrorMsg.innerText = "";
-    };
+    // const resetCategories = () => {
+    //     categoriesInput.className = "accordion mb-3";
+    //     categoriesErrorBox.classList.add("d-none");
+    //     categoriesErrorMsg.innerText = "";
+    // };
 
     const resetRestaurantLogo = () => {
         restaurantLogoInput.className = "mb-3";
@@ -142,8 +144,7 @@ if (document.querySelector("form.register-form")) {
             emailInput.classList.add("is-invalid");
             emailErrorBox.classList.remove("d-none");
             if (emailInput.validity.valueMissing) {
-                emailErrorMsg.innerText =
-                    "La descrizione del prodotto è obbligatoria";
+                emailErrorMsg.innerText = "l'email è obbligatoria";
             } else if (emailInput.validity.typeMismatch) {
                 emailErrorMsg.innerText =
                     "l'email deve essere in un formato valido (example@gmail.com)";
@@ -169,14 +170,14 @@ if (document.querySelector("form.register-form")) {
         }
     };
 
-    const validateCategories = () => {
-        if (categoriesInput.validity.valueMissing) {
-            categoriesInput.classList.add("is-invalid");
-            categoriesErrorBox.classList.remove("d-none");
-            categoriesErrorMsg.innerText =
-                "La categoria del ristorante è obbligatoria";
-        }
-    };
+    // const validateCategories = () => {
+    //     if (categoriesInput.validity.valueMissing) {
+    //         categoriesInput.classList.add("is-invalid");
+    //         categoriesErrorBox.classList.remove("d-none");
+    //         categoriesErrorMsg.innerText =
+    //             "La categoria del ristorante è obbligatoria";
+    //     }
+    // };
 
     const validateRestaurantLogo = () => {
         const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
@@ -241,7 +242,6 @@ if (document.querySelector("form.register-form")) {
             emailInput.value &&
             restaurantNameInput.value &&
             restaurantDescriptionInput.value &&
-            categoriesInput.value &&
             restaurantLogoInput.value &&
             restaurantAddressInput.value &&
             pIvaInput.value &&
@@ -281,12 +281,12 @@ if (document.querySelector("form.register-form")) {
         validateRestaurantDescription();
     });
 
-    categoriesInput.addEventListener("input", () => {
-        // Reset
-        resetCategories();
-        // Validation
-        validateCategories();
-    });
+    // categoriesInput.addEventListener("input", () => {
+    //     // Reset
+    //     resetCategories();
+    //     // Validation
+    //     validateCategories();
+    // });
 
     restaurantLogoInput.addEventListener("input", () => {
         // Reset
@@ -337,7 +337,7 @@ if (document.querySelector("form.register-form")) {
         validateRestaurantDescription();
 
         // Validation categories
-        validateCategories();
+        // validateCategories();
 
         // Validation restaurant logo
         validateRestaurantLogo();

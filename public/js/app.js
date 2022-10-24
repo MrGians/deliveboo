@@ -37512,6 +37512,305 @@ if (document.querySelector("form.product-form")) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/validation_register.js":
+/*!***************************************************!*\
+  !*** ./resources/js/admin/validation_register.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if (document.querySelector("form.register-form")) {
+  // | 'name' field & box errors
+  var nameInput = document.getElementById("name");
+  var nameErrorBox = document.getElementById("name-error-box");
+  var nameErrorMsg = document.getElementById("name-error-msg");
+
+  // | 'email' field & box errors
+  var emailInput = document.getElementById("email");
+  var emailErrorBox = document.getElementById("email-error-box");
+  var emailErrorMsg = document.getElementById("email-error-msg");
+
+  // | 'restaurant_name' field & box errors
+  var restaurantNameInput = document.getElementById("restaurant_name");
+  var restaurantNameErrorBox = document.getElementById("restaurant_name-error-box");
+  var restaurantNameErrorMsg = document.getElementById("restaurant_name-error-msg");
+
+  // | 'restaurant_description' field & box errors
+  var restaurantDescriptionInput = document.getElementById("restaurant_description");
+  var restaurantDescriptionErrorBox = document.getElementById("restaurant_description-error-box");
+  var restaurantDescriptionErrorMsg = document.getElementById("restaurant_description-error-msg");
+
+  // | 'categories' field & box errors
+  // TODO FIX CATEGORIES
+  // const categoriesInput = document.getElementsByClassName("categories");
+  // console.log(categoriesInput);
+  // const categoriesErrorBox = document.getElementById("categories-error-box");
+  // const categoriesErrorMsg = document.getElementById("categories-error-msg");
+
+  // | 'restaurant_logo' field & box errors
+  var restaurantLogoInput = document.getElementById("restaurant_logo");
+  var restaurantLogoErrorBox = document.getElementById("restaurant_logo-error-box");
+  var restaurantLogoErrorMsg = document.getElementById("restaurant_logo-error-msg");
+
+  // | 'restaurant_address' field & box errors
+  var restaurantAddressInput = document.getElementById("restaurant_address");
+  var restaurantAddressErrorBox = document.getElementById("restaurant_address-error-box");
+  var restaurantAddressErrorMsg = document.getElementById("restaurant_address-error-msg");
+
+  // | 'p_iva' field & box errors
+  var pIvaInput = document.getElementById("p_iva");
+  var pIvaErrorBox = document.getElementById("p_iva-error-box");
+  var pIvaErrorMsg = document.getElementById("p_iva-error-msg");
+
+  // | 'password' field & box errors
+  var passwordInput = document.getElementById("password");
+  var passwordErrorBox = document.getElementById("password-error-box");
+  var passwordErrorMsg = document.getElementById("password-error-msg");
+
+  // # Functions to reset fields & errors
+  var resetName = function resetName() {
+    nameInput.className = "mb-3 shadow form-control rounded-pill";
+    nameErrorBox.classList.add("d-none");
+    nameErrorMsg.innerText = "";
+  };
+  var resetEmail = function resetEmail() {
+    emailInput.className = "mb-3 shadow form-control rounded-pill";
+    emailErrorBox.classList.add("d-none");
+    emailErrorMsg.innerText = "";
+  };
+  var resetRestaurantName = function resetRestaurantName() {
+    restaurantNameInput.className = "mb-3 shadow form-control rounded-pill";
+    restaurantNameErrorBox.classList.add("d-none");
+    restaurantNameErrorMsg.innerText = "";
+  };
+  var resetRestaurantDescription = function resetRestaurantDescription() {
+    restaurantDescriptionInput.className = "mb-3 shadow form-control rounded-pill";
+    restaurantDescriptionErrorBox.classList.add("d-none");
+    restaurantDescriptionErrorMsg.innerText = "";
+  };
+
+  // const resetCategories = () => {
+  //     categoriesInput.className = "accordion mb-3";
+  //     categoriesErrorBox.classList.add("d-none");
+  //     categoriesErrorMsg.innerText = "";
+  // };
+
+  var resetRestaurantLogo = function resetRestaurantLogo() {
+    restaurantLogoInput.className = "mb-3";
+    restaurantLogoErrorBox.classList.add("d-none");
+    restaurantLogoErrorMsg.innerText = "";
+  };
+  var resetRestaurantAddress = function resetRestaurantAddress() {
+    restaurantAddressInput.className = "mb-3 shadow form-control rounded-pill";
+    restaurantAddressErrorBox.classList.add("d-none");
+    restaurantAddressErrorMsg.innerText = "";
+  };
+  var resetPIva = function resetPIva() {
+    pIvaInput.className = "mb-3 shadow form-control rounded-pill";
+    pIvaErrorBox.classList.add("d-none");
+    pIvaErrorMsg.innerText = "";
+  };
+  var resetPassword = function resetPassword() {
+    passwordInput.className = "mb-3 shadow form-control rounded-pill";
+    passwordErrorBox.classList.add("d-none");
+    passwordErrorMsg.innerText = "";
+  };
+
+  // # Functions to validate fields
+  var validateName = function validateName() {
+    if (nameInput.validity.valueMissing || nameInput.length > 100) {
+      nameInput.classList.add("is-invalid");
+      nameErrorBox.classList.remove("d-none");
+      if (nameInput.validity.valueMissing) {
+        nameErrorMsg.innerText = "Il nome è obbligatorio";
+      } else if (nameInput.length > 100) {
+        nameErrorMsg.innerText = "Il nome può contenere massimo 100 caratteri";
+      }
+    }
+  };
+  var validateEmail = function validateEmail() {
+    if (emailInput.validity.valueMissing || emailInput.validity.typeMismatch) {
+      emailInput.classList.add("is-invalid");
+      emailErrorBox.classList.remove("d-none");
+      if (emailInput.validity.valueMissing) {
+        emailErrorMsg.innerText = "l'email è obbligatoria";
+      } else if (emailInput.validity.typeMismatch) {
+        emailErrorMsg.innerText = "l'email deve essere in un formato valido (example@gmail.com)";
+      }
+    }
+  };
+  var validateRestaurantName = function validateRestaurantName() {
+    if (restaurantNameInput.validity.valueMissing) {
+      restaurantNameInput.classList.add("is-invalid");
+      restaurantNameErrorBox.classList.remove("d-none");
+      restaurantNameErrorMsg.innerText = "Il nome del ristorante è obbligatorio";
+    }
+  };
+  var validateRestaurantDescription = function validateRestaurantDescription() {
+    if (restaurantDescriptionInput.validity.valueMissing) {
+      restaurantDescriptionInput.classList.add("is-invalid");
+      restaurantDescriptionErrorBox.classList.remove("d-none");
+      restaurantDescriptionErrorMsg.innerText = "La descrizione del ristorante è obbligatoria";
+    }
+  };
+
+  // const validateCategories = () => {
+  //     if (categoriesInput.validity.valueMissing) {
+  //         categoriesInput.classList.add("is-invalid");
+  //         categoriesErrorBox.classList.remove("d-none");
+  //         categoriesErrorMsg.innerText =
+  //             "La categoria del ristorante è obbligatoria";
+  //     }
+  // };
+
+  var validateRestaurantLogo = function validateRestaurantLogo() {
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+    if (restaurantLogoInput.validity.valueMissing || !allowedExtensions.exec(restaurantLogoInput.value)) {
+      restaurantLogoInput.classList.add("is-invalid");
+      restaurantLogoErrorBox.classList.remove("d-none");
+      if (restaurantLogoInput.validity.valueMissing) {
+        restaurantLogoErrorMsg.innerText = "Il logo del ristorante è obbligatorio";
+      } else if (!allowedExtensions.exec(restaurantLogoInput.value)) {
+        restaurantLogoErrorMsg.innerText = "Il logo del ristorante deve essere di un'estensione valida (jpeg,jpg,png,svg)";
+      }
+    }
+  };
+  var validateRestaurantAddress = function validateRestaurantAddress() {
+    if (restaurantAddressInput.validity.valueMissing) {
+      restaurantAddressInput.classList.add("is-invalid");
+      restaurantAddressErrorBox.classList.remove("d-none");
+      restaurantAddressErrorMsg.innerText = "L'indirizzo del ristorante è obbligatorio";
+    }
+  };
+  var validatePIva = function validatePIva() {
+    if (pIvaInput.validity.valueMissing || pIvaInput.length == 11) {
+      pIvaInput.classList.add("is-invalid");
+      pIvaErrorBox.classList.remove("d-none");
+      if (pIvaInput.validity.valueMissing) {
+        pIvaErrorMsg.innerText = "La Partita Iva è obbligatoria";
+      } else if (pIvaInput.length == 11) {
+        pIvaErrorMsg.innerText = "La Partita Iva deve contenere esattamente 11 caratteri";
+      }
+    }
+  };
+  var validatePassword = function validatePassword() {
+    if (passwordInput.validity.valueMissing || passwordInput.length < 8) {
+      passwordInput.classList.add("is-invalid");
+      passwordErrorBox.classList.remove("d-none");
+      if (passwordInput.validity.valueMissing) {
+        passwordErrorMsg.innerText = "La password è obbligatoria";
+      } else if (passwordInput.length < 8) {
+        passwordErrorMsg.innerText = "La password deve contenere almeno 8 caratteri";
+      }
+    }
+  };
+
+  // # Function to submit Form
+  var submitForm = function submitForm(event) {
+    // Submit for Register Form
+    if (nameInput.value && emailInput.value && restaurantNameInput.value && restaurantDescriptionInput.value && restaurantLogoInput.value && restaurantAddressInput.value && pIvaInput.value && passwordInput.value) {
+      event.submit();
+    }
+  };
+
+  // # Main content | reset + validation for each form field
+
+  nameInput.addEventListener("input", function () {
+    // Reset
+    resetName();
+    // Validation
+    validateName();
+  });
+  emailInput.addEventListener("input", function () {
+    // Reset
+    resetEmail();
+    // Validation
+    validateEmail();
+  });
+  restaurantNameInput.addEventListener("input", function () {
+    // Reset
+    resetRestaurantName();
+    // Validation
+    validateRestaurantName();
+  });
+  restaurantDescriptionInput.addEventListener("input", function () {
+    // Reset
+    resetRestaurantDescription();
+    // Validation
+    validateRestaurantDescription();
+  });
+
+  // categoriesInput.addEventListener("input", () => {
+  //     // Reset
+  //     resetCategories();
+  //     // Validation
+  //     validateCategories();
+  // });
+
+  restaurantLogoInput.addEventListener("input", function () {
+    // Reset
+    resetRestaurantLogo();
+    // Validation
+    validateRestaurantLogo();
+  });
+  restaurantAddressInput.addEventListener("input", function () {
+    // Reset
+    resetRestaurantAddress();
+    // Validation
+    validateRestaurantAddress();
+  });
+  pIvaInput.addEventListener("input", function () {
+    // Reset
+    resetPIva();
+    // Validation
+    validatePIva();
+  });
+  passwordInput.addEventListener("input", function () {
+    // Reset
+    resetPassword();
+    // Validation
+    validatePassword();
+  });
+
+  // Submit Form logic
+  window.onsubmit = function (event) {
+    // Submit Form Validation
+    submitForm(event);
+
+    // Preventing default submit action
+    event.preventDefault();
+
+    // Validation name
+    validateName();
+
+    // Validation email
+    validateEmail();
+
+    // Validation restaurant name
+    validateRestaurantName();
+
+    // Validation restaurant description
+    validateRestaurantDescription();
+
+    // Validation categories
+    // validateCategories();
+
+    // Validation restaurant logo
+    validateRestaurantLogo();
+
+    // Validation restaurant address
+    validateRestaurantAddress();
+
+    // Validation restaurant P. IVA
+    validatePIva();
+
+    // Validation password
+    validatePassword();
+  };
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -37523,6 +37822,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./admin/image_thumb */ "./resources/js/admin/image_thumb.js");
 __webpack_require__(/*! ./admin/confirm_delete */ "./resources/js/admin/confirm_delete.js");
 __webpack_require__(/*! ./admin/validation_products.js */ "./resources/js/admin/validation_products.js");
+__webpack_require__(/*! ./admin/validation_register.js */ "./resources/js/admin/validation_register.js");
 
 /***/ }),
 
@@ -37593,8 +37893,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
