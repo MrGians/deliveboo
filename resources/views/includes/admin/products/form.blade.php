@@ -1,8 +1,8 @@
 @if ($product->exists)
-<form action="{{ route('admin.products.update', $product) }}" enctype="multipart/form-data" method="POST">
+<form id="submit-form-edit" class="product-form" action="{{ route('admin.products.update', $product) }}" enctype="multipart/form-data" method="POST" novalidate>
     @method('PUT')
 @else
-<form action="{{ route('admin.products.store', $product) }}" enctype="multipart/form-data" method="POST"> 
+<form class="product-form" action="{{ route('admin.products.store', $product) }}" enctype="multipart/form-data" method="POST" novalidate> 
 @endif
     @csrf
     <div class="row">
@@ -10,48 +10,40 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $product->name) }}">
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $product->name) }}" required>
+                <span id="name-error-box" class="invalid-feedback {{ $errors->has('name') ? '' : 'd-none' }}" role="alert">
+                    <strong id="name-error-msg"> @error('name') {{ $message }} @enderror </strong>
+                </span>
             </div>
         </div>
         {{-- Description --}}
         <div class="col-12">
             <div class="form-group">
                 <label for="description">Descrizione</label>
-                <textarea class="form-control  @error('description') is-invalid @enderror" id="description" name="description">{{ old('description', $product->description) }}</textarea>
-                @error('description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                <textarea class="form-control  @error('description') is-invalid @enderror" id="description" name="description" required>{{ old('description', $product->description) }}</textarea>
+                <span id="description-error-box" class="invalid-feedback {{ $errors->has('description') ? '' : 'd-none' }}" role="alert">
+                    <strong id="description-error-msg"> @error('description') {{ $message }} @enderror </strong>
+                </span>
             </div>
         </div>
         {{-- Price --}}
         <div class="col-12">
             <div class="form-group">
                 <label for="price">Price</label>
-                <input type="number" step="0.01" class="form-control  @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price', $product->price) }}">
-                @error('price')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                <input type="number" step="0.01" min="0.01" max="999.99" class="form-control  @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price', $product->price) }}" required>
+                <span id="price-error-box" class="invalid-feedback {{ $errors->has('price') ? '' : 'd-none' }}" role="alert">
+                    <strong id="price-error-msg"> @error('price') {{ $message }} @enderror </strong>
+                </span>
             </div>
         </div>
         {{-- Image --}}
         <div class="col-11">
             <div class="form-group">
                 <label for="image">Immagine</label>
-                <input type="file" class="@error('image') is-invalid @enderror" id="image" name="image">
-                @error('image')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                <input type="file" class="@error('image') is-invalid @enderror" id="image" name="image" required>
+                <span id="image-error-box" class="invalid-feedback {{ $errors->has('image') ? '' : 'd-none' }}" role="alert">
+                    <strong id="image-error-msg"> @error('image') {{ $message }} @enderror </strong>
+                </span>
             </div>
         </div>
         {{-- image-preview --}}
