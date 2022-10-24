@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" novalidate>
+                    <form class="register-form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data" novalidate>
                         @csrf
                         {{-- Name --}}
                         <div class="form-group row">
@@ -18,12 +18,9 @@
 
                             <div class="col-md-6 offset-md-3">
                                 <input id="name" type="text" class="mb-3 shadow form-control rounded-pill @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nome">
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span id="name-error-box" class="invalid-feedback {{ $errors->has('name') ? '' : 'd-none' }}" role="alert">
+                                    <strong id="name-error-msg"> @error('name') {{ $message }} @enderror </strong>
+                                </span>
                             </div>
                         </div>
                         {{-- Email --}}
@@ -32,12 +29,9 @@
 
                             <div class="col-md-6 offset-md-3">
                                 <input id="email" type="email" class="mb-3 shadow form-control rounded-pill @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email"> 
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span id="email-error-box" class="invalid-feedback {{ $errors->has('email') ? '' : 'd-none' }}" role="alert">
+                                    <strong id="email-error-msg"> @error('email') {{ $message }} @enderror </strong>
+                                </span>
                             </div>
                         </div>
                         {{-- Restaurant Name --}}
@@ -46,12 +40,9 @@
 
                             <div class="col-md-6 offset-md-3">
                                 <input id="restaurant_name" type="text" class="mb-3 shadow form-control rounded-pill @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required placeholder="Nome ristorante"> 
-
-                                @error('restaurant_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span id="restaurant_name-error-box" class="invalid-feedback {{ $errors->has('restaurant_name') ? '' : 'd-none' }}" role="alert">
+                                    <strong id="restaurant_name-error-msg"> @error('restaurant_name') {{ $message }} @enderror </strong>
+                                </span>
                             </div>
                         </div>
                         {{-- Restaurant Description --}}
@@ -60,17 +51,13 @@
 
                             <div class="col-md-6 offset-md-3">
                                 <textarea id="restaurant_description" class="mb-3 shadow form-control rounded-pill @error('restaurant_description') is-invalid @enderror" name="restaurant_description" required placeholder="Descrizione ristorante">{{ old('restaurant_description') }}</textarea>
-
-                                @error('restaurant_description')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span id="restaurant_description-error-box" class="invalid-feedback {{ $errors->has('restaurant_description') ? '' : 'd-none' }}" role="alert">
+                                    <strong id="restaurant_description-error-msg"> @error('restaurant_description') {{ $message }} @enderror </strong>
+                                </span>
                             </div>
                         </div>
                         {{-- Category --}}
                         <div class="form-group row">
-                            {{-- Nuovo --}}
                             <div class="col-md-6 offset-md-3">
                                 <div class="accordion mb-3 @if(!old('categories') && $errors->any()) is-invalid @endif" id="accordionExample">
                                     <div class="card shadow rounded-5">
@@ -95,11 +82,9 @@
                                       </div>
                                     </div>
                                 </div>
-                                @if (!old('categories') && $errors->any())
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>Devi selezionare almeno una categoria per il tuo ristorante</strong>
-                                    </span> 
-                                @endif
+                                <span id="categories-error-box" class="invalid-feedback {{ $errors->has('categories') ? '' : 'd-none' }}" role="alert">
+                                    <strong id="categories-error-msg"> @if (!old('categories') && $errors->any()) {{ $errors->first('categories') }} @endif </strong>
+                                </span>
                             </div>
                         </div>
                         {{-- Restaurant Logo --}}
@@ -108,12 +93,9 @@
 
                             <div class="col-md-6 offset-md-3">
                                 <input id="restaurant_logo" type="file" class="mb-3 @error('restaurant_logo') is-invalid @enderror" name="restaurant_logo" required>
-
-                                @error('restaurant_logo')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span id="restaurant_logo-error-box" class="invalid-feedback {{ $errors->has('restaurant_logo') ? '' : 'd-none' }}" role="alert">
+                                    <strong id="restaurant_logo-error-msg"> @error('restaurant_logo') {{ $message }} @enderror </strong>
+                                </span>
                             </div>
                         </div>
                         {{-- Restaurant Address --}}
@@ -122,12 +104,9 @@
 
                             <div class="col-md-6 offset-md-3">
                                 <input id="restaurant_address" type="text" class="mb-3 shadow form-control rounded-pill @error('restaurant_address') is-invalid @enderror" name="restaurant_address" value="{{ old('restaurant_address') }}" required placeholder="Indirizzo ristorante">
-
-                                @error('restaurant_address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span id="restaurant_address-error-box" class="invalid-feedback {{ $errors->has('restaurant_address') ? '' : 'd-none' }}" role="alert">
+                                    <strong id="restaurant_address-error-msg"> @error('restaurant_address') {{ $message }} @enderror </strong>
+                                </span>
                             </div>
                         </div>
                         {{-- Restaurant P.IVA --}}
@@ -136,12 +115,9 @@
 
                             <div class="col-md-6 offset-md-3">
                                 <input id="p_iva" type="text" class="mb-3 shadow form-control rounded-pill @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" maxlength="11" required placeholder="Partita IVA">
-
-                                @error('p_iva')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span id="p_iva-error-box" class="invalid-feedback {{ $errors->has('p_iva') ? '' : 'd-none' }}" role="alert">
+                                    <strong id="p_iva-error-msg"> @error('p_iva') {{ $message }} @enderror </strong>
+                                </span>
                             </div>
                         </div>
                         {{-- Password --}}
@@ -150,12 +126,9 @@
 
                             <div class="col-md-6 offset-md-3">
                                 <input id="password" type="password" class="mb-3 shadow form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <span id="password-error-box" class="invalid-feedback {{ $errors->has('password') ? '' : 'd-none' }}" role="alert">
+                                    <strong id="password-error-msg"> @error('password') {{ $message }} @enderror </strong>
+                                </span>
                             </div>
                         </div>
                         {{-- Confirm Password --}}
