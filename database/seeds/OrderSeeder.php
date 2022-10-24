@@ -19,12 +19,12 @@ class OrderSeeder extends Seeder
         $restaurant_ids = Restaurant::pluck('id')->toArray();
 
         // Generating 15 orders for each Restaurant
-        foreach($restaurant_ids as $restaurant_id){
+        for($i = 0; $i <= count($restaurant_ids) - 1; $i++){
 
-            for($i = 1; $i <= 15; $i++){
+            for($j = 1; $j <= 15; $j++){
                 
                 // Taking all the products from the restaurant
-                $restaurant_products_ids = Product::where('restaurant_id', $restaurant_id)->pluck('id')->toArray();
+                $restaurant_products_ids = Product::where('restaurant_id', $restaurant_ids[$i])->pluck('id')->toArray();
                 // Initializing the array that will contain the products of the order
                 $order_products_ids = [];
                 $products_quantity = [];
@@ -39,17 +39,17 @@ class OrderSeeder extends Seeder
                 
                 // Generating Total Amount of the order
                 $total_amount = 0;
-                for($i = 0; $i < count($order_products_ids) - 1; $i++){
-                    $product = Product::find($order_products_ids[$i]);
-                    $quantity = $products_quantity[$i];
+                for($ii = 0; $ii < count($order_products_ids) - 1; $ii++){
+                    $product = Product::find($order_products_ids[$ii]);
+                    $quantity = $products_quantity[$ii];
                     
                     $total_amount += $product->price * $quantity;
                 }
 
 
                 $new_order = new Order();
-                $new_order->restaurant_id = $restaurant_id;
-                $new_order->status = rand(0,1) ? 'Pagato / In elaborazione' : 'Completato';
+                $new_order->restaurant_id = $restaurant_ids[$i];
+                $new_order->status = rand(0,1) ? 'In elaborazione' : 'Completato';
                 $new_order->amount = $total_amount;
                 $new_order->email = $faker->email();
                 $new_order->full_name = "{$faker->firstName()} {$faker->lastName()}";
@@ -58,8 +58,8 @@ class OrderSeeder extends Seeder
                 $new_order->save();
                 
                 // Inserting the products of this order in the pivot table (order_product)
-                for($i = 0; $i < count($order_products_ids) - 1; $i++){
-                    $new_order->products()->attach($order_products_ids[$i], ['quantity' => $products_quantity[$i]]);
+                for($ii = 0; $ii < count($order_products_ids) - 1; $ii++){
+                    $new_order->products()->attach($order_products_ids[$ii], ['quantity' => $products_quantity[$ii]]);
                 };
             }
         }
