@@ -25,7 +25,7 @@
             <th scope="row">{{ $order->id }}</th>
             <td>{{ $order->full_name }}</td>
             <td>{{ $order->address }}</td>
-            <td>{{ $order->status }}</td>
+            <td><span class="btn btn-outline-{{ $order->status == 'Completato' ? 'success' : 'danger' }}">{{ $order->status }}</span></td>
             <td>{{ $order->created_at }}</td>
             <td>{{ $order->updated_at }}</td>
             <td class="d-flex justify-content-center">
