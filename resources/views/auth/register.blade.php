@@ -83,7 +83,7 @@
                                     </div>
                                 </div>
                                 <span id="categories-error-box" class="invalid-feedback {{ $errors->has('categories') ? '' : 'd-none' }}" role="alert">
-                                    <strong id="categories-error-msg"> @if (!old('categories') && $errors->any()) {{ $message }} @endif </strong>
+                                    <strong id="categories-error-msg"> @if (!old('categories') && $errors->any()) {{ $errors->first('categories') }} @endif </strong>
                                 </span>
                             </div>
                         </div>
