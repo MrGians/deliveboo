@@ -37353,7 +37353,7 @@ if (imageField !== null) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-if (document.querySelector("login_form")) {
+if (document.querySelector("form.login_form")) {
   // | 'email' field & box errors
   var emailInput = document.getElementById("email");
   var emailErrorBox = document.getElementById("error_email_box");
@@ -37370,6 +37370,7 @@ if (document.querySelector("login_form")) {
     emailErrorBox.classList.add("d-none");
     emailErrorMsg.innerText = "";
   };
+  console.log(ciao);
 
   // # Functions to reset fields & errors
   var resetPassword = function resetPassword() {
