@@ -38,8 +38,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        {{-- Products --}}
                         <li class="nav-item">
                             <a class="nav-link @if (Route::is('admin.products.index')) active @endif" href="{{ route('admin.products.index') }}">Products</a>
+                        </li>
+                        {{-- Orders --}}
+                        <li class="nav-item">
+                            <a class="nav-link @if (Route::is('admin.orders.index')) active @endif" href="{{ route('admin.orders.index') }}">Orders</a>
                         </li>
                     </ul>
 
