@@ -24,6 +24,10 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     //Products Route
     Route::resource('products', 'ProductController');
     Route::patch('/products/{product}/toggle', 'productController@isVisible')->name('products.isVisible');
+
+    // Orders Route
+    Route::get('/orders', 'OrderController@index')->name('orders.index');
+    Route::get('/orders/{order}', 'OrderController@show')->name('orders.show');
     
 
     // 404 Route
