@@ -10,34 +10,32 @@
                 </div>
 
                 <div class="card-body ">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" id="login_form" class="form_login" action="{{ route('login') }}" novalidate>
                         @csrf
 
+                         {{-- Email --}}
                         <div class="form-group row">
                             <label for="email" class="col-md-6 offset-md-3 col-form-label">{{ __('Indirizzo Email') }}</label>
-
                             <div class="col-md-6 offset-md-3">
-                                <input placeholder="Inserisci la tua e-mail" id="email" type="email" class="shadow form-control rounded-pill mb-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                {{-- [email] server and client side registration validation --}}
+                                <input placeholder="Inserisci la tua e-mail" id="email" type="email" class="shadow form-control rounded-pill mb-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <span id="error_email_box" class="invalid-feedback {{ $errors->has('email') ? '' : 'd-none' }}" role="alert">
+                                    <strong id="error_email_msg">@error('email') {{ $message }} @enderror</strong>
+                                </span>
                             </div>
                         </div>
 
+                        {{-- Password --}}
                         <div class="form-group row mb-0">
                             <label for="password" class="col-md-6 offset-md-3 col-form-label">{{ __('Password') }}</label>
-
                             <div class="col-md-6 offset-md-3">
-                                <input placeholder="Inserisci la tua password" id="password" type="password" class="shadow form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                {{-- [password] server and client side register validation --}}
+                                <input placeholder="Inserisci la tua password" id="password" type="password" class="shadow form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <span id="error_password_box" class="invalid-feedback {{ $errors->has('password') ? '' : 'd-none' }}" role="alert">
+                                    <strong id="error_password_msg">@error('password') {{ $message }} @enderror</strong>
+                                </span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -60,7 +58,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-md-6 mx-auto text-center">
-                                <button type="submit" class="btn btn-primary w-50 rounded-pill">
+                                <button id="log_in_submit" type="submit" class="btn btn-primary w-50 rounded-pill">
                                     Accedi
                                 </button>
                             </div>

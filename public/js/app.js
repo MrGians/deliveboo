@@ -37346,6 +37346,103 @@ if (imageField !== null) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/validation_login.js":
+/*!************************************************!*\
+  !*** ./resources/js/admin/validation_login.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if (document.querySelector("login_form")) {
+  // | 'email' field & box errors
+  var emailInput = document.getElementById("email");
+  var emailErrorBox = document.getElementById("error_email_box");
+  var emailErrorMsg = document.getElementById("error_email_msg");
+
+  // | 'password' field & box errors
+  var passwordInput = document.getElementById("password");
+  var passwordErrorBox = document.getElementById("error_password_box");
+  var passwordErrorMsg = document.getElementById("error_password_msg");
+
+  // # Functions to reset fields & errors
+  var resetEmail = function resetEmail() {
+    emailInput.className = "form-control";
+    emailErrorBox.classList.add("d-none");
+    emailErrorMsg.innerText = "";
+  };
+
+  // # Functions to reset fields & errors
+  var resetPassword = function resetPassword() {
+    passwordInput.className = "form-control";
+    passwordErrorBox.classList.add("d-none");
+    passwordErrorMsg.innerText = "";
+  };
+
+  // # Functions to validate fields
+  var validateEmail = function validateEmail() {
+    if (emailInput.validity.valueMissing || emailInput.validity.typeMismatch) {
+      emailInput.classList.add("is-invalid");
+      emailErrorBox.classList.remove("d-none");
+      if (emailInput.validity.typeMismatch) {
+        emailErrorMsg.innerText = "Inserire una email valida ";
+      } else if (emailInput.validity.valueMissing) {
+        emailErrorMsg.innerText = "La email é obbligatoria";
+      }
+    }
+  };
+
+  // # Functions to validate fields
+  var validatePassword = function validatePassword() {
+    if (passwordInput.validity.valueMissing || passwordInput.length < 8) {
+      passwordInput.classList.add("is-invalid");
+      passwordErrorBox.classList.remove("d-none");
+      if (passwordInput.validity.valueMissing) {
+        passwordErrorMsg.innerText = "La password è obbligatoria";
+      } else if (passwordInput.length < 8) {
+        passwordErrorMsg.innerText = "La password deve essere di almeno 8 caratteri";
+      }
+      ;
+    }
+  };
+
+  // # Function to submit Form
+  var submitForm = function submitForm(event) {
+    // Submit for Register Form
+    if (emailInput.value && passwordInput.value) {
+      event.submit();
+    }
+  };
+  emailInput.addEventListener("input", function () {
+    // Reset
+    resetEmail();
+    // Validation
+    validateEmail();
+  });
+  passwordInput.addEventListener("input", function () {
+    // Reset
+    resetPassword();
+    // Validation
+    validatePassword();
+  });
+
+  // Submit Form logic
+  window.onsubmit = function (event) {
+    // Submit Form Validation
+    submitForm(event);
+
+    // Preventing default submit action
+    event.preventDefault();
+
+    // Validation email
+    validateEmail();
+
+    // Validation password
+    validatePassword();
+  };
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -37356,6 +37453,7 @@ if (imageField !== null) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./admin/image_thumb */ "./resources/js/admin/image_thumb.js");
 __webpack_require__(/*! ./admin/confirm_delete */ "./resources/js/admin/confirm_delete.js");
+__webpack_require__(/*! ./admin/validation_login.js */ "./resources/js/admin/validation_login.js");
 
 /***/ }),
 
@@ -37426,8 +37524,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/liviamattoni/laravel/deliveboo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/liviamattoni/laravel/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
