@@ -86,7 +86,7 @@ if (document.querySelector("form.register-form")) {
 
     const resetRestaurantDescription = () => {
         restaurantDescriptionInput.className =
-            "mb-3 shadow form-control rounded-pill";
+            "mb-3 shadow form-control rounded-5";
         restaurantDescriptionErrorBox.classList.add("d-none");
         restaurantDescriptionErrorMsg.innerText = "";
     };
