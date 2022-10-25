@@ -19,6 +19,7 @@ class ProductController extends Controller
     {
         $restaurant= Auth::user()->restaurant->id;
         $products = Product::where('restaurant_id', $restaurant)->get();
+
         return view('admin.products.index', compact('products'));
     }
 
@@ -172,6 +173,24 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        // Check if the product is contained in 1+ orders
+        if(count($product->orders)){
+
+            // Checking each order status that contain this product
+            foreach($product->orders as $order_item){
+                $order_status = ucfirst($order_item->status);
+                
+                // if order status is "in elaborazione" this product can't be deleted from menù
+                if($order_status === "In elaborazione") {
+                    $restaurant= Auth::user()->restaurant->id;
+                    $products = Product::where('restaurant_id', $restaurant)->get();
+                    return redirect()->route('admin.products.index', compact('products'))
+                    ->with('message', 'Errore nella cancellazione! Un ordine non ancora completato contiene questo prodotto.')->with('type', 'danger');
+                }
+            };
+        };
+
+
         if($product->image !== 'products_image/placeholder.png') Storage::delete($product->image);
 
         $product->delete();
