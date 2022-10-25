@@ -9,7 +9,7 @@
         {{-- Name --}}
         <div class="col-12">
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Nome *</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $product->name) }}" required>
                 <span id="name-error-box" class="invalid-feedback {{ $errors->has('name') ? '' : 'd-none' }}" role="alert">
                     <strong id="name-error-msg"> @error('name') {{ $message }} @enderror </strong>
@@ -19,7 +19,7 @@
         {{-- Description --}}
         <div class="col-12">
             <div class="form-group">
-                <label for="description">Descrizione</label>
+                <label for="description">Descrizione *</label>
                 <textarea class="form-control  @error('description') is-invalid @enderror" id="description" name="description" required>{{ old('description', $product->description) }}</textarea>
                 <span id="description-error-box" class="invalid-feedback {{ $errors->has('description') ? '' : 'd-none' }}" role="alert">
                     <strong id="description-error-msg"> @error('description') {{ $message }} @enderror </strong>
@@ -29,7 +29,7 @@
         {{-- Price --}}
         <div class="col-12">
             <div class="form-group">
-                <label for="price">Price</label>
+                <label for="price">Prezzo *</label>
                 <input type="number" step="0.01" min="0.01" max="999.99" class="form-control  @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price', $product->price) }}" required>
                 <span id="price-error-box" class="invalid-feedback {{ $errors->has('price') ? '' : 'd-none' }}" role="alert">
                     <strong id="price-error-msg"> @error('price') {{ $message }} @enderror </strong>
@@ -39,7 +39,7 @@
         {{-- Image --}}
         <div class="col-11">
             <div class="form-group">
-                <label for="image">Immagine</label>
+                <label for="image" class="d-block">Immagine *</label>
                 <input type="file" class="@error('image') is-invalid @enderror" id="image" name="image" required>
                 <span id="image-error-box" class="invalid-feedback {{ $errors->has('image') ? '' : 'd-none' }}" role="alert">
                     <strong id="image-error-msg"> @error('image') {{ $message }} @enderror </strong>
