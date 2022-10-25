@@ -93,8 +93,7 @@ class ProductController extends Controller
         if(Auth::user()->restaurant->id !== $product->restaurant_id){
             $restaurant= Auth::user()->restaurant->id;
             $products = Product::where('restaurant_id', $restaurant)->get();
-            return view('admin.products.index', compact('products'))
-            ->with('message', 'Non puoi accedere ad un prodotto non presente nel tuo menù')->with('type', 'danger');
+            return redirect()->route('admin.products.index', compact('products'))->with('message', 'Non puoi accedere ad un prodotto non presente nel tuo menù')->with('type', 'danger');
         };
         
         return view('admin.products.show', compact('product'));
@@ -112,7 +111,7 @@ class ProductController extends Controller
         if(Auth::user()->restaurant->id !== $product->restaurant_id){
             $restaurant= Auth::user()->restaurant->id;
             $products = Product::where('restaurant_id', $restaurant)->get();
-            return view('admin.products.index', compact('products'))
+            return redirect()->route('admin.products.index', compact('products'))
             ->with('message', 'Non puoi accedere ad un prodotto non presente nel tuo menù')->with('type', 'danger');
         };
 
