@@ -77,7 +77,8 @@ class ProductController extends Controller
         $product->fill($data);
         $product->save();
 
-        return redirect()->route('admin.products.show', compact('product'));
+        return redirect()->route('admin.products.show', compact('product'))
+        ->with('message', 'Il Prodotto è stato creato con successo')->with('type', 'success');
     }
 
     /**
@@ -92,7 +93,8 @@ class ProductController extends Controller
         if(Auth::id() !== $product->restaurant_id){
             $restaurant= Auth::id();
             $products = Product::where('restaurant_id', $restaurant)->get();
-            return view('admin.products.index', compact('products'));
+            return view('admin.products.index', compact('products'))
+            ->with('message', 'Non puoi accedere ad un prodotto non presente nel tuo menù')->with('type', 'danger');
         };
         
         return view('admin.products.show', compact('product'));
@@ -110,7 +112,8 @@ class ProductController extends Controller
         if(Auth::id() !== $product->restaurant_id){
             $restaurant= Auth::id();
             $products = Product::where('restaurant_id', $restaurant)->get();
-            return view('admin.products.index', compact('products'));
+            return view('admin.products.index', compact('products'))
+            ->with('message', 'Non puoi accedere ad un prodotto non presente nel tuo menù')->with('type', 'danger');
         };
 
         return view('admin.products.edit', compact('product'));
@@ -158,7 +161,8 @@ class ProductController extends Controller
         // Update product instance;
         $product->update($data);
 
-        return redirect()->route('admin.products.show', compact('product'));
+        return redirect()->route('admin.products.show', compact('product'))
+        ->with('message', 'Il Prodotto è stato modificato con successo')->with('type', 'success');
     }
 
     /**
@@ -173,13 +177,20 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.products.index')
+        ->with('message', 'Il prodotto è stato eliminato con successo')->with('type', 'success');
     }
 
     public function isVisible(Product $product) 
     {
         $product->is_visible = !$product->is_visible;
         $product->save();
-        return redirect()->route('admin.products.index');
+
+        // Changing message to display
+        if($product->is_visible) $custom_message = 'Il Prodotto è stato aggiunto al menù';
+        else $custom_message = 'Il Prodotto è stato rimosso dal menù';
+        
+        return redirect()->route('admin.products.index')
+        ->with('message', $custom_message)->with('type', 'success');
     }
 }
