@@ -37346,7 +37346,102 @@ if (imageField !== null) {
 
 /***/ }),
 
-<<<<<<< HEAD
+/***/ "./resources/js/admin/validation_login.js":
+/*!************************************************!*\
+  !*** ./resources/js/admin/validation_login.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if (document.querySelector("form.login_form")) {
+  // | 'email' field & box errors
+  var emailInput = document.getElementById("email");
+  var emailErrorBox = document.getElementById("error_email_box");
+  var emailErrorMsg = document.getElementById("error_email_msg");
+
+  // | 'password' field & box errors
+  var passwordInput = document.getElementById("password");
+  var passwordErrorBox = document.getElementById("error_password_box");
+  var passwordErrorMsg = document.getElementById("error_password_msg");
+
+  // # Functions to reset fields & errors
+  var resetEmail = function resetEmail() {
+    emailInput.className = "shadow form-control rounded-pill mb-3";
+    emailErrorBox.classList.add("d-none");
+    emailErrorMsg.innerText = "";
+  };
+
+  // # Functions to reset fields & errors
+  var resetPassword = function resetPassword() {
+    passwordInput.className = "shadow form-control rounded-pill";
+    passwordErrorBox.classList.add("d-none");
+    passwordErrorMsg.innerText = "";
+  };
+
+  // # Functions to validate fields
+  var validateEmail = function validateEmail() {
+    if (emailInput.validity.valueMissing || emailInput.validity.typeMismatch) {
+      emailInput.classList.add("is-invalid");
+      emailErrorBox.classList.remove("d-none");
+      if (emailInput.validity.typeMismatch) {
+        emailErrorMsg.innerText = "Inserire una email valida ";
+      } else if (emailInput.validity.valueMissing) {
+        emailErrorMsg.innerText = "La email é obbligatoria";
+      }
+    }
+  };
+
+  // # Functions to validate fields
+  var validatePassword = function validatePassword() {
+    if (passwordInput.validity.valueMissing || passwordInput.length < 8) {
+      passwordInput.classList.add("is-invalid");
+      passwordErrorBox.classList.remove("d-none");
+      if (passwordInput.validity.valueMissing) {
+        passwordErrorMsg.innerText = "La password è obbligatoria";
+      } else if (passwordInput.length < 8) {
+        passwordErrorMsg.innerText = "La password deve essere di almeno 8 caratteri";
+      }
+    }
+  };
+
+  // # Function to submit Form
+  var submitForm = function submitForm(event) {
+    // Submit for Register Form
+    if (emailInput.value && passwordInput.value) {
+      event.submit();
+    }
+  };
+  emailInput.addEventListener("input", function () {
+    // Reset
+    resetEmail();
+    // Validation
+    validateEmail();
+  });
+  passwordInput.addEventListener("input", function () {
+    // Reset
+    resetPassword();
+    // Validation
+    validatePassword();
+  });
+
+  // Submit Form logic
+  window.onsubmit = function (event) {
+    // Submit Form Validation
+    submitForm(event);
+
+    // Preventing default submit action
+    event.preventDefault();
+
+    // Validation email
+    validateEmail();
+
+    // Validation password
+    validatePassword();
+  };
+}
+
+/***/ }),
+
 /***/ "./resources/js/admin/validation_products.js":
 /*!***************************************************!*\
   !*** ./resources/js/admin/validation_products.js ***!
@@ -37440,70 +37535,11 @@ if (document.querySelector("form.product-form")) {
       } else if (!allowedExtensions.exec(imageInput.value)) {
         imageErrorMsg.innerText = "L'immagine del prodotto deve essere di un'estensione valida (jpeg,jpg,png,svg)";
       }
-=======
-/***/ "./resources/js/admin/validation_login.js":
-/*!************************************************!*\
-  !*** ./resources/js/admin/validation_login.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-if (document.querySelector("form.login_form")) {
-  // | 'email' field & box errors
-  var emailInput = document.getElementById("email");
-  var emailErrorBox = document.getElementById("error_email_box");
-  var emailErrorMsg = document.getElementById("error_email_msg");
-
-  // | 'password' field & box errors
-  var passwordInput = document.getElementById("password");
-  var passwordErrorBox = document.getElementById("error_password_box");
-  var passwordErrorMsg = document.getElementById("error_password_msg");
-
-  // # Functions to reset fields & errors
-  var resetEmail = function resetEmail() {
-    emailInput.className = "form-control";
-    emailErrorBox.classList.add("d-none");
-    emailErrorMsg.innerText = "";
-  };
-
-  // # Functions to reset fields & errors
-  var resetPassword = function resetPassword() {
-    passwordInput.className = "form-control";
-    passwordErrorBox.classList.add("d-none");
-    passwordErrorMsg.innerText = "";
-  };
-
-  // # Functions to validate fields
-  var validateEmail = function validateEmail() {
-    if (emailInput.validity.valueMissing || emailInput.validity.typeMismatch) {
-      emailInput.classList.add("is-invalid");
-      emailErrorBox.classList.remove("d-none");
-      if (emailInput.validity.typeMismatch) {
-        emailErrorMsg.innerText = "Inserire una email valida ";
-      } else if (emailInput.validity.valueMissing) {
-        emailErrorMsg.innerText = "La email é obbligatoria";
-      }
-    }
-  };
-
-  // # Functions to validate fields
-  var validatePassword = function validatePassword() {
-    if (passwordInput.validity.valueMissing || passwordInput.length < 8) {
-      passwordInput.classList.add("is-invalid");
-      passwordErrorBox.classList.remove("d-none");
-      if (passwordInput.validity.valueMissing) {
-        passwordErrorMsg.innerText = "La password è obbligatoria";
-      } else if (passwordInput.length < 8) {
-        passwordErrorMsg.innerText = "La password deve essere di almeno 8 caratteri";
-      }
-      ;
->>>>>>> login_validation
     }
   };
 
   // # Function to submit Form
   var submitForm = function submitForm(event) {
-<<<<<<< HEAD
     // Submit for Create Form
     if (!formEdit) {
       if (nameInput.value && descriptionInput.value && priceInput.value && imageInput.value) {
@@ -37545,25 +37581,6 @@ if (document.querySelector("form.login_form")) {
       validateImage();
     });
   }
-=======
-    // Submit for Register Form
-    if (emailInput.value && passwordInput.value) {
-      event.submit();
-    }
-  };
-  emailInput.addEventListener("input", function () {
-    // Reset
-    resetEmail();
-    // Validation
-    validateEmail();
-  });
-  passwordInput.addEventListener("input", function () {
-    // Reset
-    resetPassword();
-    // Validation
-    validatePassword();
-  });
->>>>>>> login_validation
 
   // Submit Form logic
   window.onsubmit = function (event) {
@@ -37573,7 +37590,6 @@ if (document.querySelector("form.login_form")) {
     // Preventing default submit action
     event.preventDefault();
 
-<<<<<<< HEAD
     // Validation name
     validateName();
 
@@ -37587,13 +37603,6 @@ if (document.querySelector("form.login_form")) {
     if (!formEdit) {
       validateImage();
     }
-=======
-    // Validation email
-    validateEmail();
-
-    // Validation password
-    validatePassword();
->>>>>>> login_validation
   };
 }
 
@@ -37671,7 +37680,7 @@ if (document.querySelector("form.register-form")) {
     restaurantNameErrorMsg.innerText = "";
   };
   var resetRestaurantDescription = function resetRestaurantDescription() {
-    restaurantDescriptionInput.className = "mb-3 shadow form-control rounded-pill";
+    restaurantDescriptionInput.className = "mb-3 shadow form-control rounded-5";
     restaurantDescriptionErrorBox.classList.add("d-none");
     restaurantDescriptionErrorMsg.innerText = "";
   };
@@ -37908,15 +37917,9 @@ if (document.querySelector("form.register-form")) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./admin/image_thumb */ "./resources/js/admin/image_thumb.js");
 __webpack_require__(/*! ./admin/confirm_delete */ "./resources/js/admin/confirm_delete.js");
-<<<<<<< HEAD
 __webpack_require__(/*! ./admin/validation_products.js */ "./resources/js/admin/validation_products.js");
-<<<<<<< HEAD
-=======
 __webpack_require__(/*! ./admin/validation_login.js */ "./resources/js/admin/validation_login.js");
->>>>>>> login_validation
-=======
 __webpack_require__(/*! ./admin/validation_register.js */ "./resources/js/admin/validation_register.js");
->>>>>>> register-validation
 
 /***/ }),
 
@@ -37980,20 +37983,27 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/front.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/front.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!*****************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/front.scss ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! /Users/liviamattoni/laravel/deliveboo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/liviamattoni/laravel/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! C:\Laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> register-validation
+__webpack_require__(/*! C:\laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\laravel\deliveboo\resources\sass\front.scss */"./resources/sass/front.scss");
 
 
 /***/ })

@@ -1,5 +1,8 @@
 <template>
     <div class="content">
+
+        
+
         <main class="container">
             <router-view></router-view>
         </main>
@@ -7,7 +10,15 @@
 </template>
 
 <script>
+
 export default {
     name: "App",
+    components: {  }
 };
 </script>
+
+<style lang="scss">
+@import '/../../sass/front.scss';
+
+
+</style>
