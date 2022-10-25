@@ -1,6 +1,7 @@
 <template>
     <div class="content">
-        <BaseHeader></BaseHeader>
+
+        
 
         <main class="container">
             <router-view></router-view>
@@ -9,9 +10,15 @@
 </template>
 
 <script>
-import BaseHeader from './BaseHeader.vue';
+
 export default {
     name: "App",
-    components: { BaseHeader }
+    components: {  }
 };
 </script>
+
+<style>
+
+
+
+</style>

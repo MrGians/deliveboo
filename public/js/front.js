@@ -1908,13 +1908,9 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _BaseHeader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BaseHeader.vue */ "./resources/js/components/BaseHeader.vue");
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
-  components: {
-    BaseHeader: _BaseHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  components: {}
 });
 
 /***/ }),
@@ -1976,15 +1972,18 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _BaseSearchBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../BaseSearchBar.vue */ "./resources/js/components/BaseSearchBar.vue");
-/* harmony import */ var _BaseCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../BaseCard.vue */ "./resources/js/components/BaseCard.vue");
+/* harmony import */ var _BaseHeader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../BaseHeader.vue */ "./resources/js/components/BaseHeader.vue");
+/* harmony import */ var _BaseSearchBar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../BaseSearchBar.vue */ "./resources/js/components/BaseSearchBar.vue");
+/* harmony import */ var _BaseCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../BaseCard.vue */ "./resources/js/components/BaseCard.vue");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   components: {
-    BaseSearchBar: _BaseSearchBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    BaseCard: _BaseCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    BaseSearchBar: _BaseSearchBar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    BaseCard: _BaseCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    BaseHeader: _BaseHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -2026,9 +2025,9 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "content"
-  }, [_c("BaseHeader"), _vm._v(" "), _c("main", {
+  }, [_c("main", {
     staticClass: "container"
-  }, [_c("router-view")], 1)], 1);
+  }, [_c("router-view")], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2150,7 +2149,11 @@ var render = function render() {
     attrs: {
       id: "home-page"
     }
-  }, [_c("div", {
+  }, [_c("header", [_c("div", {
+    attrs: {
+      id: "background-food"
+    }
+  }, [_c("BaseHeader"), _vm._v(" "), _c("div", {
     staticClass: "container padding d-flex align-items-center justify-content-center",
     attrs: {
       id: "searchbar-container"
@@ -2159,7 +2162,7 @@ var render = function render() {
     attrs: {
       placeholder: _vm.placeholder
     }
-  })], 1), _vm._v(" "), _c("div", {
+  })], 1)], 1)]), _vm._v(" "), _c("div", {
     attrs: {
       id: "home-page-content"
     }
@@ -6622,7 +6625,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#title[data-v-317790a4] {\r\n    color: #fc5958;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n#title[data-v-317790a4] {\r\n    color: #fc5958;\n}\nheader[data-v-317790a4] {\r\n    background-image: url('/img/jumbotron.png');\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    margin-bottom: 50px;\n}\n#background-food[data-v-317790a4] {\r\n    \r\n    \r\n    background-image: url('/img/burger_sandwich_PNG4135.png');\r\n    background-repeat: no-repeat;\r\n    background-position: right;\r\n    background-size: 55%;\n}\r\n\r\n\r\n", ""]);
 
 // exports
 

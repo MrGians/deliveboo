@@ -1,8 +1,13 @@
 <template>
     <div id="home-page">
-        <div id="searchbar-container" class="container padding d-flex align-items-center justify-content-center">
-            <BaseSearchBar :placeholder="placeholder"></BaseSearchBar>
-        </div>
+        <header>
+            <div id="background-food">
+                <BaseHeader></BaseHeader>
+                <div id="searchbar-container" class="container padding d-flex align-items-center justify-content-center">
+                    <BaseSearchBar :placeholder="placeholder"></BaseSearchBar>
+                </div>
+            </div>
+        </header>
 
         <div id="home-page-content">
             <div id="title" class="text-center">
@@ -17,13 +22,15 @@
 </template>
 
 <script>
+import BaseHeader from '../BaseHeader.vue';
 import BaseSearchBar from '../BaseSearchBar.vue';
 import BaseCard from '../BaseCard.vue';
 export default {
     name: "App",
     components: {
        BaseSearchBar,
-       BaseCard
+       BaseCard,
+       BaseHeader
     },
     data() {
         return {
@@ -38,5 +45,23 @@ export default {
 #title {
     color: #fc5958;
 }
+
+header {
+    background-image: url('/img/jumbotron.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 50px;
+}
+
+#background-food {
+    
+    
+    background-image: url('/img/burger_sandwich_PNG4135.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 55%;
+}
+
 
 </style>
