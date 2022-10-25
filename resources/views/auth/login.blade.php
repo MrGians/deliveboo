@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card rounded-5 mt-5 pb-5 shadow">
                 <div class="text-center pt-5">
                     <h3 class="font-weight-bold">Accedi</h3>
@@ -15,8 +15,8 @@
 
                          {{-- Email --}}
                         <div class="form-group row">
-                            <label for="email" class="col-md-6 offset-md-3 col-form-label">{{ __('Indirizzo Email') }} *</label>
-                            <div class="col-md-6 offset-md-3">
+                            <label for="email" class="col-md-8 offset-md-2 col-form-label">{{ __('Indirizzo Email') }} *</label>
+                            <div class="col-md-8 offset-md-2">
 
                                 {{-- [email] server and client side registration validation --}}
                                 <input id="email" type="email" class="shadow form-control rounded-pill mb-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -28,8 +28,8 @@
 
                         {{-- Password --}}
                         <div class="form-group row mb-0">
-                            <label for="password" class="col-md-6 offset-md-3 col-form-label">{{ __('Password') }} *</label>
-                            <div class="col-md-6 offset-md-3">
+                            <label for="password" class="col-md-8 offset-md-2 col-form-label">{{ __('Password') }} *</label>
+                            <div class="col-md-8 offset-md-2">
 
                                 {{-- [password] server and client side register validation --}}
                                 <input id="password" type="password" class="shadow form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -39,14 +39,14 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-3 p-0">
+                            <div class="col-md-8 offset-md-2 p-0">
                                 @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Password dimenticata?
                                 </a>
                                 @endif
                             </div>  
-                            <div class="col-md-6 offset-md-3">
+                            <div class="col-md-8 offset-md-2">
                                 <div class="form-check">
                                     <input class="form-check-input shadow" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
     
@@ -57,13 +57,13 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-md-6 mx-auto text-center">
+                            <div class="col-md-8 mx-auto text-center">
                                 <button id="log_in_submit" type="submit" class="btn btn-primary w-50 rounded-pill">
                                     Accedi
                                 </button>
                             </div>
                         </div> 
-                        <div class="col-md-6 mx-auto text-center">
+                        <div class="col-md-8 mx-auto text-center">
                             <div class="left-and-right-line text-center pb-2">
                                 <hr>
                                 <h6>Sei un ristoratore?</h6>
@@ -71,7 +71,7 @@
                             </div>
                         </div> 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 mx-auto text-center">
+                            <div class="col-md-8 mx-auto text-center">
                                 <a class=" btn btn-primary w-50 rounded-pill" href="{{ route('register') }}">Registrati</a>
                             </div>
                         </div>       
