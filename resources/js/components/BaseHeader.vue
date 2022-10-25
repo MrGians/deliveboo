@@ -27,6 +27,10 @@ a {
 
 }
 
+a:hover {
+    color: white;
+}
+
 #navbar {
     height: 90px;
 }
