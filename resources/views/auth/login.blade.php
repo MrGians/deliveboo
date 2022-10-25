@@ -15,11 +15,11 @@
 
                          {{-- Email --}}
                         <div class="form-group row">
-                            <label for="email" class="col-md-6 offset-md-3 col-form-label">{{ __('Indirizzo Email') }}</label>
+                            <label for="email" class="col-md-6 offset-md-3 col-form-label">{{ __('Indirizzo Email') }} *</label>
                             <div class="col-md-6 offset-md-3">
 
                                 {{-- [email] server and client side registration validation --}}
-                                <input placeholder="Inserisci la tua e-mail" id="email" type="email" class="shadow form-control rounded-pill mb-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="shadow form-control rounded-pill mb-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 <span id="error_email_box" class="invalid-feedback {{ $errors->has('email') ? '' : 'd-none' }}" role="alert">
                                     <strong id="error_email_msg">@error('email') {{ $message }} @enderror</strong>
                                 </span>
@@ -28,11 +28,11 @@
 
                         {{-- Password --}}
                         <div class="form-group row mb-0">
-                            <label for="password" class="col-md-6 offset-md-3 col-form-label">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-6 offset-md-3 col-form-label">{{ __('Password') }} *</label>
                             <div class="col-md-6 offset-md-3">
 
                                 {{-- [password] server and client side register validation --}}
-                                <input placeholder="Inserisci la tua password" id="password" type="password" class="shadow form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="shadow form-control rounded-pill @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 <span id="error_password_box" class="invalid-feedback {{ $errors->has('password') ? '' : 'd-none' }}" role="alert">
                                     <strong id="error_password_msg">@error('password') {{ $message }} @enderror</strong>
                                 </span>
