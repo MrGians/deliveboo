@@ -59,6 +59,17 @@
             </td>
         </tr>  
         @endforelse 
+        {{-- Delete Modal --}}
+        <div id="myModal" class="modal">
+            {{-- Modal content --}}
+            <div class="modal-content">
+                <p></p>
+                <div class="btn-box">
+                    <button id="delete-confirm">Si</button>
+                    <button id="delete-go-back">No</button>
+                </div>
+            </div>
+        </div>
     </tbody>
 </table>
 @endsection
