@@ -1,5 +1,4 @@
 if (document.querySelector("form.login_form")) {
-
     // | 'email' field & box errors
     const emailInput = document.getElementById("email");
     const emailErrorBox = document.getElementById("error_email_box");
@@ -12,22 +11,24 @@ if (document.querySelector("form.login_form")) {
 
     // # Functions to reset fields & errors
     const resetEmail = () => {
-        emailInput.className = "form-control";
+        emailInput.className = "shadow form-control rounded-pill mb-3";
         emailErrorBox.classList.add("d-none");
         emailErrorMsg.innerText = "";
     };
-   
 
     // # Functions to reset fields & errors
     const resetPassword = () => {
-        passwordInput.className = "form-control";
+        passwordInput.className = "shadow form-control rounded-pill";
         passwordErrorBox.classList.add("d-none");
         passwordErrorMsg.innerText = "";
     };
 
     // # Functions to validate fields
     const validateEmail = () => {
-        if (emailInput.validity.valueMissing || emailInput.validity.typeMismatch) {
+        if (
+            emailInput.validity.valueMissing ||
+            emailInput.validity.typeMismatch
+        ) {
             emailInput.classList.add("is-invalid");
             emailErrorBox.classList.remove("d-none");
             if (emailInput.validity.typeMismatch) {
@@ -47,17 +48,18 @@ if (document.querySelector("form.login_form")) {
             if (passwordInput.validity.valueMissing) {
                 passwordErrorMsg.innerText = "La password è obbligatoria";
             } else if (passwordInput.length < 8) {
-                passwordErrorMsg.innerText = "La password deve essere di almeno 8 caratteri";
-            };
+                passwordErrorMsg.innerText =
+                    "La password deve essere di almeno 8 caratteri";
+            }
         }
     };
 
     // # Function to submit Form
     const submitForm = (event) => {
         // Submit for Register Form
-            if (emailInput.value && passwordInput.value ) {
-                event.submit();
-            }
+        if (emailInput.value && passwordInput.value) {
+            event.submit();
+        }
     };
 
     emailInput.addEventListener("input", () => {
