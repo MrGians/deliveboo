@@ -142,13 +142,13 @@
 
                         {{-- Register button --}}
                         <div class="form-group row">
-                            <div class="col-md-6 mx-auto text-center">
+                            <div class="col-md-8 mx-auto text-center">
                                 <button type="submit" class="btn btn-primary w-50 rounded-pill">
                                     Registrati
                                 </button>
                             </div>
                         </div> 
-                        <div class="col-md-6 mx-auto text-center">
+                        <div class="col-md-8 mx-auto text-center">
                             <div class="left-and-right-line text-center pb-2">
                                 <hr>
                                 <h6>Hai già un'account?</h6>
@@ -156,7 +156,7 @@
                             </div>
                         </div> 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 mx-auto text-center">
+                            <div class="col-md-8 mx-auto text-center">
                                 <a class=" btn btn-primary w-50 rounded-pill" href="{{ route('login') }}">Accedi</a>
                             </div>
                         </div>
