@@ -9,10 +9,38 @@
     padding: 200px 200px;
 }
 
-// a text decoration
 
-a {
-    text-decoration: none;
+
+// d flex
+
+.d-flex {
+    display: flex;
+}
+
+// align-items 
+
+.align-items-center {
+    align-items: center;
+}
+
+// justify-content
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+// text-align
+
+.text-center {
+    text-align: center;
 }
 
 // container

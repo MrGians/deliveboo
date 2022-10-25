@@ -17,8 +17,8 @@ export default {
 };
 </script>
 
-<style>
-
+<style lang="scss">
+@import '/../../sass/front.scss';
 
 
 </style>
