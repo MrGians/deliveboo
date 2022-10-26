@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return response()->json(compact('categories'));
+        return response()->json($categories);
     }
 
     /**

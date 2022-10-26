@@ -16,12 +16,16 @@ class RestaurantController extends Controller
      */
     public function index(Request $request)
     {   
-        $categories = Category::all();
-        $restaurants = Restaurant::with('categories')->get();
-
-
         
-        $data = $request->query('category_id');
+        $data = $request->all();
+        $categories = Category::find($data);
+        $restaurants = [];
+        foreach($categories->restaurants as $restaurant){
+            $restaurants[] = $restaurant;
+            $restaurant->pivot = $restaurant->categories;
+            // dump($restaurant->categories);
+        };
+        // dump($restaurants);
         
         return response()->json($restaurants);
     }
@@ -45,8 +49,8 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        $restaurant = Restaurant::with(['category', 'tags', 'author'])->find($id);
-        if(!$restaurant) return response('Not Found', 404);
+        // $restaurant = Restaurant::with(['category', 'tags', 'author'])->find($id);
+        // if(!$restaurant) return response('Not Found', 404);
         
         return response()->json($restaurant);
     }
