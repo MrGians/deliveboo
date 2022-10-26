@@ -9,32 +9,34 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
-    public function getCategoryFilter(Request $request)
-    {
-        $data = $request->all();
-        return $data;
-    }
-
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {   
-        $data = $this->getCategoryFilter();
+        $filter = $request->query('search');
+        if($filter){
 
-        $categories = Category::find($data);
-        $restaurants = [];
-        foreach($categories->restaurants as $restaurant){
-            $restaurants[] = $restaurant;
-            $restaurant->pivot = $restaurant->categories;
-            // dump($restaurant->categories);
+            
+            $categories = Category::where('label', 'LIKE', "%$filter%")->get();
+            $restaurants = [];
+            $restaurants_ids = [];
+            foreach($categories as $category){
+                
+                foreach($category->restaurants as $restaurant){
+
+                    if(!in_array($restaurant->id, $restaurants_ids)) {
+                        $restaurants[] = $restaurant;
+                        $restaurant->pivot = $restaurant->categories;
+                        $restaurants_ids[] = $restaurant->id;
+                    }
+                };
+            }
+            
+            return response()->json($restaurants);
         };
-        // dump($restaurants);
-        
-        return response()->json($restaurants);
     }
 
     /**
