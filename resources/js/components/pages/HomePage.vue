@@ -4,7 +4,7 @@
         <div id="background-food">
                 
             <div id="searchbar-container" class="container padding d-flex align-items-center justify-content-center">
-                <BaseSearchBar :placeholder="placeholder"></BaseSearchBar>
+                <BaseSearchBar :placeholder="placeholder" @keyup.enter="fetchCategories()"></BaseSearchBar>
             </div>
         </div>
         
@@ -39,6 +39,7 @@ export default {
         return {
             placeholder: 'Voglia di qualcosa di buono?',
             categories: [],
+            selectedCategory: null,
         };
     },
     methods: {
@@ -46,6 +47,19 @@ export default {
             axios.get('http://127.0.0.1:8000/api/home')
             .then((res) => {
                 this.categories = res.data;
+            })
+            .catch(() => {
+                // todo
+            }) 
+            .then(() => {
+                // todo
+            })
+        }, 
+        sendCategory() {
+            this.selectedCategory = 2;
+            axios.get('http://127.0.0.1:8000/api/filter-restaurants', this.selectedCategory)
+            .then(() => {
+                // todo data errors
             })
             .catch(() => {
                 // todo
