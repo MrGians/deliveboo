@@ -5,6 +5,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import HomePage from "./components/pages/HomePage";
+import RestaurantsPage from "./components/pages/RestaurantsPage";
 import NotFoundPage from "./components/pages/NotFoundPage";
 
 const routes = new VueRouter({
@@ -13,6 +14,11 @@ const routes = new VueRouter({
     linkActiveClass: "active",
     routes: [
         { path: "/", component: HomePage, name: "home" },
+        {
+            path: "/restaurants",
+            component: RestaurantsPage,
+            name: "restaurants",
+        },
         { path: "*", component: NotFoundPage, name: "not-found" },
     ],
 });
