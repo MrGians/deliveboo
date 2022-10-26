@@ -9,15 +9,22 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
+    public function getCategoryFilter(Request $request)
+    {
+        $data = $request->all();
+        return $data;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {   
-        
-        $data = $request->all();
+        $data = $this->getCategoryFilter();
+
         $categories = Category::find($data);
         $restaurants = [];
         foreach($categories->restaurants as $restaurant){
@@ -49,8 +56,8 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        // $restaurant = Restaurant::with($categories)->find($id);
-        // if(!$restaurant) return response('Not Found', 404);
+        $restaurant = Restaurant::with(['categories', 'products'])->find($id);
+        if(!$restaurant) return response('Not Found', 404);
         
         return response()->json($restaurant);
     }
