@@ -29,7 +29,7 @@
         display: flex;
         justify-content: space-between;
 
-        &>* {
+        & > * {
             width: 100px;
             margin: 0 auto;
         }
@@ -41,12 +41,12 @@
     display: flex;
     align-items: center;
 
-    &>hr {
+    & > hr {
         flex-grow: 1;
         width: 20%;
     }
 
-    &>h6 {
+    & > h6 {
         flex-grow: 1;
         width: 50%;
     }
@@ -57,39 +57,14 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-// padding
+// Margin & Padding
 
-.padding {
-    padding: 200px 200px;
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
 }
 
-// d flex
-
-.d-flex {
-    display: flex;
-}
-
-// align-items
-
-.align-items-center {
-    align-items: center;
-}
-
-// justify-content
-
-.justify-content-between {
-    justify-content: space-between;
-}
-
-.justify-content-around {
-    justify-content: space-around;
-}
-
-.justify-content-center {
-    justify-content: center;
-}
-
-// text-align
+// Text
 
 .text-center {
     text-align: center;
@@ -104,9 +79,6 @@
     margin-right: auto;
     margin-left: auto;
 }
-
-
-
 
 // row
 
