@@ -18,6 +18,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/home', 'Api\HomeController@index');
-Route::post('/filter-restaurants', 'Api\RestaurantController@getCategoryFilter');
 Route::get('/restaurants', 'Api\RestaurantController@index');
 Route::get('/restaurants/{id}', 'Api\RestaurantController@show');
