@@ -69,7 +69,26 @@ export default {
                     selected: false,
                 },
             ],
+            restaurants: [],
         };
+    },
+    methods: {
+        fetchRestaurants() {
+            axios
+                .get()
+                .then((res) => {
+                    this.restaurants = res.data;
+                })
+                .catch((err) => {
+                    // TODO
+                })
+                .then(() => {
+                    console.log("Chiamata terminata");
+                });
+        },
+    },
+    mounted() {
+        this.fetchRestaurants();
     },
 };
 </script>
