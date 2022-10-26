@@ -38,7 +38,25 @@ export default {
     data() {
         return {
             placeholder: 'Voglia di qualcosa di buono?',
+            categories: [],
         };
+    },
+    methods: {
+        fetchCategories() {
+            axios.get('http://127.0.0.1:8000/api/home')
+            .then((res) => {
+                this.categories = res.data;
+            })
+            .catch(() => {
+                // todo
+            }) 
+            .then(() => {
+                // todo
+            })
+        }
+    }, 
+    mounted() {
+        this.fetchCategories();
     },
 };
 </script>
