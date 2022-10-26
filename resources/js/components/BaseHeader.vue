@@ -1,38 +1,56 @@
 <template>
-    <header id="navbar" class="d-flex align-items-center justify-content-around">
-        <div id="logo">
-            <h1 class="font-weight-bold">Deliveboo</h1>
-        </div>
+    <header :class="headerHeigth">
+        <div id="navbar" class="container">
+            <h1 id="logo">Deliveboo</h1>
 
-        <div id="button">
-            <a href="/admin">Accedi</a>
+            <a id="access" href="/admin">Accedi</a>
         </div>
     </header>
 </template>
 
 <script>
 export default {
-    name: 'BaseHeader',
-}
+    name: "BaseHeader",
+    props: {
+        routeName: String,
+    },
+    computed: {
+        headerHeigth() {
+            return this.routeName == "home" ? "long-header" : "short-header";
+        },
+    },
+};
 </script>
 
-<style scoped>
-h1 {
-    color: #fc5958;
+<style scoped lang="scss">
+@import "./../../sass/front.scss";
+
+header {
+    background-image: url("/img/jumbotron.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+
+    &.long-header {
+        min-height: 350px;
+    }
+    &.short-header {
+        min-height: 250px;
+    }
 }
-
-a {
-    text-decoration-style: none;
-    color: black;
-
-}
-
-a:hover {
-    color: white;
-}
-
 #navbar {
-    height: 90px;
-}
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    #logo {
+        font-size: 2.5rem;
+        color: $tertiary;
+    }
+
+    #access:hover {
+        color: white;
+    }
+}
 </style>
