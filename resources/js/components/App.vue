@@ -1,38 +1,27 @@
 <template>
     <div class="content">
-        
-
-        
-        <BaseHeader></BaseHeader>
-        
+        <!-- Main Header -->
+        <BaseHeader :routeName="$route.name" />
+        <!-- Main page content with vue routes -->
         <main class="container">
             <router-view></router-view>
         </main>
-
+        <!-- Main Footer -->
         <BaseFooter></BaseFooter>
     </div>
 </template>
 
 <script>
-import BaseHeader from './BaseHeader.vue';
-import BaseFooter from './BaseFooter.vue';
-
+import BaseHeader from "./BaseHeader.vue";
+import BaseFooter from "./BaseFooter.vue";
+import BaseSearchBar from "./BaseSearchBar.vue";
 
 export default {
     name: "App",
-    components: { BaseHeader, BaseFooter }
+    components: { BaseHeader, BaseFooter, BaseSearchBar },
 };
 </script>
 
 <style lang="scss">
-@import '/../../sass/front.scss';
-
-.content {
-    background-image: url('/img/jumbotron.png');
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: contain;
-}
-
-
+@import "/../../sass/front.scss";
 </style>
