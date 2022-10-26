@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Restaurant;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+Route::get('/home', 'Api\HomeController@index');
+Route::get('/restaurants', 'Api\RestaurantController@index');

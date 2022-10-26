@@ -8,6 +8,6 @@ class Category extends Model
 {
     public function restaurants()
     {
-        return $this->belongsToMany('App\Models\Restaurant');
+        return $this->belongsToMany('App\Models\Restaurant')->withPivot('id','category_id', 'restaurant_id');
     }
 }
