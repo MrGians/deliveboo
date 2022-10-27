@@ -54652,8 +54652,8 @@ __webpack_require__.r(__webpack_exports__);
 // import Vue Router
 
 
-
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -54665,13 +54665,13 @@ var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _components_pages_HomePage__WEBPACK_IMPORTED_MODULE_3__["default"],
     name: "home"
   }, {
-    path: "*",
-    component: _components_pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_4__["default"],
-    name: "not-found"
-  }, {
     path: "/restaurant/:id",
     component: _components_pages_RestaurantDetailPage__WEBPACK_IMPORTED_MODULE_2__["default"],
     name: "restaurant.show"
+  }, {
+    path: "*",
+    component: _components_pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_4__["default"],
+    name: "not-found"
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (routes);
