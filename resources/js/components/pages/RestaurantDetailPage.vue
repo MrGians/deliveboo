@@ -88,6 +88,60 @@ export default {
 <style scoped lang="scss">
 @import "./../../../sass/front.scss";
 
+/* UTILS */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.mb-5{
+    margin-bottom: 3rem;  
+}
+.col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.col-md-7 {
+        flex: 0 0 58.33333333%;
+        max-width: 58.33333333%;
+}
+.col-md-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.rounded-5 {
+  border-radius: 50px;
+}
+
+.mt-5{
+    margin-top: 3rem;
+}
+/* UTILS */
+
 .jumbotron{
     background-image: url('/img/header_dettaglio_ristorante.png');
     background-repeat: no-repeat;
@@ -97,7 +151,7 @@ export default {
 }
 
 #title{
-    color: $tertiary;
+    color: #fc5958;
     font-size: 30px;
     padding-top: 20px;
     margin-bottom: 100px;
@@ -109,6 +163,7 @@ export default {
     left: 50%;
     transform: translate(-50%);
 }
+
 
 /* CARD RESTAURANT */
 #card-restaurant{
