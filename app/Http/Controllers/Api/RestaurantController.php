@@ -16,11 +16,10 @@ class RestaurantController extends Controller
      */
     public function index(Request $request)
     {   
-        $filter = $request->query('search');
-        if($filter){
+        $data = explode(',', $request->categories);
 
             
-            $categories = Category::where('label', 'LIKE', "%$filter%")->get();
+            $categories = Category::whereIn('id', $data)->get();
             $restaurants = [];
             $restaurants_ids = [];
             foreach($categories as $category){
@@ -36,7 +35,7 @@ class RestaurantController extends Controller
             }
             
             return response()->json($restaurants);
-        };
+        
     }
 
     /**
