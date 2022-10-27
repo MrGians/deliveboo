@@ -24,30 +24,35 @@
         </div>
     </div>
 
+    <!-- CART -->
+    <div class="container">
+        <ShoppingCart :products="cartProducts"/>
+    </div>
+
     <!-- Menu -->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card rounded-5 mb-3 pb-5 shadow">
-                    <div class="row restaurant_dishes">
+                    <div v-for="product in products" :key="product.id" class="row restaurant_dishes">
                         <div class="col-3">
                             <img src="../../../../public/img/piatto_1.jpg" alt="" class="restaurant_dishes_img">
                         </div>
                         <div class="col-6">
                             <ul class="information-dishes">
-                                <li class="name_dishes">Nome piatto</li>
-                                <li class="category-dishes">Categoria 1 - Categoria 2</li>
-                                <li class="description-dishes">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit error commodi omnis! Minus quae molestias</li>
-                                <li class="allergens-dishes"><i class="fa-solid fa-wheat-awn"></i>Allergeni</li>
-                                <li class="price-dishes"><i class="fa-solid fa-money-bill"></i>23.70</li>
+                                <li class="name_dishes">{{ product.title }}</li>
+                                <li class="price-dishes"><i class="fa-solid fa-money-bill"></i>{{ product.price }}</li>
+                                <li>
+                                    <input type="number" placeholder="quantity" min="1" v-model="product.qty">
+                                </li>
                             </ul>
                         </div>
                         <div class="col-3">
-                            <a href="#" class="add-cart">Aggiungi all'ordine</a>
+                            <button @click="addToCart(product)" class="add-cart">Aggiungi all'ordine</button>
                         </div>
                     </div>
                     <hr>
-                    <div class="row restaurant_dishes">
+                    <!-- <div class="row restaurant_dishes">
                         <div class="col-3">
                             <img src="../../../../public/img/piatto_1.jpg" alt="" class="restaurant_dishes_img">
                         </div>
@@ -63,7 +68,7 @@
                         <div class="col-3">
                             <a href="#" class="add-cart">Aggiungi all'ordine</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -73,8 +78,38 @@
 </template>
 
 <script>
+import ShoppingCart from '../ShoppingCart.vue'
 export default {
+  components: { ShoppingCart },
+    name: 'RestaurantDetailPage',
+    data () {
+        return {
+            products: [
+                {id: 1,title: 'Macbook Pro', price: 2500.00, qty: 1, image: 'http://lorempixel.com/150/150/'},  
+                {id: 2,title: 'Asus ROG Gaming',price: 1000.00, qty: 1,image: 'http://lorempixel.com/150/150/'},  
+                {id: 3,title: 'Amazon Kindle',price: 150.00,qty: 1,image: 'http://lorempixel.com/150/150/'},  
+                {id: 4,title: 'Another Product',price: 10, qty: 1, image: 'http://lorempixel.com/150/150/'},  
+            ],
+            cartProducts: [],
+        }
+    },
 
+    
+    methods: {
+        addToCart(productToAdd) {
+
+            let productInCart = this.cartProducts.filter(product => product.id === productToAdd.id);
+            let isProductInCart = productInCart.length > 0;
+
+            if (isProductInCart === false) {
+                this.cartProducts.push(Vue.util.extend({}, productToAdd));
+            } else {
+                productInCart[0].qty = parseInt(productInCart[0].qty) + parseInt(productToAdd.qty);
+            }
+            
+            productToAdd.qty = 1;
+        }
+    } 
 }
 </script>
 
