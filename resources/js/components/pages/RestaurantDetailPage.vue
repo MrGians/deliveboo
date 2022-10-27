@@ -140,6 +140,10 @@ export default {
 .mt-5{
     margin-top: 3rem;
 }
+
+.pb-5{
+  padding-bottom: 3rem;
+}
 /* UTILS */
 
 .jumbotron{
