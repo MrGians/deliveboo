@@ -1,7 +1,9 @@
 <template>
     <header :class="headerHeigth">
         <div id="navbar" class="container">
-            <h1 id="logo">Deliveboo</h1>
+            <router-link :to="{ name: 'home' }">
+                <h1 id="logo">Deliveboo</h1>
+            </router-link>
 
             <a id="access" href="/admin">Accedi</a>
         </div>
