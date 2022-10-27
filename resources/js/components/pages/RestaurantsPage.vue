@@ -1,28 +1,14 @@
 <template>
     <div id="restaurants-page" class="container">
         <div class="row">
+            <!-- Search Restaurants by Categories Filter -->
             <div class="col-12">
-                <div class="search-box">
-                    <BaseSearchBar
-                        placeholder="Cerca una categoria di ristorante"
-                        :list-item="categories"
-                        @get-input-value="setCategory"
-                    />
-                    <div class="search-btn" @click="fetchRestaurants">
-                        Cerca
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <BaseLabel
-                    v-for="category in categories"
-                    :key="category.id"
-                    :label="category.label"
-                    :number="category.quantity"
-                    :active="category.selected"
+                <BaseSearchBar
+                    :list-item="categories"
+                    @selected-list="setCategories"
                 />
             </div>
-            <div class="col-8">
+            <div class="col-12 restaurants-box">
                 <BaseCard
                     v-for="restaurant in restaurants"
                     :key="restaurant.p_iva"
@@ -69,36 +55,56 @@ export default {
         return {
             categories: [],
             restaurants: [],
-            selectedCategory: null,
+            selectedCategories: [],
+            isFirstSearch: true,
         };
     },
     methods: {
         fetchRestaurants() {
-            console.log("sono il send category");
-            let selectedCategory = this.$route.params.filter;
+            const routeParam = this.$route.params.filter;
+
+            if (this.isFirstSearch && !routeParam) {
+                this.selectedCategories = [0];
+                this.isFirstSearch = false;
+            }
+            if (this.isFirstSearch && routeParam) {
+                if (routeParam.length == 0) {
+                    this.selectedCategories = [0];
+                }
+                this.selectedCategories = routeParam;
+            }
 
             axios
                 .get(
-                    `http://127.0.0.1:8000/api/restaurants?search=${
-                        this.selectedCategory || selectedCategory
-                    }`
+                    `http://127.0.0.1:8000/api/restaurants?categories=${this.selectedCategories}`
                 )
                 .then((res) => {
                     this.restaurants = res.data;
+
+                    this.categories.forEach((el, i) => {
+                        if (el.selected) this.selectedCategories.push(el.id);
+                    });
                 })
                 .catch(() => {
                     // todo
                 })
                 .then(() => {
                     // todo
-                    console.log("post finish");
                 });
         },
         fetchCategories() {
             axios
                 .get("http://127.0.0.1:8000/api/home")
                 .then((res) => {
-                    this.categories = res.data;
+                    const result = res.data;
+                    result.forEach((element, i) => {
+                        element.selected = false;
+
+                        if (this.selectedCategories.includes(element.id)) {
+                            element.selected = true;
+                        }
+                    });
+                    this.categories = result;
                 })
                 .catch(() => {
                     // todo
@@ -107,13 +113,29 @@ export default {
                     // todo
                 });
         },
-        setCategory(value) {
-            this.selectedCategory = value;
+        setCategories(value) {
+            if (this.isFirstSearch) {
+                const routeParam = this.$route.params.filter;
+                routeParam.forEach((param) => {
+                    if (!value.includes(param)) value.push(param);
+                });
+                this.isFirstSearch = false;
+            }
+
+            this.selectedCategories = value;
+            this.fetchRestaurants();
+            this.selectedCategories = [];
         },
     },
-    mounted() {
-        this.fetchRestaurants();
+    beforeMount() {
         this.fetchCategories();
+        console.log("before mount");
+        console.log(this.selectedCategories);
+    },
+    mounted() {
+        console.log("mount");
+        console.log(this.selectedCategories);
+        this.fetchRestaurants();
     },
 };
 </script>
@@ -138,51 +160,20 @@ export default {
         .col-12 {
             flex: 0 0 100%;
             max-width: 100%;
-            .search-box {
-                position: relative;
-                width: 100%;
+
+            &.restaurants-box {
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 2rem;
-            }
+                justify-content: space-between;
+                flex-wrap: wrap;
 
-            .search-btn {
-                display: inline-block;
-                padding: 0.6rem 1.2rem;
-                border: 2px solid $tertiary;
-                background-color: $tertiary;
-                color: white;
-                border-radius: 30px;
-                margin-left: 1rem;
-                transition: all 0.35s;
-
-                &:hover {
-                    background-color: white;
-                    color: $tertiary;
+                & > * {
+                    width: 30%;
                 }
-            }
-        }
-        .col-4 {
-            flex: 0 0 33.33333333%;
-            max-width: 33.33333333%;
-        }
 
-        .col-8 {
-            flex: 0 0 66.66666667%;
-            max-width: 66.66666667%;
-
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-
-            & > * {
-                width: 30%;
-            }
-
-            .restaurant-category {
-                font-size: 0.7rem;
-                font-weight: bold;
+                .restaurant-category {
+                    font-size: 0.7rem;
+                    font-weight: bold;
+                }
             }
         }
     }
