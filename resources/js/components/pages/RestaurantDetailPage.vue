@@ -102,11 +102,13 @@ export default {
 .col-3 {
     flex: 0 0 25%;
     max-width: 25%;
+    padding: 0px 10px;
 }
 
 .col-6 {
     flex: 0 0 50%;
     max-width: 50%;
+    padding: 0px 10px;
 }
 .col-md-7 {
         flex: 0 0 58.33333333%;
