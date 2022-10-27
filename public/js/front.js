@@ -1975,6 +1975,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BaseHeader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../BaseHeader.vue */ "./resources/js/components/BaseHeader.vue");
 /* harmony import */ var _BaseSearchBar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../BaseSearchBar.vue */ "./resources/js/components/BaseSearchBar.vue");
 /* harmony import */ var _BaseCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../BaseCard.vue */ "./resources/js/components/BaseCard.vue");
+/* harmony import */ var _RestaurantDetailPage_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RestaurantDetailPage.vue */ "./resources/js/components/pages/RestaurantDetailPage.vue");
+
 
 
 
@@ -1983,7 +1985,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     BaseSearchBar: _BaseSearchBar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     BaseCard: _BaseCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    BaseHeader: _BaseHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    BaseHeader: _BaseHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    RestaurantDetailPage: _RestaurantDetailPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -2006,6 +2009,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App"
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -2204,6 +2220,153 @@ var render = function render() {
   return _c("p", [_vm._v("Sono il Not Found")]);
 };
 var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=template&id=01e9bdb3&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=template&id=01e9bdb3&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _vm._m(0);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("section", {
+    attrs: {
+      id: "restaurant-detail"
+    }
+  }, [_c("div", {
+    staticClass: "jumbotron"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    attrs: {
+      id: "title"
+    }
+  }, [_c("h1", [_vm._v("Deliveboo")])]), _vm._v(" "), _c("div", {
+    staticClass: "row justify-content-center mb-5",
+    attrs: {
+      id: "card-restaurant"
+    }
+  }, [_c("div", {
+    staticClass: "col-md-7"
+  }, [_c("div", {
+    staticClass: "card rounded-5 mt-5 mb-5 shadow"
+  }, [_c("div", {
+    staticClass: "text-center"
+  }, [_c("div", {
+    attrs: {
+      id: "logo"
+    }
+  }, [_c("span", {
+    staticClass: "text-logo"
+  }, [_vm._v("LOGO")])]), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("ul", {
+    staticClass: "information-restaurant"
+  }, [_c("li", {
+    staticClass: "title-restaurant-card"
+  }, [_vm._v("Nome Ristorante")]), _vm._v(" "), _c("li", {
+    staticClass: "category"
+  }, [_vm._v("Categoria 1 Categoria 2")]), _vm._v(" "), _c("li", {
+    staticClass: "address"
+  }, [_vm._v("Via delle Belle Arti 2a, Bologna, 40162")]), _vm._v(" "), _c("li", {
+    staticClass: "option"
+  }, [_vm._v("Consegna gratis | Oridne minimo 10€")]), _vm._v(" "), _c("li", {
+    staticClass: "p-iva"
+  }, [_vm._v("P.IVA: 006354267")])])])])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row justify-content-center"
+  }, [_c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "card rounded-5 mt-5 pb-5 shadow"
+  }, [_c("div", {
+    staticClass: "row restaurant_dishes"
+  }, [_c("div", {
+    staticClass: "col-3"
+  }, [_c("img", {
+    staticClass: "restaurant_dishes_img",
+    attrs: {
+      src: __webpack_require__(/*! ../../../../public/img/piatto_1.jpg */ "./public/img/piatto_1.jpg"),
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("ul", {
+    staticClass: "information-dishes"
+  }, [_c("li", {
+    staticClass: "name_dishes"
+  }, [_vm._v("Nome piatto")]), _vm._v(" "), _c("li", {
+    staticClass: "category-dishes"
+  }, [_vm._v("Categoria 1 - Categoria 2")]), _vm._v(" "), _c("li", {
+    staticClass: "description-dishes"
+  }, [_vm._v("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit error commodi omnis! Minus quae molestias")]), _vm._v(" "), _c("li", {
+    staticClass: "allergens-dishes"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-wheat-awn"
+  }), _vm._v("Allergeni")]), _vm._v(" "), _c("li", {
+    staticClass: "price-dishes"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-money-bill"
+  }), _vm._v("23.70")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-3"
+  }, [_c("a", {
+    staticClass: "add-cart",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Aggiungi all'ordine")])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "row restaurant_dishes"
+  }, [_c("div", {
+    staticClass: "col-3"
+  }, [_c("img", {
+    staticClass: "restaurant_dishes_img",
+    attrs: {
+      src: __webpack_require__(/*! ../../../../public/img/piatto_1.jpg */ "./public/img/piatto_1.jpg"),
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("ul", {
+    staticClass: "information-dishes"
+  }, [_c("li", {
+    staticClass: "name_dishes"
+  }, [_vm._v("Nome piatto")]), _vm._v(" "), _c("li", {
+    staticClass: "category-dishes"
+  }, [_vm._v("Categoria 1 - Categoria 2")]), _vm._v(" "), _c("li", {
+    staticClass: "description-dishes"
+  }, [_vm._v("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit error commodi omnis! Minus quae molestias")]), _vm._v(" "), _c("li", {
+    staticClass: "allergens-dishes"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-wheat-awn"
+  }), _vm._v("Allergeni")]), _vm._v(" "), _c("li", {
+    staticClass: "price-dishes"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-money-bill"
+  }), _vm._v("23.70")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-3"
+  }, [_c("a", {
+    staticClass: "add-cart",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Aggiungi all'ordine")])])])])])])])]);
+}];
 render._withStripped = true;
 
 
@@ -6587,7 +6750,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Nunito);", ""]);
 
 // module
-exports.push([module.i, "* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n  font-family: \"Roboto Mono\", monospace;\n}\na {\n  text-decoration: none;\n}\n.rounded-5 {\n  border-radius: 50px;\n}\n.left-and-right-line {\n  display: flex;\n  align-items: center;\n}\n.left-and-right-line > hr {\n  flex-grow: 1;\n  width: 20%;\n}\n.left-and-right-line > h6 {\n  flex-grow: 1;\n  width: 50%;\n}\n.shadow {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n}\n.padding {\n  padding: 200px 200px;\n}\n.d-flex {\n  display: flex;\n}\n.align-items-center {\n  align-items: center;\n}\n.justify-content-between {\n  justify-content: space-between;\n}\n.justify-content-around {\n  justify-content: space-around;\n}\n.justify-content-center {\n  justify-content: center;\n}\n.text-center {\n  text-align: center;\n}\n.container,\n.container-fluid,\n.container-xl,\n.container-lg,\n.container-md,\n.container-sm {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n@media (min-width: 576px) {\n.container-sm,\n.container {\n    max-width: 540px;\n}\n}\n@media (min-width: 768px) {\n.container-md,\n.container-sm,\n.container {\n    max-width: 720px;\n}\n}\n@media (min-width: 992px) {\n.container-lg,\n.container-md,\n.container-sm,\n.container {\n    max-width: 960px;\n}\n}\n@media (min-width: 1200px) {\n.container-xl,\n.container-lg,\n.container-md,\n.container-sm,\n.container {\n    max-width: 1140px;\n}\n}\n.row {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.no-gutters {\n  margin-right: 0;\n  margin-left: 0;\n}\n.no-gutters > .col,\n.no-gutters > [class*=col-] {\n  padding-right: 0;\n  padding-left: 0;\n}\n.col-xl,\n.col-xl-auto,\n.col-xl-12,\n.col-xl-11,\n.col-xl-10,\n.col-xl-9,\n.col-xl-8,\n.col-xl-7,\n.col-xl-6,\n.col-xl-5,\n.col-xl-4,\n.col-xl-3,\n.col-xl-2,\n.col-xl-1,\n.col-lg,\n.col-lg-auto,\n.col-lg-12,\n.col-lg-11,\n.col-lg-10,\n.col-lg-9,\n.col-lg-8,\n.col-lg-7,\n.col-lg-6,\n.col-lg-5,\n.col-lg-4,\n.col-lg-3,\n.col-lg-2,\n.col-lg-1,\n.col-md,\n.col-md-auto,\n.col-md-12,\n.col-md-11,\n.col-md-10,\n.col-md-9,\n.col-md-8,\n.col-md-7,\n.col-md-6,\n.col-md-5,\n.col-md-4,\n.col-md-3,\n.col-md-2,\n.col-md-1,\n.col-sm,\n.col-sm-auto,\n.col-sm-12,\n.col-sm-11,\n.col-sm-10,\n.col-sm-9,\n.col-sm-8,\n.col-sm-7,\n.col-sm-6,\n.col-sm-5,\n.col-sm-4,\n.col-sm-3,\n.col-sm-2,\n.col-sm-1,\n.col,\n.col-auto,\n.col-12,\n.col-11,\n.col-10,\n.col-9,\n.col-8,\n.col-7,\n.col-6,\n.col-5,\n.col-4,\n.col-3,\n.col-2,\n.col-1 {\n  position: relative;\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n.col {\n  flex-basis: 0;\n  flex-grow: 1;\n  max-width: 100%;\n}\n.row-cols-1 > * {\n  flex: 0 0 100%;\n  max-width: 100%;\n}\n.row-cols-2 > * {\n  flex: 0 0 50%;\n  max-width: 50%;\n}\n.row-cols-3 > * {\n  flex: 0 0 33.3333333333%;\n  max-width: 33.3333333333%;\n}\n.row-cols-4 > * {\n  flex: 0 0 25%;\n  max-width: 25%;\n}\n.row-cols-5 > * {\n  flex: 0 0 20%;\n  max-width: 20%;\n}\n.row-cols-6 > * {\n  flex: 0 0 16.6666666667%;\n  max-width: 16.6666666667%;\n}\n.col-auto {\n  flex: 0 0 auto;\n  width: auto;\n  max-width: 100%;\n}\n.col-1 {\n  flex: 0 0 8.33333333%;\n  max-width: 8.33333333%;\n}\n.col-2 {\n  flex: 0 0 16.66666667%;\n  max-width: 16.66666667%;\n}\n.col-3 {\n  flex: 0 0 25%;\n  max-width: 25%;\n}\n.col-4 {\n  flex: 0 0 33.33333333%;\n  max-width: 33.33333333%;\n}\n.col-5 {\n  flex: 0 0 41.66666667%;\n  max-width: 41.66666667%;\n}\n.col-6 {\n  flex: 0 0 50%;\n  max-width: 50%;\n}\n.col-7 {\n  flex: 0 0 58.33333333%;\n  max-width: 58.33333333%;\n}\n.col-8 {\n  flex: 0 0 66.66666667%;\n  max-width: 66.66666667%;\n}\n.col-9 {\n  flex: 0 0 75%;\n  max-width: 75%;\n}\n.col-10 {\n  flex: 0 0 83.33333333%;\n  max-width: 83.33333333%;\n}\n.col-11 {\n  flex: 0 0 91.66666667%;\n  max-width: 91.66666667%;\n}\n.col-12 {\n  flex: 0 0 100%;\n  max-width: 100%;\n}\n.order-first {\n  order: -1;\n}\n.order-last {\n  order: 13;\n}\n.order-0 {\n  order: 0;\n}\n.order-1 {\n  order: 1;\n}\n.order-2 {\n  order: 2;\n}\n.order-3 {\n  order: 3;\n}\n.order-4 {\n  order: 4;\n}\n.order-5 {\n  order: 5;\n}\n.order-6 {\n  order: 6;\n}\n.order-7 {\n  order: 7;\n}\n.order-8 {\n  order: 8;\n}\n.order-9 {\n  order: 9;\n}\n.order-10 {\n  order: 10;\n}\n.order-11 {\n  order: 11;\n}\n.order-12 {\n  order: 12;\n}\n.offset-1 {\n  margin-left: 8.33333333%;\n}\n.offset-2 {\n  margin-left: 16.66666667%;\n}\n.offset-3 {\n  margin-left: 25%;\n}\n.offset-4 {\n  margin-left: 33.33333333%;\n}\n.offset-5 {\n  margin-left: 41.66666667%;\n}\n.offset-6 {\n  margin-left: 50%;\n}\n.offset-7 {\n  margin-left: 58.33333333%;\n}\n.offset-8 {\n  margin-left: 66.66666667%;\n}\n.offset-9 {\n  margin-left: 75%;\n}\n.offset-10 {\n  margin-left: 83.33333333%;\n}\n.offset-11 {\n  margin-left: 91.66666667%;\n}\n@media (min-width: 576px) {\n.col-sm {\n    flex-basis: 0;\n    flex-grow: 1;\n    max-width: 100%;\n}\n.row-cols-sm-1 > * {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.row-cols-sm-2 > * {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.row-cols-sm-3 > * {\n    flex: 0 0 33.3333333333%;\n    max-width: 33.3333333333%;\n}\n.row-cols-sm-4 > * {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.row-cols-sm-5 > * {\n    flex: 0 0 20%;\n    max-width: 20%;\n}\n.row-cols-sm-6 > * {\n    flex: 0 0 16.6666666667%;\n    max-width: 16.6666666667%;\n}\n.col-sm-auto {\n    flex: 0 0 auto;\n    width: auto;\n    max-width: 100%;\n}\n.col-sm-1 {\n    flex: 0 0 8.33333333%;\n    max-width: 8.33333333%;\n}\n.col-sm-2 {\n    flex: 0 0 16.66666667%;\n    max-width: 16.66666667%;\n}\n.col-sm-3 {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-sm-4 {\n    flex: 0 0 33.33333333%;\n    max-width: 33.33333333%;\n}\n.col-sm-5 {\n    flex: 0 0 41.66666667%;\n    max-width: 41.66666667%;\n}\n.col-sm-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-sm-7 {\n    flex: 0 0 58.33333333%;\n    max-width: 58.33333333%;\n}\n.col-sm-8 {\n    flex: 0 0 66.66666667%;\n    max-width: 66.66666667%;\n}\n.col-sm-9 {\n    flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-sm-10 {\n    flex: 0 0 83.33333333%;\n    max-width: 83.33333333%;\n}\n.col-sm-11 {\n    flex: 0 0 91.66666667%;\n    max-width: 91.66666667%;\n}\n.col-sm-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-sm-first {\n    order: -1;\n}\n.order-sm-last {\n    order: 13;\n}\n.order-sm-0 {\n    order: 0;\n}\n.order-sm-1 {\n    order: 1;\n}\n.order-sm-2 {\n    order: 2;\n}\n.order-sm-3 {\n    order: 3;\n}\n.order-sm-4 {\n    order: 4;\n}\n.order-sm-5 {\n    order: 5;\n}\n.order-sm-6 {\n    order: 6;\n}\n.order-sm-7 {\n    order: 7;\n}\n.order-sm-8 {\n    order: 8;\n}\n.order-sm-9 {\n    order: 9;\n}\n.order-sm-10 {\n    order: 10;\n}\n.order-sm-11 {\n    order: 11;\n}\n.order-sm-12 {\n    order: 12;\n}\n.offset-sm-0 {\n    margin-left: 0;\n}\n.offset-sm-1 {\n    margin-left: 8.33333333%;\n}\n.offset-sm-2 {\n    margin-left: 16.66666667%;\n}\n.offset-sm-3 {\n    margin-left: 25%;\n}\n.offset-sm-4 {\n    margin-left: 33.33333333%;\n}\n.offset-sm-5 {\n    margin-left: 41.66666667%;\n}\n.offset-sm-6 {\n    margin-left: 50%;\n}\n.offset-sm-7 {\n    margin-left: 58.33333333%;\n}\n.offset-sm-8 {\n    margin-left: 66.66666667%;\n}\n.offset-sm-9 {\n    margin-left: 75%;\n}\n.offset-sm-10 {\n    margin-left: 83.33333333%;\n}\n.offset-sm-11 {\n    margin-left: 91.66666667%;\n}\n}\n@media (min-width: 768px) {\n.col-md {\n    flex-basis: 0;\n    flex-grow: 1;\n    max-width: 100%;\n}\n.row-cols-md-1 > * {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.row-cols-md-2 > * {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.row-cols-md-3 > * {\n    flex: 0 0 33.3333333333%;\n    max-width: 33.3333333333%;\n}\n.row-cols-md-4 > * {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.row-cols-md-5 > * {\n    flex: 0 0 20%;\n    max-width: 20%;\n}\n.row-cols-md-6 > * {\n    flex: 0 0 16.6666666667%;\n    max-width: 16.6666666667%;\n}\n.col-md-auto {\n    flex: 0 0 auto;\n    width: auto;\n    max-width: 100%;\n}\n.col-md-1 {\n    flex: 0 0 8.33333333%;\n    max-width: 8.33333333%;\n}\n.col-md-2 {\n    flex: 0 0 16.66666667%;\n    max-width: 16.66666667%;\n}\n.col-md-3 {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-md-4 {\n    flex: 0 0 33.33333333%;\n    max-width: 33.33333333%;\n}\n.col-md-5 {\n    flex: 0 0 41.66666667%;\n    max-width: 41.66666667%;\n}\n.col-md-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-md-7 {\n    flex: 0 0 58.33333333%;\n    max-width: 58.33333333%;\n}\n.col-md-8 {\n    flex: 0 0 66.66666667%;\n    max-width: 66.66666667%;\n}\n.col-md-9 {\n    flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-md-10 {\n    flex: 0 0 83.33333333%;\n    max-width: 83.33333333%;\n}\n.col-md-11 {\n    flex: 0 0 91.66666667%;\n    max-width: 91.66666667%;\n}\n.col-md-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-md-first {\n    order: -1;\n}\n.order-md-last {\n    order: 13;\n}\n.order-md-0 {\n    order: 0;\n}\n.order-md-1 {\n    order: 1;\n}\n.order-md-2 {\n    order: 2;\n}\n.order-md-3 {\n    order: 3;\n}\n.order-md-4 {\n    order: 4;\n}\n.order-md-5 {\n    order: 5;\n}\n.order-md-6 {\n    order: 6;\n}\n.order-md-7 {\n    order: 7;\n}\n.order-md-8 {\n    order: 8;\n}\n.order-md-9 {\n    order: 9;\n}\n.order-md-10 {\n    order: 10;\n}\n.order-md-11 {\n    order: 11;\n}\n.order-md-12 {\n    order: 12;\n}\n.offset-md-0 {\n    margin-left: 0;\n}\n.offset-md-1 {\n    margin-left: 8.33333333%;\n}\n.offset-md-2 {\n    margin-left: 16.66666667%;\n}\n.offset-md-3 {\n    margin-left: 25%;\n}\n.offset-md-4 {\n    margin-left: 33.33333333%;\n}\n.offset-md-5 {\n    margin-left: 41.66666667%;\n}\n.offset-md-6 {\n    margin-left: 50%;\n}\n.offset-md-7 {\n    margin-left: 58.33333333%;\n}\n.offset-md-8 {\n    margin-left: 66.66666667%;\n}\n.offset-md-9 {\n    margin-left: 75%;\n}\n.offset-md-10 {\n    margin-left: 83.33333333%;\n}\n.offset-md-11 {\n    margin-left: 91.66666667%;\n}\n}\n@media (min-width: 992px) {\n.col-lg {\n    flex-basis: 0;\n    flex-grow: 1;\n    max-width: 100%;\n}\n.row-cols-lg-1 > * {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.row-cols-lg-2 > * {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.row-cols-lg-3 > * {\n    flex: 0 0 33.3333333333%;\n    max-width: 33.3333333333%;\n}\n.row-cols-lg-4 > * {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.row-cols-lg-5 > * {\n    flex: 0 0 20%;\n    max-width: 20%;\n}\n.row-cols-lg-6 > * {\n    flex: 0 0 16.6666666667%;\n    max-width: 16.6666666667%;\n}\n.col-lg-auto {\n    flex: 0 0 auto;\n    width: auto;\n    max-width: 100%;\n}\n.col-lg-1 {\n    flex: 0 0 8.33333333%;\n    max-width: 8.33333333%;\n}\n.col-lg-2 {\n    flex: 0 0 16.66666667%;\n    max-width: 16.66666667%;\n}\n.col-lg-3 {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-lg-4 {\n    flex: 0 0 33.33333333%;\n    max-width: 33.33333333%;\n}\n.col-lg-5 {\n    flex: 0 0 41.66666667%;\n    max-width: 41.66666667%;\n}\n.col-lg-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-lg-7 {\n    flex: 0 0 58.33333333%;\n    max-width: 58.33333333%;\n}\n.col-lg-8 {\n    flex: 0 0 66.66666667%;\n    max-width: 66.66666667%;\n}\n.col-lg-9 {\n    flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-lg-10 {\n    flex: 0 0 83.33333333%;\n    max-width: 83.33333333%;\n}\n.col-lg-11 {\n    flex: 0 0 91.66666667%;\n    max-width: 91.66666667%;\n}\n.col-lg-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-lg-first {\n    order: -1;\n}\n.order-lg-last {\n    order: 13;\n}\n.order-lg-0 {\n    order: 0;\n}\n.order-lg-1 {\n    order: 1;\n}\n.order-lg-2 {\n    order: 2;\n}\n.order-lg-3 {\n    order: 3;\n}\n.order-lg-4 {\n    order: 4;\n}\n.order-lg-5 {\n    order: 5;\n}\n.order-lg-6 {\n    order: 6;\n}\n.order-lg-7 {\n    order: 7;\n}\n.order-lg-8 {\n    order: 8;\n}\n.order-lg-9 {\n    order: 9;\n}\n.order-lg-10 {\n    order: 10;\n}\n.order-lg-11 {\n    order: 11;\n}\n.order-lg-12 {\n    order: 12;\n}\n.offset-lg-0 {\n    margin-left: 0;\n}\n.offset-lg-1 {\n    margin-left: 8.33333333%;\n}\n.offset-lg-2 {\n    margin-left: 16.66666667%;\n}\n.offset-lg-3 {\n    margin-left: 25%;\n}\n.offset-lg-4 {\n    margin-left: 33.33333333%;\n}\n.offset-lg-5 {\n    margin-left: 41.66666667%;\n}\n.offset-lg-6 {\n    margin-left: 50%;\n}\n.offset-lg-7 {\n    margin-left: 58.33333333%;\n}\n.offset-lg-8 {\n    margin-left: 66.66666667%;\n}\n.offset-lg-9 {\n    margin-left: 75%;\n}\n.offset-lg-10 {\n    margin-left: 83.33333333%;\n}\n.offset-lg-11 {\n    margin-left: 91.66666667%;\n}\n}\n@media (min-width: 1200px) {\n.col-xl {\n    flex-basis: 0;\n    flex-grow: 1;\n    max-width: 100%;\n}\n.row-cols-xl-1 > * {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.row-cols-xl-2 > * {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.row-cols-xl-3 > * {\n    flex: 0 0 33.3333333333%;\n    max-width: 33.3333333333%;\n}\n.row-cols-xl-4 > * {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.row-cols-xl-5 > * {\n    flex: 0 0 20%;\n    max-width: 20%;\n}\n.row-cols-xl-6 > * {\n    flex: 0 0 16.6666666667%;\n    max-width: 16.6666666667%;\n}\n.col-xl-auto {\n    flex: 0 0 auto;\n    width: auto;\n    max-width: 100%;\n}\n.col-xl-1 {\n    flex: 0 0 8.33333333%;\n    max-width: 8.33333333%;\n}\n.col-xl-2 {\n    flex: 0 0 16.66666667%;\n    max-width: 16.66666667%;\n}\n.col-xl-3 {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-xl-4 {\n    flex: 0 0 33.33333333%;\n    max-width: 33.33333333%;\n}\n.col-xl-5 {\n    flex: 0 0 41.66666667%;\n    max-width: 41.66666667%;\n}\n.col-xl-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-xl-7 {\n    flex: 0 0 58.33333333%;\n    max-width: 58.33333333%;\n}\n.col-xl-8 {\n    flex: 0 0 66.66666667%;\n    max-width: 66.66666667%;\n}\n.col-xl-9 {\n    flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-xl-10 {\n    flex: 0 0 83.33333333%;\n    max-width: 83.33333333%;\n}\n.col-xl-11 {\n    flex: 0 0 91.66666667%;\n    max-width: 91.66666667%;\n}\n.col-xl-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-xl-first {\n    order: -1;\n}\n.order-xl-last {\n    order: 13;\n}\n.order-xl-0 {\n    order: 0;\n}\n.order-xl-1 {\n    order: 1;\n}\n.order-xl-2 {\n    order: 2;\n}\n.order-xl-3 {\n    order: 3;\n}\n.order-xl-4 {\n    order: 4;\n}\n.order-xl-5 {\n    order: 5;\n}\n.order-xl-6 {\n    order: 6;\n}\n.order-xl-7 {\n    order: 7;\n}\n.order-xl-8 {\n    order: 8;\n}\n.order-xl-9 {\n    order: 9;\n}\n.order-xl-10 {\n    order: 10;\n}\n.order-xl-11 {\n    order: 11;\n}\n.order-xl-12 {\n    order: 12;\n}\n.offset-xl-0 {\n    margin-left: 0;\n}\n.offset-xl-1 {\n    margin-left: 8.33333333%;\n}\n.offset-xl-2 {\n    margin-left: 16.66666667%;\n}\n.offset-xl-3 {\n    margin-left: 25%;\n}\n.offset-xl-4 {\n    margin-left: 33.33333333%;\n}\n.offset-xl-5 {\n    margin-left: 41.66666667%;\n}\n.offset-xl-6 {\n    margin-left: 50%;\n}\n.offset-xl-7 {\n    margin-left: 58.33333333%;\n}\n.offset-xl-8 {\n    margin-left: 66.66666667%;\n}\n.offset-xl-9 {\n    margin-left: 75%;\n}\n.offset-xl-10 {\n    margin-left: 83.33333333%;\n}\n.offset-xl-11 {\n    margin-left: 91.66666667%;\n}\n}", ""]);
+exports.push([module.i, "* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n  font-family: \"Roboto Mono\", monospace;\n}\na {\n  text-decoration: none;\n}\n.rounded-5 {\n  border-radius: 50px;\n}\n#myModal.modal {\n  display: none;\n  position: fixed;\n  z-index: 10;\n  padding-top: 100px;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: auto;\n  background-color: rgba(0, 0, 0, 0.4);\n  /* Modal Content */\n}\n#myModal.modal .modal-content {\n  background-color: #fefefe;\n  margin: auto;\n  padding: 20px;\n  border: 1px solid #888;\n  width: 50%;\n}\n#myModal.modal .btn-box {\n  display: flex;\n  justify-content: space-between;\n}\n#myModal.modal .btn-box > * {\n  width: 100px;\n  margin: 0 auto;\n}\n.left-and-right-line {\n  display: flex;\n  align-items: center;\n}\n.left-and-right-line > hr {\n  flex-grow: 1;\n  width: 20%;\n}\n.left-and-right-line > h6 {\n  flex-grow: 1;\n  width: 50%;\n}\n.shadow {\n  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;\n}\n.padding {\n  padding: 200px 200px;\n}\n.d-flex {\n  display: flex;\n}\n.align-items-center {\n  align-items: center;\n}\n.justify-content-between {\n  justify-content: space-between;\n}\n.justify-content-around {\n  justify-content: space-around;\n}\n.justify-content-center {\n  justify-content: center;\n}\n.text-center {\n  text-align: center;\n}\n.container,\n.container-fluid,\n.container-xl,\n.container-lg,\n.container-md,\n.container-sm {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n@media (min-width: 576px) {\n.container-sm,\n.container {\n    max-width: 540px;\n}\n}\n@media (min-width: 768px) {\n.container-md,\n.container-sm,\n.container {\n    max-width: 720px;\n}\n}\n@media (min-width: 992px) {\n.container-lg,\n.container-md,\n.container-sm,\n.container {\n    max-width: 960px;\n}\n}\n@media (min-width: 1200px) {\n.container-xl,\n.container-lg,\n.container-md,\n.container-sm,\n.container {\n    max-width: 1140px;\n}\n}\n.row {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.no-gutters {\n  margin-right: 0;\n  margin-left: 0;\n}\n.no-gutters > .col,\n.no-gutters > [class*=col-] {\n  padding-right: 0;\n  padding-left: 0;\n}\n.col-xl,\n.col-xl-auto,\n.col-xl-12,\n.col-xl-11,\n.col-xl-10,\n.col-xl-9,\n.col-xl-8,\n.col-xl-7,\n.col-xl-6,\n.col-xl-5,\n.col-xl-4,\n.col-xl-3,\n.col-xl-2,\n.col-xl-1,\n.col-lg,\n.col-lg-auto,\n.col-lg-12,\n.col-lg-11,\n.col-lg-10,\n.col-lg-9,\n.col-lg-8,\n.col-lg-7,\n.col-lg-6,\n.col-lg-5,\n.col-lg-4,\n.col-lg-3,\n.col-lg-2,\n.col-lg-1,\n.col-md,\n.col-md-auto,\n.col-md-12,\n.col-md-11,\n.col-md-10,\n.col-md-9,\n.col-md-8,\n.col-md-7,\n.col-md-6,\n.col-md-5,\n.col-md-4,\n.col-md-3,\n.col-md-2,\n.col-md-1,\n.col-sm,\n.col-sm-auto,\n.col-sm-12,\n.col-sm-11,\n.col-sm-10,\n.col-sm-9,\n.col-sm-8,\n.col-sm-7,\n.col-sm-6,\n.col-sm-5,\n.col-sm-4,\n.col-sm-3,\n.col-sm-2,\n.col-sm-1,\n.col,\n.col-auto,\n.col-12,\n.col-11,\n.col-10,\n.col-9,\n.col-8,\n.col-7,\n.col-6,\n.col-5,\n.col-4,\n.col-3,\n.col-2,\n.col-1 {\n  position: relative;\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n.col {\n  flex-basis: 0;\n  flex-grow: 1;\n  max-width: 100%;\n}\n.row-cols-1 > * {\n  flex: 0 0 100%;\n  max-width: 100%;\n}\n.row-cols-2 > * {\n  flex: 0 0 50%;\n  max-width: 50%;\n}\n.row-cols-3 > * {\n  flex: 0 0 33.3333333333%;\n  max-width: 33.3333333333%;\n}\n.row-cols-4 > * {\n  flex: 0 0 25%;\n  max-width: 25%;\n}\n.row-cols-5 > * {\n  flex: 0 0 20%;\n  max-width: 20%;\n}\n.row-cols-6 > * {\n  flex: 0 0 16.6666666667%;\n  max-width: 16.6666666667%;\n}\n.col-auto {\n  flex: 0 0 auto;\n  width: auto;\n  max-width: 100%;\n}\n.col-1 {\n  flex: 0 0 8.33333333%;\n  max-width: 8.33333333%;\n}\n.col-2 {\n  flex: 0 0 16.66666667%;\n  max-width: 16.66666667%;\n}\n.col-3 {\n  flex: 0 0 25%;\n  max-width: 25%;\n}\n.col-4 {\n  flex: 0 0 33.33333333%;\n  max-width: 33.33333333%;\n}\n.col-5 {\n  flex: 0 0 41.66666667%;\n  max-width: 41.66666667%;\n}\n.col-6 {\n  flex: 0 0 50%;\n  max-width: 50%;\n}\n.col-7 {\n  flex: 0 0 58.33333333%;\n  max-width: 58.33333333%;\n}\n.col-8 {\n  flex: 0 0 66.66666667%;\n  max-width: 66.66666667%;\n}\n.col-9 {\n  flex: 0 0 75%;\n  max-width: 75%;\n}\n.col-10 {\n  flex: 0 0 83.33333333%;\n  max-width: 83.33333333%;\n}\n.col-11 {\n  flex: 0 0 91.66666667%;\n  max-width: 91.66666667%;\n}\n.col-12 {\n  flex: 0 0 100%;\n  max-width: 100%;\n}\n.order-first {\n  order: -1;\n}\n.order-last {\n  order: 13;\n}\n.order-0 {\n  order: 0;\n}\n.order-1 {\n  order: 1;\n}\n.order-2 {\n  order: 2;\n}\n.order-3 {\n  order: 3;\n}\n.order-4 {\n  order: 4;\n}\n.order-5 {\n  order: 5;\n}\n.order-6 {\n  order: 6;\n}\n.order-7 {\n  order: 7;\n}\n.order-8 {\n  order: 8;\n}\n.order-9 {\n  order: 9;\n}\n.order-10 {\n  order: 10;\n}\n.order-11 {\n  order: 11;\n}\n.order-12 {\n  order: 12;\n}\n.offset-1 {\n  margin-left: 8.33333333%;\n}\n.offset-2 {\n  margin-left: 16.66666667%;\n}\n.offset-3 {\n  margin-left: 25%;\n}\n.offset-4 {\n  margin-left: 33.33333333%;\n}\n.offset-5 {\n  margin-left: 41.66666667%;\n}\n.offset-6 {\n  margin-left: 50%;\n}\n.offset-7 {\n  margin-left: 58.33333333%;\n}\n.offset-8 {\n  margin-left: 66.66666667%;\n}\n.offset-9 {\n  margin-left: 75%;\n}\n.offset-10 {\n  margin-left: 83.33333333%;\n}\n.offset-11 {\n  margin-left: 91.66666667%;\n}\n@media (min-width: 576px) {\n.col-sm {\n    flex-basis: 0;\n    flex-grow: 1;\n    max-width: 100%;\n}\n.row-cols-sm-1 > * {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.row-cols-sm-2 > * {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.row-cols-sm-3 > * {\n    flex: 0 0 33.3333333333%;\n    max-width: 33.3333333333%;\n}\n.row-cols-sm-4 > * {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.row-cols-sm-5 > * {\n    flex: 0 0 20%;\n    max-width: 20%;\n}\n.row-cols-sm-6 > * {\n    flex: 0 0 16.6666666667%;\n    max-width: 16.6666666667%;\n}\n.col-sm-auto {\n    flex: 0 0 auto;\n    width: auto;\n    max-width: 100%;\n}\n.col-sm-1 {\n    flex: 0 0 8.33333333%;\n    max-width: 8.33333333%;\n}\n.col-sm-2 {\n    flex: 0 0 16.66666667%;\n    max-width: 16.66666667%;\n}\n.col-sm-3 {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-sm-4 {\n    flex: 0 0 33.33333333%;\n    max-width: 33.33333333%;\n}\n.col-sm-5 {\n    flex: 0 0 41.66666667%;\n    max-width: 41.66666667%;\n}\n.col-sm-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-sm-7 {\n    flex: 0 0 58.33333333%;\n    max-width: 58.33333333%;\n}\n.col-sm-8 {\n    flex: 0 0 66.66666667%;\n    max-width: 66.66666667%;\n}\n.col-sm-9 {\n    flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-sm-10 {\n    flex: 0 0 83.33333333%;\n    max-width: 83.33333333%;\n}\n.col-sm-11 {\n    flex: 0 0 91.66666667%;\n    max-width: 91.66666667%;\n}\n.col-sm-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-sm-first {\n    order: -1;\n}\n.order-sm-last {\n    order: 13;\n}\n.order-sm-0 {\n    order: 0;\n}\n.order-sm-1 {\n    order: 1;\n}\n.order-sm-2 {\n    order: 2;\n}\n.order-sm-3 {\n    order: 3;\n}\n.order-sm-4 {\n    order: 4;\n}\n.order-sm-5 {\n    order: 5;\n}\n.order-sm-6 {\n    order: 6;\n}\n.order-sm-7 {\n    order: 7;\n}\n.order-sm-8 {\n    order: 8;\n}\n.order-sm-9 {\n    order: 9;\n}\n.order-sm-10 {\n    order: 10;\n}\n.order-sm-11 {\n    order: 11;\n}\n.order-sm-12 {\n    order: 12;\n}\n.offset-sm-0 {\n    margin-left: 0;\n}\n.offset-sm-1 {\n    margin-left: 8.33333333%;\n}\n.offset-sm-2 {\n    margin-left: 16.66666667%;\n}\n.offset-sm-3 {\n    margin-left: 25%;\n}\n.offset-sm-4 {\n    margin-left: 33.33333333%;\n}\n.offset-sm-5 {\n    margin-left: 41.66666667%;\n}\n.offset-sm-6 {\n    margin-left: 50%;\n}\n.offset-sm-7 {\n    margin-left: 58.33333333%;\n}\n.offset-sm-8 {\n    margin-left: 66.66666667%;\n}\n.offset-sm-9 {\n    margin-left: 75%;\n}\n.offset-sm-10 {\n    margin-left: 83.33333333%;\n}\n.offset-sm-11 {\n    margin-left: 91.66666667%;\n}\n}\n@media (min-width: 768px) {\n.col-md {\n    flex-basis: 0;\n    flex-grow: 1;\n    max-width: 100%;\n}\n.row-cols-md-1 > * {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.row-cols-md-2 > * {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.row-cols-md-3 > * {\n    flex: 0 0 33.3333333333%;\n    max-width: 33.3333333333%;\n}\n.row-cols-md-4 > * {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.row-cols-md-5 > * {\n    flex: 0 0 20%;\n    max-width: 20%;\n}\n.row-cols-md-6 > * {\n    flex: 0 0 16.6666666667%;\n    max-width: 16.6666666667%;\n}\n.col-md-auto {\n    flex: 0 0 auto;\n    width: auto;\n    max-width: 100%;\n}\n.col-md-1 {\n    flex: 0 0 8.33333333%;\n    max-width: 8.33333333%;\n}\n.col-md-2 {\n    flex: 0 0 16.66666667%;\n    max-width: 16.66666667%;\n}\n.col-md-3 {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-md-4 {\n    flex: 0 0 33.33333333%;\n    max-width: 33.33333333%;\n}\n.col-md-5 {\n    flex: 0 0 41.66666667%;\n    max-width: 41.66666667%;\n}\n.col-md-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-md-7 {\n    flex: 0 0 58.33333333%;\n    max-width: 58.33333333%;\n}\n.col-md-8 {\n    flex: 0 0 66.66666667%;\n    max-width: 66.66666667%;\n}\n.col-md-9 {\n    flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-md-10 {\n    flex: 0 0 83.33333333%;\n    max-width: 83.33333333%;\n}\n.col-md-11 {\n    flex: 0 0 91.66666667%;\n    max-width: 91.66666667%;\n}\n.col-md-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-md-first {\n    order: -1;\n}\n.order-md-last {\n    order: 13;\n}\n.order-md-0 {\n    order: 0;\n}\n.order-md-1 {\n    order: 1;\n}\n.order-md-2 {\n    order: 2;\n}\n.order-md-3 {\n    order: 3;\n}\n.order-md-4 {\n    order: 4;\n}\n.order-md-5 {\n    order: 5;\n}\n.order-md-6 {\n    order: 6;\n}\n.order-md-7 {\n    order: 7;\n}\n.order-md-8 {\n    order: 8;\n}\n.order-md-9 {\n    order: 9;\n}\n.order-md-10 {\n    order: 10;\n}\n.order-md-11 {\n    order: 11;\n}\n.order-md-12 {\n    order: 12;\n}\n.offset-md-0 {\n    margin-left: 0;\n}\n.offset-md-1 {\n    margin-left: 8.33333333%;\n}\n.offset-md-2 {\n    margin-left: 16.66666667%;\n}\n.offset-md-3 {\n    margin-left: 25%;\n}\n.offset-md-4 {\n    margin-left: 33.33333333%;\n}\n.offset-md-5 {\n    margin-left: 41.66666667%;\n}\n.offset-md-6 {\n    margin-left: 50%;\n}\n.offset-md-7 {\n    margin-left: 58.33333333%;\n}\n.offset-md-8 {\n    margin-left: 66.66666667%;\n}\n.offset-md-9 {\n    margin-left: 75%;\n}\n.offset-md-10 {\n    margin-left: 83.33333333%;\n}\n.offset-md-11 {\n    margin-left: 91.66666667%;\n}\n}\n@media (min-width: 992px) {\n.col-lg {\n    flex-basis: 0;\n    flex-grow: 1;\n    max-width: 100%;\n}\n.row-cols-lg-1 > * {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.row-cols-lg-2 > * {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.row-cols-lg-3 > * {\n    flex: 0 0 33.3333333333%;\n    max-width: 33.3333333333%;\n}\n.row-cols-lg-4 > * {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.row-cols-lg-5 > * {\n    flex: 0 0 20%;\n    max-width: 20%;\n}\n.row-cols-lg-6 > * {\n    flex: 0 0 16.6666666667%;\n    max-width: 16.6666666667%;\n}\n.col-lg-auto {\n    flex: 0 0 auto;\n    width: auto;\n    max-width: 100%;\n}\n.col-lg-1 {\n    flex: 0 0 8.33333333%;\n    max-width: 8.33333333%;\n}\n.col-lg-2 {\n    flex: 0 0 16.66666667%;\n    max-width: 16.66666667%;\n}\n.col-lg-3 {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-lg-4 {\n    flex: 0 0 33.33333333%;\n    max-width: 33.33333333%;\n}\n.col-lg-5 {\n    flex: 0 0 41.66666667%;\n    max-width: 41.66666667%;\n}\n.col-lg-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-lg-7 {\n    flex: 0 0 58.33333333%;\n    max-width: 58.33333333%;\n}\n.col-lg-8 {\n    flex: 0 0 66.66666667%;\n    max-width: 66.66666667%;\n}\n.col-lg-9 {\n    flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-lg-10 {\n    flex: 0 0 83.33333333%;\n    max-width: 83.33333333%;\n}\n.col-lg-11 {\n    flex: 0 0 91.66666667%;\n    max-width: 91.66666667%;\n}\n.col-lg-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-lg-first {\n    order: -1;\n}\n.order-lg-last {\n    order: 13;\n}\n.order-lg-0 {\n    order: 0;\n}\n.order-lg-1 {\n    order: 1;\n}\n.order-lg-2 {\n    order: 2;\n}\n.order-lg-3 {\n    order: 3;\n}\n.order-lg-4 {\n    order: 4;\n}\n.order-lg-5 {\n    order: 5;\n}\n.order-lg-6 {\n    order: 6;\n}\n.order-lg-7 {\n    order: 7;\n}\n.order-lg-8 {\n    order: 8;\n}\n.order-lg-9 {\n    order: 9;\n}\n.order-lg-10 {\n    order: 10;\n}\n.order-lg-11 {\n    order: 11;\n}\n.order-lg-12 {\n    order: 12;\n}\n.offset-lg-0 {\n    margin-left: 0;\n}\n.offset-lg-1 {\n    margin-left: 8.33333333%;\n}\n.offset-lg-2 {\n    margin-left: 16.66666667%;\n}\n.offset-lg-3 {\n    margin-left: 25%;\n}\n.offset-lg-4 {\n    margin-left: 33.33333333%;\n}\n.offset-lg-5 {\n    margin-left: 41.66666667%;\n}\n.offset-lg-6 {\n    margin-left: 50%;\n}\n.offset-lg-7 {\n    margin-left: 58.33333333%;\n}\n.offset-lg-8 {\n    margin-left: 66.66666667%;\n}\n.offset-lg-9 {\n    margin-left: 75%;\n}\n.offset-lg-10 {\n    margin-left: 83.33333333%;\n}\n.offset-lg-11 {\n    margin-left: 91.66666667%;\n}\n}\n@media (min-width: 1200px) {\n.col-xl {\n    flex-basis: 0;\n    flex-grow: 1;\n    max-width: 100%;\n}\n.row-cols-xl-1 > * {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.row-cols-xl-2 > * {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.row-cols-xl-3 > * {\n    flex: 0 0 33.3333333333%;\n    max-width: 33.3333333333%;\n}\n.row-cols-xl-4 > * {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.row-cols-xl-5 > * {\n    flex: 0 0 20%;\n    max-width: 20%;\n}\n.row-cols-xl-6 > * {\n    flex: 0 0 16.6666666667%;\n    max-width: 16.6666666667%;\n}\n.col-xl-auto {\n    flex: 0 0 auto;\n    width: auto;\n    max-width: 100%;\n}\n.col-xl-1 {\n    flex: 0 0 8.33333333%;\n    max-width: 8.33333333%;\n}\n.col-xl-2 {\n    flex: 0 0 16.66666667%;\n    max-width: 16.66666667%;\n}\n.col-xl-3 {\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n.col-xl-4 {\n    flex: 0 0 33.33333333%;\n    max-width: 33.33333333%;\n}\n.col-xl-5 {\n    flex: 0 0 41.66666667%;\n    max-width: 41.66666667%;\n}\n.col-xl-6 {\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-xl-7 {\n    flex: 0 0 58.33333333%;\n    max-width: 58.33333333%;\n}\n.col-xl-8 {\n    flex: 0 0 66.66666667%;\n    max-width: 66.66666667%;\n}\n.col-xl-9 {\n    flex: 0 0 75%;\n    max-width: 75%;\n}\n.col-xl-10 {\n    flex: 0 0 83.33333333%;\n    max-width: 83.33333333%;\n}\n.col-xl-11 {\n    flex: 0 0 91.66666667%;\n    max-width: 91.66666667%;\n}\n.col-xl-12 {\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n.order-xl-first {\n    order: -1;\n}\n.order-xl-last {\n    order: 13;\n}\n.order-xl-0 {\n    order: 0;\n}\n.order-xl-1 {\n    order: 1;\n}\n.order-xl-2 {\n    order: 2;\n}\n.order-xl-3 {\n    order: 3;\n}\n.order-xl-4 {\n    order: 4;\n}\n.order-xl-5 {\n    order: 5;\n}\n.order-xl-6 {\n    order: 6;\n}\n.order-xl-7 {\n    order: 7;\n}\n.order-xl-8 {\n    order: 8;\n}\n.order-xl-9 {\n    order: 9;\n}\n.order-xl-10 {\n    order: 10;\n}\n.order-xl-11 {\n    order: 11;\n}\n.order-xl-12 {\n    order: 12;\n}\n.offset-xl-0 {\n    margin-left: 0;\n}\n.offset-xl-1 {\n    margin-left: 8.33333333%;\n}\n.offset-xl-2 {\n    margin-left: 16.66666667%;\n}\n.offset-xl-3 {\n    margin-left: 25%;\n}\n.offset-xl-4 {\n    margin-left: 33.33333333%;\n}\n.offset-xl-5 {\n    margin-left: 41.66666667%;\n}\n.offset-xl-6 {\n    margin-left: 50%;\n}\n.offset-xl-7 {\n    margin-left: 58.33333333%;\n}\n.offset-xl-8 {\n    margin-left: 66.66666667%;\n}\n.offset-xl-9 {\n    margin-left: 75%;\n}\n.offset-xl-10 {\n    margin-left: 83.33333333%;\n}\n.offset-xl-11 {\n    margin-left: 91.66666667%;\n}\n}", ""]);
 
 // exports
 
@@ -6645,6 +6808,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "\n#title[data-v-317790a4] {\r\n    color: #fc5958;\n}\nheader[data-v-317790a4] {\r\n    background-image: url('/img/jumbotron.png');\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    margin-bottom: 50px;\n}\n#background-food[data-v-317790a4] {\r\n    \r\n    \r\n    background-image: url('/img/burger_sandwich_PNG4135.png');\r\n    background-repeat: no-repeat;\r\n    background-position: right;\r\n    background-size: 55%;\n}\r\n\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.jumbotron[data-v-01e9bdb3]{\r\n    background-image: url('/img/header_dettaglio_ristorante.png');\r\n    background-repeat: no-repeat;\r\n    background-position: top;\r\n    background-size: cover;\r\n    margin-bottom: 50px;\n}\n#title[data-v-01e9bdb3]{\r\n    color: #fc5958;\r\n    font-size: 30px;\r\n    padding-top: 20px;\r\n    margin-bottom: 100px;\n}\n#logo[data-v-01e9bdb3]{\r\n    position: absolute;\r\n    top: -10px;\r\n    left: 50%;\r\n    transform: translate(-50%);\n}\r\n\r\n/* CARD RESTAURANT */\n#card-restaurant[data-v-01e9bdb3]{\r\n    margin-bottom: 100px;\n}\n.card[data-v-01e9bdb3]{\r\n    background-color: #fff;\n}\n.text-logo[data-v-01e9bdb3]{\r\n    border-radius: 50%;\r\n    background-color: #2fb871;\r\n    padding: 20px;\r\n    border: 1px solid #fff;\r\n    color: #fff;\n}\nul.information-restaurant[data-v-01e9bdb3]{\r\n    padding-top: 50px;\n}\nli[data-v-01e9bdb3]{\r\n    list-style-type: none;\r\n    font-size: 14px;\r\n    padding-bottom: 20px;\n}\n.title-restaurant-card[data-v-01e9bdb3]{\r\n    font-size: 30px;\r\n    color: #fc5958;\r\n    font-weight: bold;\r\n    padding-bottom: 30px;\n}\n.category[data-v-01e9bdb3]{\r\n    font-size: 16px;\r\n    font-weight: bold;\n}\n.option[data-v-01e9bdb3]{\r\n    font-weight: bold;\r\n    padding-bottom: 30px;\r\n    font-size: 12px;\n}\n.p-iva[data-v-01e9bdb3]{\r\n    padding-bottom: 30px;\r\n    font-size: 12px;\r\n    color: #666;\n}\r\n/* CARD RESTAURANT */\r\n\r\n/* MENU */\n.restaurant_dishes[data-v-01e9bdb3]{\r\n    padding: 50px 20px;\r\n    align-items: center;\n}\n.restaurant_dishes_img[data-v-01e9bdb3]{\r\n    max-width: 100%;\n}\n.name_dishes[data-v-01e9bdb3]{\r\n    font-size: 20px;\r\n    color: #fc5958;\r\n    font-weight: bold;\r\n    padding-bottom: 10px;\n}\n.category-dishes[data-v-01e9bdb3]{\r\n    font-weight: bold;\n}\n.description-dishes[data-v-01e9bdb3]{\r\n    padding-bottom: 25px;\n}\n.allergens-dishes[data-v-01e9bdb3]{\r\n    padding-bottom: 5px;\n}\n.fa-solid[data-v-01e9bdb3]{ \r\n    color: #ffbd42;\r\n    margin-right: 10px;\n}\n.price-dishes[data-v-01e9bdb3]{\r\n    font-weight: bold;\r\n    font-size: 17px;\n}\n.add-cart[data-v-01e9bdb3]{\r\n    padding: 40px 25px;\r\n    background-color: #ffbd42;\r\n    border-radius: 30px;\r\n    color: #fff;\r\n    font-weight: bold;\n}\r\n/* MENU */\r\n", ""]);
 
 // exports
 
@@ -38015,6 +38197,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--7-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -53764,6 +53976,17 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./public/img/piatto_1.jpg":
+/*!*********************************!*\
+  !*** ./public/img/piatto_1.jpg ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/piatto_1.jpg?bb3fd030bf4df2163d285fbf30e9a5d2";
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -54299,6 +54522,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/RestaurantDetailPage.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/pages/RestaurantDetailPage.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RestaurantDetailPage_vue_vue_type_template_id_01e9bdb3_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RestaurantDetailPage.vue?vue&type=template&id=01e9bdb3&scoped=true& */ "./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=template&id=01e9bdb3&scoped=true&");
+/* harmony import */ var _RestaurantDetailPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RestaurantDetailPage.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _RestaurantDetailPage_vue_vue_type_style_index_0_id_01e9bdb3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css& */ "./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _RestaurantDetailPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RestaurantDetailPage_vue_vue_type_template_id_01e9bdb3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RestaurantDetailPage_vue_vue_type_template_id_01e9bdb3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "01e9bdb3",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pages/RestaurantDetailPage.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantDetailPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./RestaurantDetailPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantDetailPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css&":
+/*!*************************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantDetailPage_vue_vue_type_style_index_0_id_01e9bdb3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--7-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=style&index=0&id=01e9bdb3&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantDetailPage_vue_vue_type_style_index_0_id_01e9bdb3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantDetailPage_vue_vue_type_style_index_0_id_01e9bdb3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantDetailPage_vue_vue_type_style_index_0_id_01e9bdb3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantDetailPage_vue_vue_type_style_index_0_id_01e9bdb3_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=template&id=01e9bdb3&scoped=true&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=template&id=01e9bdb3&scoped=true& ***!
+  \***********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantDetailPage_vue_vue_type_template_id_01e9bdb3_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../node_modules/vue-loader/lib??vue-loader-options!./RestaurantDetailPage.vue?vue&type=template&id=01e9bdb3&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/RestaurantDetailPage.vue?vue&type=template&id=01e9bdb3&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantDetailPage_vue_vue_type_template_id_01e9bdb3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantDetailPage_vue_vue_type_template_id_01e9bdb3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/front.js":
 /*!*******************************!*\
   !*** ./resources/js/front.js ***!
@@ -54336,9 +54646,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _components_pages_HomePage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/pages/HomePage */ "./resources/js/components/pages/HomePage.vue");
-/* harmony import */ var _components_pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pages/NotFoundPage */ "./resources/js/components/pages/NotFoundPage.vue");
+/* harmony import */ var _components_pages_RestaurantDetailPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/pages/RestaurantDetailPage */ "./resources/js/components/pages/RestaurantDetailPage.vue");
+/* harmony import */ var _components_pages_HomePage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pages/HomePage */ "./resources/js/components/pages/HomePage.vue");
+/* harmony import */ var _components_pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pages/NotFoundPage */ "./resources/js/components/pages/NotFoundPage.vue");
 // import Vue Router
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -54350,12 +54662,16 @@ var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   linkActiveClass: "active",
   routes: [{
     path: "/",
-    component: _components_pages_HomePage__WEBPACK_IMPORTED_MODULE_2__["default"],
+    component: _components_pages_HomePage__WEBPACK_IMPORTED_MODULE_3__["default"],
     name: "home"
   }, {
     path: "*",
-    component: _components_pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_3__["default"],
+    component: _components_pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_4__["default"],
     name: "not-found"
+  }, {
+    path: "/restaurant/:id",
+    component: _components_pages_RestaurantDetailPage__WEBPACK_IMPORTED_MODULE_2__["default"],
+    name: "restaurant.show"
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (routes);

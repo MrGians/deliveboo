@@ -27,12 +27,14 @@
 import BaseHeader from "../BaseHeader.vue";
 import BaseSearchBar from "../BaseSearchBar.vue";
 import BaseCard from "../BaseCard.vue";
+import RestaurantDetailPage from './RestaurantDetailPage.vue';
 export default {
     name: "App",
     components: {
         BaseSearchBar,
         BaseCard,
         BaseHeader,
+        RestaurantDetailPage,
     },
     data() {
         return {

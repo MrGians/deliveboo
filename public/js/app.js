@@ -37296,16 +37296,21 @@ module.exports = function(module) {
 /***/ (function(module, exports) {
 
 var formsToDelete = document.querySelectorAll(".delete-form");
+var customModal = document.getElementById("myModal");
+var modalConfirmBtn = document.getElementById("delete-confirm");
+var modalBackBtn = document.getElementById("delete-go-back");
+var modalContent = document.querySelector("#myModal p");
 formsToDelete.forEach(function (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    var target = 'questo';
+
+    // switch case to set correct message
+    var target = "questo";
     var element = "elemento";
     var cls = form.classList;
     switch (true) {
       case cls.contains("delete-product"):
         element = "Prodotto";
-        console.log(element);
         break;
       case cls.contains("delete-null"):
         element = "";
@@ -37314,8 +37319,22 @@ formsToDelete.forEach(function (form) {
         element = "";
         break;
     }
-    var confirmation = confirm("Vuoi cancellare definitivamente ".concat(target, " ").concat(element, "? L'azione \xE8 irreversibile"));
-    if (confirmation) form.submit();
+
+    // Modal message to display
+    var modalMessage = "Vuoi cancellare definitivamente ".concat(target, " ").concat(element, "? L'azione \xE8 irreversibile");
+    modalContent.innerText = modalMessage;
+
+    // Show modal
+    customModal.style.display = "block";
+    // If click confirm, hide modal & submit form
+    modalConfirmBtn.addEventListener("click", function () {
+      customModal.style.display = "none";
+      form.submit();
+    });
+    // If click go back hide modal
+    modalBackBtn.addEventListener("click", function () {
+      customModal.style.display = "none";
+    });
   });
 });
 
@@ -37366,14 +37385,14 @@ if (document.querySelector("form.login_form")) {
 
   // # Functions to reset fields & errors
   var resetEmail = function resetEmail() {
-    emailInput.className = "form-control";
+    emailInput.className = "shadow form-control rounded-pill mb-3";
     emailErrorBox.classList.add("d-none");
     emailErrorMsg.innerText = "";
   };
 
   // # Functions to reset fields & errors
   var resetPassword = function resetPassword() {
-    passwordInput.className = "form-control";
+    passwordInput.className = "shadow form-control rounded-pill";
     passwordErrorBox.classList.add("d-none");
     passwordErrorMsg.innerText = "";
   };
@@ -37401,13 +37420,145 @@ if (document.querySelector("form.login_form")) {
       } else if (passwordInput.length < 8) {
         passwordErrorMsg.innerText = "La password deve essere di almeno 8 caratteri";
       }
-      ;
     }
   };
 
   // # Function to submit Form
   var submitForm = function submitForm(event) {
-<<<<<<< HEAD
+    // Submit for Register Form
+    if (emailInput.value && passwordInput.value) {
+      event.submit();
+    }
+  };
+  emailInput.addEventListener("input", function () {
+    // Reset
+    resetEmail();
+    // Validation
+    validateEmail();
+  });
+  passwordInput.addEventListener("input", function () {
+    // Reset
+    resetPassword();
+    // Validation
+    validatePassword();
+  });
+
+  // Submit Form logic
+  window.onsubmit = function (event) {
+    // Submit Form Validation
+    submitForm(event);
+
+    // Preventing default submit action
+    event.preventDefault();
+
+    // Validation email
+    validateEmail();
+
+    // Validation password
+    validatePassword();
+  };
+}
+
+/***/ }),
+
+/***/ "./resources/js/admin/validation_products.js":
+/*!***************************************************!*\
+  !*** ./resources/js/admin/validation_products.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if (document.querySelector("form.product-form")) {
+  // | Edit Form element
+  var formEdit = document.getElementById("submit-form-edit");
+
+  // | 'name' field & box errors
+  var nameInput = document.getElementById("name");
+  var nameErrorBox = document.getElementById("name-error-box");
+  var nameErrorMsg = document.getElementById("name-error-msg");
+
+  // | 'description' field & box errors
+  var descriptionInput = document.getElementById("description");
+  var descriptionErrorBox = document.getElementById("description-error-box");
+  var descriptionErrorMsg = document.getElementById("description-error-msg");
+
+  // | 'price' field & box errors
+  var priceInput = document.getElementById("price");
+  var priceErrorBox = document.getElementById("price-error-box");
+  var priceErrorMsg = document.getElementById("price-error-msg");
+
+  // | 'image' field & box errors
+  var imageInput = document.getElementById("image");
+  var imageErrorBox = document.getElementById("image-error-box");
+  var imageErrorMsg = document.getElementById("image-error-msg");
+
+  // # Functions to reset fields & errors
+  var resetName = function resetName() {
+    nameInput.className = "form-control";
+    nameErrorBox.classList.add("d-none");
+    nameErrorMsg.innerText = "";
+  };
+  var resetDescription = function resetDescription() {
+    descriptionInput.className = "form-control";
+    descriptionErrorBox.classList.add("d-none");
+    descriptionErrorMsg.innerText = "";
+  };
+  var resetPrice = function resetPrice() {
+    priceInput.className = "form-control";
+    priceErrorBox.classList.add("d-none");
+    priceErrorMsg.innerText = "";
+  };
+  var resetImage = function resetImage() {
+    imageInput.className = "form-control";
+    imageErrorBox.classList.add("d-none");
+    imageErrorMsg.innerText = "";
+  };
+
+  // # Functions to validate fields
+  var validateName = function validateName() {
+    if (nameInput.validity.valueMissing) {
+      nameInput.classList.add("is-invalid");
+      nameErrorBox.classList.remove("d-none");
+      nameErrorMsg.innerText = "Il nome del prodotto è obbligatorio";
+    }
+  };
+  var validateDescription = function validateDescription() {
+    if (descriptionInput.validity.valueMissing) {
+      descriptionInput.classList.add("is-invalid");
+      descriptionErrorBox.classList.remove("d-none");
+      descriptionErrorMsg.innerText = "La descrizione del prodotto è obbligatoria";
+    }
+  };
+  var validatePrice = function validatePrice() {
+    if (priceInput.validity.valueMissing || priceInput.validity.badInput || priceInput.validity.rangeUnderflow || priceInput.validity.rangeOverflow || isNaN(priceInput.value)) {
+      priceInput.classList.add("is-invalid");
+      priceErrorBox.classList.remove("d-none");
+      if (priceInput.validity.valueMissing) {
+        priceErrorMsg.innerText = "Il prezzo del prodotto è obbligatorio";
+      } else if (priceInput.validity.badInput || isNaN(priceInput.value)) {
+        priceErrorMsg.innerText = "Il prezzo del prodotto deve essere un numero";
+      } else if (priceInput.validity.rangeUnderflow) {
+        priceErrorMsg.innerText = "Il prezzo del prodotto deve essere almeno '0.01'";
+      } else if (priceInput.validity.rangeOverflow) {
+        priceErrorMsg.innerText = "Il prezzo del prodotto deve essere massimo '999.99'";
+      }
+    }
+  };
+  var validateImage = function validateImage() {
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+    if (imageInput.validity.valueMissing || !allowedExtensions.exec(imageInput.value)) {
+      imageInput.classList.add("is-invalid");
+      imageErrorBox.classList.remove("d-none");
+      if (imageInput.validity.valueMissing) {
+        imageErrorMsg.innerText = "L'immagine del prodotto è obbligatoria";
+      } else if (!allowedExtensions.exec(imageInput.value)) {
+        imageErrorMsg.innerText = "L'immagine del prodotto deve essere di un'estensione valida (jpeg,jpg,png,svg)";
+      }
+    }
+  };
+
+  // # Function to submit Form
+  var submitForm = function submitForm(event) {
     // Submit for Create Form
     if (!formEdit) {
       if (nameInput.value && descriptionInput.value && priceInput.value && imageInput.value) {
@@ -37449,25 +37600,6 @@ if (document.querySelector("form.login_form")) {
       validateImage();
     });
   }
-=======
-    // Submit for Register Form
-    if (emailInput.value && passwordInput.value) {
-      event.submit();
-    }
-  };
-  emailInput.addEventListener("input", function () {
-    // Reset
-    resetEmail();
-    // Validation
-    validateEmail();
-  });
-  passwordInput.addEventListener("input", function () {
-    // Reset
-    resetPassword();
-    // Validation
-    validatePassword();
-  });
->>>>>>> login_validation
 
   // Submit Form logic
   window.onsubmit = function (event) {
@@ -37477,7 +37609,6 @@ if (document.querySelector("form.login_form")) {
     // Preventing default submit action
     event.preventDefault();
 
-<<<<<<< HEAD
     // Validation name
     validateName();
 
@@ -37491,13 +37622,6 @@ if (document.querySelector("form.login_form")) {
     if (!formEdit) {
       validateImage();
     }
-=======
-    // Validation email
-    validateEmail();
-
-    // Validation password
-    validatePassword();
->>>>>>> login_validation
   };
 }
 
@@ -37575,7 +37699,7 @@ if (document.querySelector("form.register-form")) {
     restaurantNameErrorMsg.innerText = "";
   };
   var resetRestaurantDescription = function resetRestaurantDescription() {
-    restaurantDescriptionInput.className = "mb-3 shadow form-control rounded-pill";
+    restaurantDescriptionInput.className = "mb-3 shadow form-control rounded-5";
     restaurantDescriptionErrorBox.classList.add("d-none");
     restaurantDescriptionErrorMsg.innerText = "";
   };
@@ -37812,15 +37936,9 @@ if (document.querySelector("form.register-form")) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./admin/image_thumb */ "./resources/js/admin/image_thumb.js");
 __webpack_require__(/*! ./admin/confirm_delete */ "./resources/js/admin/confirm_delete.js");
-<<<<<<< HEAD
 __webpack_require__(/*! ./admin/validation_products.js */ "./resources/js/admin/validation_products.js");
-<<<<<<< HEAD
-=======
 __webpack_require__(/*! ./admin/validation_login.js */ "./resources/js/admin/validation_login.js");
->>>>>>> login_validation
-=======
 __webpack_require__(/*! ./admin/validation_register.js */ "./resources/js/admin/validation_register.js");
->>>>>>> register-validation
 
 /***/ }),
 
@@ -37902,13 +38020,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! /Users/liviamattoni/laravel/deliveboo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/liviamattoni/laravel/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! C:\Laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> register-validation
+__webpack_require__(/*! C:\laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\laravel\deliveboo\resources\sass\front.scss */"./resources/sass/front.scss");
 
 
 /***/ })
