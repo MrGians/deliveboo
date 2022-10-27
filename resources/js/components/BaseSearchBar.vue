@@ -1,18 +1,42 @@
 <template>
     <div id="base-input">
-        <input
-            type="text"
-            list="datalist"
-            class="shadow rounded-5"
-            :placeholder="placeholder"
-            v-model="value"
-            @keyup="$emit('get-input-value', value)"
-        />
-        <datalist id="datalist">
-            <option v-for="item in listItem" :key="item.id">
-                {{ item.label }}
-            </option>
-        </datalist>
+        <div class="multiselect">
+            <div class="select-box" @click="showCheckboxes">
+                <span>Seleziona una Categoria</span>
+            </div>
+            <div id="checkboxes" :class="{ 'd-flex': expanded }">
+                <div class="item" v-for="item in listItem" :key="item.id">
+                    <label
+                        :for="item.label"
+                        :class="{ selected: item.selected }"
+                    >
+                        {{ item.label }}</label
+                    >
+                    <input
+                        type="checkbox"
+                        :id="item.label"
+                        @click="click(item)"
+                        hidden
+                    />
+                </div>
+            </div>
+        </div>
+        <router-link
+            v-if="$route.name == 'home' && list.length > 0"
+            class="search-btn"
+            :to="{
+                name: 'restaurants',
+                params: { filter: list },
+            }"
+            >Cerca</router-link
+        >
+        <button
+            v-if="$route.name !== 'home'"
+            class="search-btn"
+            @click="sendList"
+        >
+            Cerca
+        </button>
     </div>
 </template>
 
@@ -21,67 +45,112 @@ export default {
     name: "BaseSearchBar",
     data() {
         return {
-            value: "",
+            expanded: false,
+            list: [],
         };
     },
     props: {
-        placeholder: String,
         listItem: Array,
+    },
+    methods: {
+        click(item) {
+            // Push item in list if was never pushed before
+            if (!this.list.includes(item.id)) {
+                this.list.push(item.id);
+                item.selected = true;
+            }
+            // Check & Remove item from the list if was pushed before
+            else {
+                for (let i = 0; i <= this.list.length - 1; i++) {
+                    if (this.list[i] == item.id) {
+                        this.list.splice(i, 1);
+                        item.selected = false;
+                    }
+                }
+            }
+        },
+        sendList() {
+            this.$emit("selected-list", this.list);
+        },
+        showCheckboxes() {
+            this.expanded = !this.expanded;
+        },
     },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "./../../sass/front.scss";
+
 #base-input {
-    width: 50%;
-    z-index: 2;
-}
-
-input {
-    display: inline-block;
     width: 100%;
-    min-width: 200px;
-    height: 30px;
-    border: 3px solid transparent;
-    padding: 1rem;
-    font-size: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.multiselect {
+    width: 100%;
 
-input:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(252, 89, 88, 1);
-}
-
-input::placeholder {
-    text-align: center;
-    color: #2eb872;
-}
-
-@media (min-width: 576px) {
-    input {
-        height: 40px;
-        font-size: 0.6rem;
-    }
-}
-
-@media (min-width: 768px) {
-    input {
+    .select-box {
         height: 50px;
-        font-size: 0.8rem;
-    }
-}
-
-@media (min-width: 992px) {
-    input {
-        height: 60px;
-        font-size: 1rem;
-    }
-}
-
-@media (min-width: 1200px) {
-    input {
-        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
         font-size: 1.3rem;
+        color: white;
+        background-color: $tertiary;
+        border: 2px solid black;
+    }
+
+    #checkboxes {
+        display: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        border-top: none;
+
+        &.d-flex {
+            display: flex;
+        }
+        & .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25%;
+            height: 40px;
+            border: 1px solid black;
+
+            & label {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                color: white;
+                background-color: $secondary;
+            }
+            & label.selected {
+                background-color: $quaternary;
+            }
+        }
+    }
+}
+.search-btn {
+    align-self: baseline;
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid $tertiary;
+    background-color: $tertiary;
+    color: white;
+    border-radius: 30px;
+    margin-left: 1rem;
+    transition: all 0.35s;
+
+    &:hover {
+        background-color: white;
+        color: $tertiary;
     }
 }
 </style>
