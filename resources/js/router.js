@@ -1,12 +1,12 @@
 // import Vue Router
 import Vue from "vue";
 import VueRouter from "vue-router";
-import RestaurantDetailPage from "./components/pages/RestaurantDetailPage"
 
 Vue.use(VueRouter);
 
 import HomePage from "./components/pages/HomePage";
 import RestaurantsPage from "./components/pages/RestaurantsPage";
+import RestaurantDetailPage from "./components/pages/RestaurantDetailPage"
 import NotFoundPage from "./components/pages/NotFoundPage";
 
 const routes = new VueRouter({
@@ -20,8 +20,8 @@ const routes = new VueRouter({
             component: RestaurantsPage,
             name: "restaurants",
         },
+        { path: "/restaurant/:id", component: RestaurantDetailPage, name: "restaurant.show" },
         { path: "*", component: NotFoundPage, name: "not-found" },
-        { path: "/restaurant/:id", component: RestaurantDetailPage, name: "restaurant.show" }
     ],
 });
 
