@@ -1,29 +1,22 @@
 <template>
 <section id="restaurant-detail">
-    <div class="jumbotron">
-        <div class="container">
-            <!-- LOGO -->
-            <div id="title">
-                <h1>Deliveboo</h1>
-            </div>
-        
-            <!-- Card Restaurant -->
-            <div id="card-restaurant" class="row justify-content-center mb-5">
-                <div class="col-md-7">
-                    <div class="card rounded-5 mt-5 mb-5 shadow">
-                        <div class="text-center">
-                            <div id="logo">
-                                <span class="text-logo">LOGO</span>
-                            </div>
-                            <div class="card-body">
-                                <ul class="information-restaurant">
-                                    <li class="title-restaurant-card">Nome Ristorante</li>
-                                    <li class="category">Categoria 1 Categoria 2</li>
-                                    <li class="address">Via delle Belle Arti 2a, Bologna, 40162</li>
-                                    <li class="option">Consegna gratis | Oridne minimo 10€</li>
-                                    <li class="p-iva">P.IVA: 006354267</li>
-                                </ul>
-                            </div>
+    <div class="container">
+        <!-- Card Restaurant -->
+        <div id="card-restaurant" class="row justify-content-center mb-5">
+            <div class="col-md-7">
+                <div class="card rounded-5 mt-5 mb-5 shadow">
+                    <div class="text-center">
+                        <div id="logo">
+                            <span class="text-logo">LOGO</span>
+                        </div>
+                        <div class="card-body">
+                            <ul class="information-restaurant">
+                                <li class="title-restaurant-card">Nome Ristorante</li>
+                                <li class="category">Categoria 1 Categoria 2</li>
+                                <li class="address">Via delle Belle Arti 2a, Bologna, 40162</li>
+                                <li class="option">Consegna gratis | Oridne minimo 10€</li>
+                                <li class="p-iva">P.IVA: 006354267</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -35,7 +28,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card rounded-5 mt-5 pb-5 shadow">
+                <div class="card rounded-5 mb-3 pb-5 shadow">
                     <div class="row restaurant_dishes">
                         <div class="col-3">
                             <img src="../../../../public/img/piatto_1.jpg" alt="" class="restaurant_dishes_img">
@@ -103,6 +96,9 @@ export default {
 .mb-5{
     margin-bottom: 3rem;  
 }
+.mb-3{
+    margin-bottom: 1rem;
+}
 .col-3 {
     flex: 0 0 25%;
     max-width: 25%;
@@ -145,22 +141,6 @@ export default {
   padding-bottom: 3rem;
 }
 /* UTILS */
-
-.jumbotron{
-    background-image: url('/img/header_dettaglio_ristorante.png');
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
-    margin-bottom: 50px;
-}
-
-#title{
-    color: #fc5958;
-    font-size: 30px;
-    padding-top: 20px;
-    margin-bottom: 100px;
-}
-
 #logo{
     position: absolute;
     top: -10px;
@@ -266,5 +246,29 @@ li{
     font-weight: bold;
 }
 /* MENU */
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
 </style>>
 
