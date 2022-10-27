@@ -85,7 +85,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "./../../../sass/front.scss";
+
 .jumbotron{
     background-image: url('/img/header_dettaglio_ristorante.png');
     background-repeat: no-repeat;
@@ -95,7 +97,7 @@ export default {
 }
 
 #title{
-    color: #fc5958;
+    color: $tertiary;
     font-size: 30px;
     padding-top: 20px;
     margin-bottom: 100px;
