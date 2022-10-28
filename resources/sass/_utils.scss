@@ -3,6 +3,12 @@
     border-radius: 50px;
 }
 
+// Images
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
 // Custom Modal for delete btn (back-office)
 #myModal.modal {
     display: none;
