@@ -8,49 +8,31 @@
                     @selected-list="setCategories"
                 />
             </div>
-            <div class="col-12 restaurants-box">
-                <BaseCard
-                    v-for="restaurant in restaurants"
-                    :key="restaurant.p_iva"
-                >
-                    <h4 class="restaurant-name">{{ restaurant.name }}</h4>
-                    <div class="restaurant-category">
-                        <span
-                            v-for="category in restaurant.categories"
-                            :key="category.id"
-                            >{{ category.label }}
-                        </span>
-                    </div>
-                    <ul>
-                        <li>
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>{{ restaurant.address }}</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-star"></i>
-                            <span
-                                ><strong> 5.00</strong> | Recensioni:
-                                943534</span
-                            >
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-money-check-dollar"></i>
-                            <span><strong>Consegna Gratis</strong></span>
-                        </li>
-                    </ul>
-                </BaseCard>
+            <!-- Result of the Search | Restaurants List -->
+            <div
+                v-show="restaurants.length > 0"
+                class="col restaurants-box"
+                v-for="restaurant in restaurants"
+                :key="restaurant.id"
+            >
+                <BaseCard :item="restaurant" />
+            </div>
+            <div v-if="restaurants.length == 0" class="col-12">
+                <h2 class="text-center">
+                    Non sono stati trovati Ristoranti con questi filtri di
+                    ricerca.
+                </h2>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import BaseLabel from "../BaseLabel.vue";
 import BaseSearchBar from "../BaseSearchBar.vue";
 import BaseCard from "../BaseCard.vue";
 export default {
     name: "RestaurantsPage",
-    components: { BaseLabel, BaseCard, BaseSearchBar },
+    components: { BaseCard, BaseSearchBar },
     data() {
         return {
             categories: [],
@@ -68,10 +50,10 @@ export default {
                 this.isFirstSearch = false;
             }
             if (this.isFirstSearch && routeParam) {
+                this.selectedCategories = routeParam;
                 if (routeParam.length == 0) {
                     this.selectedCategories = [0];
                 }
-                this.selectedCategories = routeParam;
             }
 
             axios
@@ -129,12 +111,8 @@ export default {
     },
     beforeMount() {
         this.fetchCategories();
-        console.log("before mount");
-        console.log(this.selectedCategories);
     },
     mounted() {
-        console.log("mount");
-        console.log(this.selectedCategories);
         this.fetchRestaurants();
     },
 };
@@ -160,6 +138,12 @@ export default {
         .col-12 {
             flex: 0 0 100%;
             max-width: 100%;
+            height: 100%;
+        }
+
+        .col {
+            flex: 0 0 100%;
+            max-width: 100%;
 
             &.restaurants-box {
                 display: flex;
@@ -167,13 +151,21 @@ export default {
                 flex-wrap: wrap;
 
                 & > * {
-                    width: 30%;
+                    margin-bottom: 1rem;
                 }
+            }
+        }
 
-                .restaurant-category {
-                    font-size: 0.7rem;
-                    font-weight: bold;
-                }
+        @media (min-width: 576px) {
+            .col {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+        @media (min-width: 768px) {
+            .col {
+                flex: 0 0 calc(100% / 3);
+                max-width: calc(100% / 3);
             }
         }
     }
