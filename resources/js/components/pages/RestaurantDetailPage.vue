@@ -23,47 +23,32 @@
             </div>
         </div>
     </div>
+    <!-- Cart -->
+    <div class="container">
+        <ShoppingCart></ShoppingCart>
+    </div>
 
     <!-- Menu -->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card rounded-5 mb-3 pb-5 shadow">
-                    <div class="row restaurant_dishes">
+                    <div v-for="item in items" :key="item.id" class="row restaurant_dishes">
                         <div class="col-3">
                             <img src="../../../../public/img/piatto_1.jpg" alt="" class="restaurant_dishes_img">
                         </div>
                         <div class="col-6">
                             <ul class="information-dishes">
-                                <li class="name_dishes">Nome piatto</li>
-                                <li class="category-dishes">Categoria 1 - Categoria 2</li>
-                                <li class="description-dishes">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit error commodi omnis! Minus quae molestias</li>
-                                <li class="allergens-dishes"><i class="fa-solid fa-wheat-awn"></i>Allergeni</li>
-                                <li class="price-dishes"><i class="fa-solid fa-money-bill"></i>23.70</li>
+                                <li class="name_dishes">{{ item.title }}</li>
+                                <li class="price-dishes"><i class="fa-solid fa-money-bill"></i>{{ item.price.toFixed(2) }}</li>
                             </ul>
                         </div>
                         <div class="col-3">
-                            <a href="#" class="add-cart">Aggiungi all'ordine</a>
+                            <button class="add-cart" @click="addToCart(item)">Aggiungi all'ordine</button>
                         </div>
+                        <hr>
                     </div>
-                    <hr>
-                    <div class="row restaurant_dishes">
-                        <div class="col-3">
-                            <img src="../../../../public/img/piatto_1.jpg" alt="" class="restaurant_dishes_img">
-                        </div>
-                        <div class="col-6">
-                            <ul class="information-dishes">
-                                <li class="name_dishes">Nome piatto</li>
-                                <li class="category-dishes">Categoria 1 - Categoria 2</li>
-                                <li class="description-dishes">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit error commodi omnis! Minus quae molestias</li>
-                                <li class="allergens-dishes"><i class="fa-solid fa-wheat-awn"></i>Allergeni</li>
-                                <li class="price-dishes"><i class="fa-solid fa-money-bill"></i>23.70</li>
-                            </ul>
-                        </div>
-                        <div class="col-3">
-                            <a href="#" class="add-cart">Aggiungi all'ordine</a>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -73,8 +58,71 @@
 </template>
 
 <script>
+import ShoppingCart from '../ShoppingCart.vue';
 export default {
-
+  components: { ShoppingCart },
+    name: 'RestaurantDetailPage',
+    data() {
+        return {
+            items: [
+                {
+                    id: 1,
+                    title: 'Children of Bodom - Hatebreeder',
+                    price: 9.99
+                },
+                {
+                    id: 2,
+                    title: 'Emperor - Anthems to the Welkin at Dusk',
+                    price: 6.66
+                },
+                {
+                    id: 3,
+                    title: 'Epica - The Quantum Enigma',
+                    price: 15.99
+                },
+                {
+                    id: 4,
+                    title: 'Chthonic - Takasago Army',
+                    price: 14.00
+                },
+                {
+                    id: 5,
+                    title: 'Silencer - Death - Pierce Me',
+                    price: 1.20
+                },
+                {
+                    id: 6,
+                    title: 'My Dying Bride - 34.788%... Complete',
+                    price: 10.00
+                },
+                {
+                    id: 7,
+                    title: 'Shape of Despair - Shades of',
+                    price: 7.80
+                },
+                {
+                    id: 8,
+                    title: 'Ne Obliviscaris - Portal of I',
+                    price: 11.30
+                },
+                {
+                    id: 9,
+                    title: 'Protest the Hero - Fortress',
+                    price: 5.55
+                },
+                {
+                    id: 10,
+                    title: 'Dark Lunacy - Devoid',
+                    price: 6.00
+                },
+            ]
+        }
+    },
+    methods: {
+        addToCart(item) {
+            this.$store.commit('addToCart', item);
+        }
+    }
 }
 </script>
 
