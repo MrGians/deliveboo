@@ -10,21 +10,16 @@
 </template>
 
 <script>
-import BaseHeader from "../BaseHeader.vue";
 import BaseSearchBar from "../BaseSearchBar.vue";
 import BaseCard from "../BaseCard.vue";
-import RestaurantDetailPage from "./RestaurantDetailPage.vue";
 export default {
     name: "App",
     components: {
         BaseSearchBar,
         BaseCard,
-        BaseHeader,
-        RestaurantDetailPage,
     },
     data() {
         return {
-            placeholder: "Voglia di qualcosa di buono?",
             categories: [],
         };
     },
@@ -56,28 +51,39 @@ export default {
 <style scoped lang="scss">
 @import "./../../../sass/front.scss";
 
-#title {
-    color: #fc5958;
-    margin-bottom: 100px;
-}
-
 #home-page {
-    min-height: 200px;
-    margin-bottom: 150px;
-
     .search-box {
         position: relative;
-        width: 100%;
+        width: 80%;
+        margin: 0 auto;
         display: flex;
         justify-content: center;
         align-items: center;
 
         img {
             position: absolute;
-            bottom: 100%;
-            left: 30%;
-            width: 25%;
+            top: -50px;
+            left: -50px;
+            width: 40%;
             height: auto;
+        }
+        @media (min-width: 576px) {
+            img {
+                top: -80px;
+                left: -80px;
+            }
+        }
+        @media (min-width: 768px) {
+            img {
+                top: -100px;
+                left: -100px;
+            }
+        }
+        @media (min-width: 992px) {
+            img {
+                top: -150px;
+                left: -150px;
+            }
         }
     }
 }

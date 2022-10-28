@@ -87,70 +87,83 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.multiselect {
-    width: 100%;
+    margin: 3rem auto;
+    z-index: 1;
 
-    .select-box {
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        font-size: 1.3rem;
-        color: white;
-        background-color: $tertiary;
-        border: 2px solid black;
-    }
+    .multiselect {
+        width: 100%;
 
-    #checkboxes {
-        display: none;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        border: 2px solid black;
-        border-top: none;
-
-        &.d-flex {
-            display: flex;
-        }
-        & .item {
+        .select-box {
+            height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 25%;
-            height: 40px;
-            border: 1px solid black;
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: white;
+            background-color: $tertiary;
+            border: 2px solid black;
+        }
 
-            & label {
+        #checkboxes {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            border-top: none;
+
+            &.d-flex {
+                display: flex;
+            }
+            & .item {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 width: 100%;
-                height: 100%;
-                color: white;
-                background-color: $secondary;
+                height: 40px;
+                border: 1px solid black;
+
+                & label {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    color: white;
+                    background-color: $secondary;
+                }
+                & label.selected {
+                    background-color: $quaternary;
+                }
             }
-            & label.selected {
-                background-color: $quaternary;
+            @media (min-width: 576px) {
+                & .item {
+                    width: 50%;
+                }
+            }
+            @media (min-width: 768px) {
+                & .item {
+                    width: 25%;
+                }
             }
         }
     }
-}
-.search-btn {
-    align-self: baseline;
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    border: 2px solid $tertiary;
-    background-color: $tertiary;
-    color: white;
-    border-radius: 30px;
-    margin-left: 1rem;
-    transition: all 0.35s;
+    .search-btn {
+        align-self: baseline;
+        display: inline-block;
+        padding: 0.6rem 1.2rem;
+        border: 2px solid $tertiary;
+        background-color: $tertiary;
+        color: white;
+        border-radius: 30px;
+        margin-left: 1rem;
+        transition: all 0.35s;
 
-    &:hover {
-        background-color: white;
-        color: $tertiary;
+        &:hover {
+            background-color: white;
+            color: $tertiary;
+        }
     }
 }
 </style>
