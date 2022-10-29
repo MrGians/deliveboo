@@ -1,6 +1,7 @@
 <template>
     <div id="restaurants-page" class="container">
         <BaseLoader v-if="isLoading" />
+        <h2 v-else-if="hasErrors" class="text-center">{{ errors.http }}</h2>
         <div v-else class="row">
             <!-- Search Restaurants by Categories Filter -->
             <div class="col-12">
@@ -42,7 +43,13 @@ export default {
             selectedCategories: [],
             isFirstSearch: true,
             isLoading: false,
+            errors: {},
         };
+    },
+    computed: {
+        hasErrors() {
+            return Object.keys(this.errors).length;
+        },
     },
     methods: {
         fetchRestaurants() {
@@ -73,13 +80,15 @@ export default {
                     });
                 })
                 .catch(() => {
-                    // todo
+                    this.errors = { http: "Si è verificato un errore" };
                 })
                 .then(() => {
                     this.isLoading = false;
                 });
         },
         fetchCategories() {
+            this.isLoading = true;
+
             axios
                 .get("http://127.0.0.1:8000/api/home")
                 .then((res) => {
@@ -94,10 +103,10 @@ export default {
                     this.categories = result;
                 })
                 .catch(() => {
-                    // todo
+                    this.errors = { http: "Si è verificato un errore" };
                 })
                 .then(() => {
-                    // todo
+                    this.isLoading = false;
                 });
         },
         setCategories(value) {
