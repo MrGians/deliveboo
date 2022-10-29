@@ -1,6 +1,7 @@
 <template>
     <div id="restaurants-page" class="container">
-        <div class="row">
+        <BaseLoader v-if="isLoading" />
+        <div v-else class="row">
             <!-- Search Restaurants by Categories Filter -->
             <div class="col-12">
                 <BaseSearchBar
@@ -29,20 +30,24 @@
 
 <script>
 import BaseSearchBar from "../BaseSearchBar.vue";
+import BaseLoader from "../BaseLoader.vue";
 import BaseCard from "../BaseCard.vue";
 export default {
     name: "RestaurantsPage",
-    components: { BaseCard, BaseSearchBar },
+    components: { BaseCard, BaseSearchBar, BaseLoader },
     data() {
         return {
             categories: [],
             restaurants: [],
             selectedCategories: [],
             isFirstSearch: true,
+            isLoading: false,
         };
     },
     methods: {
         fetchRestaurants() {
+            this.isLoading = true;
+
             const routeParam = this.$route.params.filter;
 
             if (this.isFirstSearch && !routeParam) {
@@ -71,7 +76,7 @@ export default {
                     // todo
                 })
                 .then(() => {
-                    // todo
+                    this.isLoading = false;
                 });
         },
         fetchCategories() {

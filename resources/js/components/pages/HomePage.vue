@@ -1,6 +1,7 @@
 <template>
     <div id="home-page">
-        <div class="search-box">
+        <BaseLoader v-if="isLoading" />
+        <div v-else class="search-box">
             <img src="/img/burger_sandwich_PNG4135.png" alt="" />
             <BaseSearchBar class="text-center" :list-item="categories" />
         </div>
@@ -12,19 +13,24 @@
 <script>
 import BaseSearchBar from "../BaseSearchBar.vue";
 import BaseCard from "../BaseCard.vue";
+import BaseLoader from "../BaseLoader.vue";
 export default {
     name: "App",
     components: {
         BaseSearchBar,
         BaseCard,
+        BaseLoader,
     },
     data() {
         return {
             categories: [],
+            isLoading: false,
         };
     },
     methods: {
         fetchCategories() {
+            this.isLoading = true;
+
             axios
                 .get("http://127.0.0.1:8000/api/home")
                 .then((res) => {
@@ -38,7 +44,7 @@ export default {
                     // todo
                 })
                 .then(() => {
-                    // todo
+                    this.isLoading = false;
                 });
         },
     },
