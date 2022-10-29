@@ -23,7 +23,7 @@ const routes = new VueRouter({
         {
             path: "/restaurant/:id",
             component: RestaurantDetailPage,
-            name: "restaurant.show",
+            name: "restaurant-detail",
         },
         { path: "*", component: NotFoundPage, name: "not-found" },
     ],

@@ -1,37 +1,39 @@
 <template>
-    <div class="card">
-        <div class="card-header rounded-5">
-            <img
-                :src="'storage/' + item.logo"
-                :alt="item.name"
-                class="img-fluid"
-            />
-        </div>
-        <div class="card-body">
-            <h4 class="title text-center">
-                {{ item.name }}
-            </h4>
-            <div class="categories text-center rounded-5">
-                <span v-for="category in item.categories" :key="category.id"
-                    >{{ category.label }}
-                </span>
+    <router-link :to="{ name: 'restaurant-detail', params: { id: item.id } }">
+        <div class="card">
+            <div class="card-header rounded-5">
+                <img
+                    :src="'storage/' + item.logo"
+                    :alt="item.name"
+                    class="img-fluid"
+                />
             </div>
-            <ul class="list">
-                <li>
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>{{ item.address }}</span>
-                </li>
-                <li>
-                    <i class="fa-solid fa-star"></i>
-                    <span>Voto: <strong> 5.00</strong></span>
-                </li>
-                <li>
-                    <i class="fa-solid fa-money-check-dollar"></i>
-                    <span><strong>Consegna Gratis</strong></span>
-                </li>
-            </ul>
+            <div class="card-body">
+                <h4 class="title text-center">
+                    {{ item.name }}
+                </h4>
+                <div class="categories text-center rounded-5">
+                    <span v-for="category in item.categories" :key="category.id"
+                        >{{ category.label }}
+                    </span>
+                </div>
+                <ul class="list">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>{{ item.address }}</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-star"></i>
+                        <span>Voto: <strong> 5.00</strong></span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-money-check-dollar"></i>
+                        <span><strong>Consegna Gratis</strong></span>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </router-link>
 </template>
 
 <script>
