@@ -5,6 +5,7 @@
             <img src="/img/burger_sandwich_PNG4135.png" alt="" />
             <BaseSearchBar class="text-center" :list-item="categories" />
         </div>
+        <h2 v-if="hasErrors" class="text-center">{{ errors.http }}</h2>
 
         <!-- TODO FOOTER -->
     </div>
@@ -25,7 +26,13 @@ export default {
         return {
             categories: [],
             isLoading: false,
+            errors: {},
         };
+    },
+    computed: {
+        hasErrors() {
+            return Object.keys(this.errors).length;
+        },
     },
     methods: {
         fetchCategories() {
@@ -41,7 +48,7 @@ export default {
                     this.categories = result;
                 })
                 .catch(() => {
-                    // todo
+                    this.errors = { http: "Si è verificato un errore" };
                 })
                 .then(() => {
                     this.isLoading = false;
