@@ -1,6 +1,8 @@
 <template>
     <div id="restaurants-page" class="container">
+        <!-- Page Loader -->
         <BaseLoader v-if="isLoading" />
+        <!-- Shows the errors recovered -->
         <h2 v-else-if="hasErrors" class="text-center">{{ errors.http }}</h2>
         <div v-else class="row">
             <!-- Search Restaurants by Categories Filter -->
@@ -19,6 +21,7 @@
             >
                 <BaseCard :item="restaurant" />
             </div>
+            <!-- If result of the Search < 1 -->
             <div v-if="restaurants.length == 0" class="col-12">
                 <h2 class="text-center">
                     Non sono stati trovati Ristoranti con questi filtri di
@@ -55,6 +58,7 @@ export default {
         fetchRestaurants() {
             this.isLoading = true;
 
+            // Check & manage incoming params from $route variable
             const routeParam = this.$route.params.filter;
 
             if (this.isFirstSearch && !routeParam) {
@@ -110,6 +114,7 @@ export default {
                 });
         },
         setCategories(value) {
+            // Check & manage incoming params from $route variable
             if (this.isFirstSearch) {
                 const routeParam = this.$route.params.filter;
                 routeParam.forEach((param) => {

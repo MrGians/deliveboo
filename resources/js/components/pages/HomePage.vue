@@ -1,13 +1,14 @@
 <template>
     <div id="home-page">
+        <!-- Page Loader -->
         <BaseLoader v-if="isLoading" />
+        <!-- Category restaurants filter for search -->
         <div v-else class="search-box">
             <img src="/img/burger_sandwich_PNG4135.png" alt="" />
             <BaseSearchBar class="text-center" :list-item="categories" />
         </div>
+        <!-- Shows the errors recovered -->
         <h2 v-if="hasErrors" class="text-center">{{ errors.http }}</h2>
-
-        <!-- TODO FOOTER -->
     </div>
 </template>
 
