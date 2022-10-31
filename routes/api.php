@@ -20,3 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', 'Api\HomeController@index');
 Route::get('/restaurants', 'Api\RestaurantController@index');
 Route::get('/restaurants/{id}', 'Api\RestaurantController@show');
+
+// Generate Client Token
+Route::get('/orders/token', 'Api\OrderController@generateToken');
+// Make Payment
+Route::post('/orders/payment', 'Api\OrderController@makePayment');
