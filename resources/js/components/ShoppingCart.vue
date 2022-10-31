@@ -11,7 +11,13 @@
                     {{ item.title }}
                 </div>
                 <div class="col-3">
+                    <button @click="DecrementButton(item)">
+                        diminuisci la quantità
+                    </button>
                     x{{ item.quantity }}
+                    <button @click="IncrementButton(item)">
+                        Aumenta la quantità
+                    </button>
                 </div>
                 <div class="col-3">
                     - {{ item.totalPrice }}
@@ -48,6 +54,12 @@ export default {
     methods: {
         removeFromCart(item) {
             this.$store.commit('removeFromCart', item);
+        }, 
+        IncrementButton(item) {
+            this.$store.commit('IncrementButton', item);
+        },
+        DecrementButton(item) {
+            this.$store.commit('DecrementButton', item);
         }
     }
 }
