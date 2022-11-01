@@ -1,3 +1,4 @@
+import { forEach } from 'lodash';
 import Vue from 'vue';
 
 import Vuex from 'vuex';
@@ -92,6 +93,11 @@ let store = {
         saveCart(state) {
             window.localStorage.setItem('cart', JSON.stringify(state.cart));
             window.localStorage.setItem('cartCount', state.cartCount);
+        },
+        resetCart(state) {
+            state.cart = [];
+            state.cartCount = 0;
+            this.commit('saveCart');
         }
     }
 };

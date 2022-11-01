@@ -12,7 +12,7 @@
 
           <div class="modal-body">
             <slot name="body">
-              default body
+              
             </slot>
           </div>
 
@@ -20,8 +20,9 @@
             <slot name="footer">
               default footer
               <button class="modal-default-button" @click="$emit('close')">
-                OK
+                Annulla
               </button>
+              <router-link class="modal-default-button" :to="{ name: 'restaurants'}" @click="$emit('reset')">Conferma</router-link>
             </slot>
           </div>
         </div>
@@ -33,6 +34,9 @@
 <script>
 export default {
     name: 'BaseModal',
+    methods: {
+        
+    }
 }
 </script>
 

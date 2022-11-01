@@ -28,15 +28,18 @@
         </div>
         
         <div class="container">
-            <button id="show-modal" @click="showModal = true">Show Modal</button>
+            <button id="show-modal" @click="showModal = true">Torna alla lista ristoranti</button>
         </div>
 
-        <BaseModal v-if="showModal" @close="showModal = false">
+        <BaseModal v-if="showModal" @close="showModal = false" @reset="resetCart()">
         <!--
             you can use custom content here to overwrite
             default content
         -->
-            <h3 slot="header">custom header</h3>
+            <h3 slot="header">Attenzione</h3>
+            <div class="container" slot="body">
+                <p>Se torni alla lista dei ristoranti il carrello si svuoterà. Vuoi proseguire?</p>
+            </div>
         </BaseModal>
 
         <!-- Cart -->
@@ -98,6 +101,9 @@ export default {
                     this.detailRestaurant = res.data;
                 });
         },
+        resetCart() {
+            this.$store.commit('resetCart');
+        }
         
     },
     mounted() {
