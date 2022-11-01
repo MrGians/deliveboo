@@ -69,7 +69,13 @@ export default {
     },
     methods: {
         addToCart(item) {
+            // Se il carrello é vuoto oppure il restaurant id dell'item che si vuole aggiungere é = ai restaurant id degli item già presenti nel carrello allora aggiungi al carrello.
             this.$store.commit('addToCart', item);
+            // Se il restaurant id dell' item che si vuole aggiungere é diverso dal restaurant id dell'item già presente nel carrello.
+            // Allora crea un popup con due pulsanti 
+            // 1 - per cancellare tutti gli item già presenti nel carrello e aggingere questo che si desidera committare- e 
+            // 2 - con il tasto "annulla" fa sparire il popup.
+
         },
         fetchRestaurant() {
             axios.get('http://127.0.0.1:8000/api/restaurants/' + this.$route.params.id)
