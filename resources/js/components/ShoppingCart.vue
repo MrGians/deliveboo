@@ -20,7 +20,7 @@
                     </button>
                 </div>
                 <div class="col-3">
-                    - {{ item.totalPrice }}
+                    - {{ item.totalPrice.toFixed(2) }}
                     <button @click.prevent="removeFromCart(item)">
                         elimina dal carrello
                     </button>

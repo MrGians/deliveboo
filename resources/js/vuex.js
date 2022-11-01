@@ -27,13 +27,18 @@ let store = {
 
                 Vue.set(item, 'quantity', 1);
                 Vue.set(item, 'totalPrice', item.price);
+
             }
 
             state.cartCount++;
 
-            if (cart.length === 0 || item.restaurant_id === cart.item.restaurant_id) {
+            /*if (state.cart.length === 0 || item.restaurant_id === state.cart.item.restaurant_id) {
                 state.cart.push(item);
             }
+            if (item.restaurant_id !== state.cart.item.restaurant_id) {
+                this.showModal = true;
+            }*/
+
             // Se il carrello é vuoto oppure il restaurant id dell'item che si vuole aggiungere é = al restaurant id degli item già presenti nel carrello allora aggiungi al carrello.
             // Se il restaurant id dell' item che si vuole aggiungere é diverso dal restaurant id dell'item già presente nel carrello.
             // Allora crea un popup con due pulsanti 

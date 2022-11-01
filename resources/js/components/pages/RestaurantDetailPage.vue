@@ -12,7 +12,7 @@
                             <div class="card-body">
                                 <ul class="information-restaurant">
                                     <li class="title-restaurant-card">{{ detailRestaurant.name }}</li>
-                                    <li class="category" v-for="category in detailRestaurant.categories" :key="category.id"
+                                    <li class="category" v-for="category in detailRestaurant[categories]" :key="category.id"
                                     {{ category.label }}>
                                     </li>
                                     <li class="description">{{ detailRestaurant.description }}</li>
@@ -26,6 +26,19 @@
                 </div>
             </div>
         </div>
+        
+        <div class="container">
+            <button id="show-modal" @click="showModal = true">Show Modal</button>
+        </div>
+
+        <BaseModal v-if="showModal" @close="showModal = false">
+        <!--
+            you can use custom content here to overwrite
+            default content
+        -->
+            <h3 slot="header">custom header</h3>
+        </BaseModal>
+
         <!-- Cart -->
         <div class="container">
             <ShoppingCart></ShoppingCart>
@@ -64,26 +77,28 @@
 </template>
 
 <script>
+import BaseModal from '../BaseModal.vue';
 import ShoppingCart from '../ShoppingCart.vue';
 export default {
-    components: { ShoppingCart },
+    components: { ShoppingCart, BaseModal },
     name: 'RestaurantDetailPage',
     data() {
         return {
             detailRestaurant: [],
+            showModal: false,
         }
     },
     methods: {
         addToCart(item) {
             this.$store.commit('addToCart', item);
-
         },
         fetchRestaurant() {
             axios.get('http://127.0.0.1:8000/api/restaurants/' + this.$route.params.id)
                 .then((res) => {
                     this.detailRestaurant = res.data;
                 });
-        }
+        },
+        
     },
     mounted() {
         this.fetchRestaurant()
