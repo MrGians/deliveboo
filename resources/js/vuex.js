@@ -30,7 +30,17 @@ let store = {
             }
 
             state.cartCount++;
+
+            if (cart.length === 0 || item.restaurant_id === cart.item.restaurant_id) {
+                state.cart.push(item);
+            }
+            // Se il carrello é vuoto oppure il restaurant id dell'item che si vuole aggiungere é = al restaurant id degli item già presenti nel carrello allora aggiungi al carrello.
+            // Se il restaurant id dell' item che si vuole aggiungere é diverso dal restaurant id dell'item già presente nel carrello.
+            // Allora crea un popup con due pulsanti 
+            // 1 - per cancellare tutti gli item già presenti nel carrello e aggingere quello che si desidera committare- e 
+            // 2 - con il tasto "annulla" fa sparire il popup.
             this.commit('saveCart');
+
         },
         removeFromCart(state, item) {
             let index = state.cart.indexOf(item);
