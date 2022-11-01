@@ -22,6 +22,9 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/front.css') }}">
 
+        {{-- Braintree --}}
+        <script src="https://js.braintreegateway.com/web/3.38.1/js/client.min.js"></script>
+        <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
 
         <!-- Script -->
         <script defer src="{{ asset('js/front.js') }}"></script>
