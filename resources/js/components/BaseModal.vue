@@ -18,11 +18,7 @@
 
           <div class="modal-footer">
             <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')">
-                Annulla
-              </button>
-              <router-link class="modal-default-button" :to="{ name: 'restaurants'}" @click="$emit('reset')">Conferma</router-link>
+              <button class="modal-default-button" @click="$emit('reset')">Continua</button>
             </slot>
           </div>
         </div>

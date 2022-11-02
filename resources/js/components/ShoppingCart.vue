@@ -1,37 +1,40 @@
 <template>
     <div class="card rounded-5 mb-3 pb-5 shadow">
-        <div class="row">
+        <div>
             <h1>
                 Cart ({{ $store.state.cartCount }})
             </h1>
         </div>
         <div v-if="$store.state.cart.length > 0">
-            <div class="row" v-for="item in $store.state.cart" :key="item.id">
+            <div v-for="item in $store.state.cart" :key="item.id">
                 <div class="col-6">
-                    {{ item.title }}
+                    {{ item.name }}
                 </div>
                 <div class="col-3">
                     <button @click="DecrementButton(item)">
-                        diminuisci la quantità
+                        -
                     </button>
                     x{{ item.quantity }}
                     <button @click="IncrementButton(item)">
-                        Aumenta la quantità
+                        +
                     </button>
                 </div>
                 <div class="col-3">
-                    - {{ item.totalPrice.toFixed(2) }}
+                    <!-- {{ item.totalPrice.toFixed(2) }} -->
                     <button @click.prevent="removeFromCart(item)">
                         elimina dal carrello
                     </button>
                 </div>
                 <hr>
             </div>
-            <div class="row">
+            <div>
                 Totale: {{ totalPrice }}
+                <div>
+                    <router-link :to="{ name: 'payment', params: { cart: this.$store.state.cart } }"><button>Prosegui con l'ordine</button></router-link>
+                </div>
             </div>
         </div>
-        <div v-else class="row">
+        <div v-else>
             Il carrello è vuoto
         </div>
     </div>
@@ -65,6 +68,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
+@import './../../sass/front.scss';
+
+.card {
+    padding: 2rem;
+}
 
 </style>

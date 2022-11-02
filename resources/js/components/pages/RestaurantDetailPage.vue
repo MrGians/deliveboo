@@ -7,13 +7,13 @@
                     <div class="card rounded-5 mt-5 mb-5 shadow">
                         <div class="text-center">
                             <div id="logo">
-                                <span class="text-logo">{{ detailRestaurant.logo }}</span>
+                                <img class="text-logo" :src="'storage/' + detailRestaurant.logo" />
                             </div>
                             <div class="card-body">
                                 <ul class="information-restaurant">
                                     <li class="title-restaurant-card">{{ detailRestaurant.name }}</li>
-                                    <li class="category" v-for="category in detailRestaurant[categories]" :key="category.id"
-                                    {{ category.label }}>
+                                    <li class="category" v-for="category in detailRestaurant.categories" :key="category.id">
+                                        <span>{{ category.label }} </span>
                                     </li>
                                     <li class="description">{{ detailRestaurant.description }}</li>
                                     <li class="address">{{ detailRestaurant.address }}</li>
@@ -27,18 +27,16 @@
             </div>
         </div>
         
-        <div class="container">
-            <button id="show-modal" @click="showModal = true">Torna alla lista ristoranti</button>
-        </div>
+        
 
-        <BaseModal v-if="showModal" @close="showModal = false" @reset="resetCart()">
+        <BaseModal v-if="showModal" @reset="resetCart()">
         <!--
             you can use custom content here to overwrite
             default content
         -->
             <h3 slot="header">Attenzione</h3>
             <div class="container" slot="body">
-                <p>Se torni alla lista dei ristoranti il carrello si svuoterà. Vuoi proseguire?</p>
+                <p>Puoi ordinare solo da un ristorante per volta. Il carrello si svuoterà.</p>
             </div>
         </BaseModal>
 
@@ -89,26 +87,77 @@ export default {
         return {
             detailRestaurant: [],
             showModal: false,
+            cart: [],
         }
     },
     methods: {
         addToCart(item) {
-            this.$store.commit('addToCart', item);
+            let found = this.$store.state.cart.find(product => product.id == item.id);
+            let foundOther = this.$store.state.cart.find(product => product.restaurant_id !== item.restaurant_id);
+            
+            if(foundOther) {
+                this.showModal = true;
+            }
+            
+            if (found) {
+
+                found.quantity++;
+                found.totalPrice = found.quantity * found.price;
+                
+            } else {
+                this.$store.state.cart.push(item);
+                
+                Vue.set(item, 'quantity', 1);
+                Vue.set(item, 'totalPrice', item.price);
+                
+            }
+            
+            
+            this.$store.state.cartCount++;
+
+            /*if (state.cart.length === 0 || item.restaurant_id === state.cart.item.restaurant_id) {
+                state.cart.push(item);
+            }
+            if (item.restaurant_id !== state.cart.item.restaurant_id) {
+                this.showModal = true;
+            }*/
+
+            // Se il carrello é vuoto oppure il restaurant id dell'item che si vuole aggiungere é = al restaurant id degli item già presenti nel carrello allora aggiungi al carrello.
+            // Se il restaurant id dell' item che si vuole aggiungere é diverso dal restaurant id dell'item già presente nel carrello.
+            // Allora crea un popup con due pulsanti 
+            // 1 - per cancellare tutti gli item già presenti nel carrello e aggingere quello che si desidera committare- e 
+            // 2 - con il tasto "annulla" fa sparire il popup.
+            this.$store.commit('saveCart');
+
         },
         fetchRestaurant() {
             axios.get('http://127.0.0.1:8000/api/restaurants/' + this.$route.params.id)
                 .then((res) => {
                     this.detailRestaurant = res.data;
+                    
                 });
         },
-        resetCart() {
-            this.$store.commit('resetCart');
+        resetCart(state) {
+            window.localStorage.removeItem('cart', JSON.stringify(this.$store.state.cart));
+            window.localStorage.removeItem('cartCount', this.$store.state.cartCount);
+            this.$store.state.cart = [];
+            this.$store.state.cartCount = 0;
+            this.showModal = false;
         }
         
+        
+    },
+    computed: {
+        updatedCart() {
+            this.$store.state.cart['cart_id'] = this.detailRestaurant.id;
+            console.log(this.$store.state.cart);
+            return this.$store.state.cart
+        }
     },
     mounted() {
         this.fetchRestaurant()
     },
+    
 
 }
 </script>

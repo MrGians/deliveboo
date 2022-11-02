@@ -17,9 +17,10 @@ let store = {
         cartCount: cartCount ? parseInt(cartCount) : 0,
     },
     mutations: {
-        addToCart(state, item) {
+        /*addToCart(state, item) {
             let found = state.cart.find(product => product.id == item.id);
 
+            
             if (found) {
                 found.quantity++;
                 found.totalPrice = found.quantity * found.price;
@@ -33,21 +34,9 @@ let store = {
 
             state.cartCount++;
 
-            /*if (state.cart.length === 0 || item.restaurant_id === state.cart.item.restaurant_id) {
-                state.cart.push(item);
-            }
-            if (item.restaurant_id !== state.cart.item.restaurant_id) {
-                this.showModal = true;
-            }*/
-
-            // Se il carrello é vuoto oppure il restaurant id dell'item che si vuole aggiungere é = al restaurant id degli item già presenti nel carrello allora aggiungi al carrello.
-            // Se il restaurant id dell' item che si vuole aggiungere é diverso dal restaurant id dell'item già presente nel carrello.
-            // Allora crea un popup con due pulsanti 
-            // 1 - per cancellare tutti gli item già presenti nel carrello e aggingere quello che si desidera committare- e 
-            // 2 - con il tasto "annulla" fa sparire il popup.
             this.commit('saveCart');
 
-        },
+        },*/
         removeFromCart(state, item) {
             let index = state.cart.indexOf(item);
 
@@ -94,11 +83,13 @@ let store = {
             window.localStorage.setItem('cart', JSON.stringify(state.cart));
             window.localStorage.setItem('cartCount', state.cartCount);
         },
-        resetCart(state) {
-            state.cart = [];
-            state.cartCount = 0;
-            this.commit('saveCart');
-        }
+        /*resetCart(state) {
+            window.localStorage.removeItem('cart', JSON.stringify(this.$store.state.cart));
+            window.localStorage.removeItem('cartCount', this.$store.state.cartCount);
+            this.$store.state.cart = [];
+            this.$store.state.cartCount = 0;
+            this.$router.push({ name: "restaurants" });
+        }*/
     }
 };
 
