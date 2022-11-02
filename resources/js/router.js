@@ -29,4 +29,6 @@ const routes = new VueRouter({
     ],
 });
 
+
+
 export default routes;
