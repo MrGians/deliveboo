@@ -22,9 +22,12 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/front.css') }}">
 
-        {{-- Braintree --}}
-        <script src="https://js.braintreegateway.com/web/3.38.1/js/client.min.js"></script>
-        <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
+        {{-- includes the Braintree JS client SDK --}}
+        <script src="https://js.braintreegateway.com/web/3.88.2/js/client.min.js"></script>
+        <script src="https://js.braintreegateway.com/web/3.88.2/js/hosted-fields.min.js"></script>
+
+        {{-- includes jQuery --}}
+        <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
 
         <!-- Script -->
         <script defer src="{{ asset('js/front.js') }}"></script>
