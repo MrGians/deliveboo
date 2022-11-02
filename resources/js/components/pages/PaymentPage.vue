@@ -5,7 +5,7 @@
         <!-- Shows the errors recovered -->
         <h2 v-else-if="hasErrors" class="text-center">{{ errors.http }}</h2>
         <!-- Form to make Order -->
-        <div class="col-10">
+        <div v-show="!isLoading" class="col-10">
             <div class="order-form card rounded-5 shadow">
                 <div class="text-center">
                     <h3>Completa il tuo ordine</h3>
@@ -135,7 +135,6 @@
                             <label for="cvv" class="col-form-label"
                                 >CVV *</label
                             >
-
                             <div>
                                 <div
                                     id="cvv"
@@ -205,6 +204,12 @@ export default {
                 email: "",
                 address: "",
                 tel: "",
+                paymentMethodNonce: "",
+                cart: [
+                    { id: 1, name: "Pizza", price: 12, quantity: 3 },
+                    { id: 2, name: "Pasta", price: 5, quantity: 1 },
+                    { id: 3, name: "Dolce", price: 13, quantity: 1 },
+                ],
             },
             token: null,
             authorization: "sandbox_rz76qbvt_v3t2hg846dk826w5",
@@ -238,7 +243,7 @@ export default {
         launchBraintree() {
             const form = document.querySelector("#payment-form");
             const submit = document.querySelector('input[type="submit"]');
-
+            let formToSubmit = this.form;
             braintree.client.create(
                 {
                     // Insert your tokenization key here
@@ -309,15 +314,20 @@ export default {
                                             console.error(tokenizeErr);
                                             return;
                                         }
+                                        formToSubmit.paymentMethodNonce =
+                                            payload.nonce;
 
-                                        axios.post(
-                                            "http://127.0.0.1:8000/api/orders/payment",
-                                            {
-                                                form: this.form,
-                                                paymentMethodNonce:
-                                                    payload.nonce,
-                                            }
-                                        );
+                                        axios
+                                            .head(
+                                                "http://127.0.0.1:8000/api/orders/payment",
+                                                formToSubmit
+                                            )
+                                            .then((res) => {
+                                                console.log(res.data);
+                                            })
+                                            .catch((err) => {
+                                                console.log(err);
+                                            });
                                     });
                                 },
                                 false
