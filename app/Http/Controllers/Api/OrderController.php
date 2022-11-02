@@ -30,14 +30,17 @@ class OrderController extends Controller
         // Validating payment request
         $request->validate([
             'token' => 'required',
-            'amount' => 'required|numeric|min:0.01',
-        ], [
-            'token.required' => 'Il Token è obbligatorio',
-            'amount.required' => 'Il totale è obbligatorio',
-            'amount.numeric' => 'Il totale deve essere un numero',
-            'amount.min' => 'Il totale non può essere inferiore a :min',
+            'name' => 'required|string',
+            'address' => 'required|string',
+            'tel' => 'required|string|size:9',
+            'email' => 'required|email',
         ]);
 
+        $data = $request->all();
+        // TODO Create order here
+
+        
+        // TODO Make transaction 
         // Config Braintree Gateway
         $gateway = new Gateway([
             'environment' => 'sandbox',
