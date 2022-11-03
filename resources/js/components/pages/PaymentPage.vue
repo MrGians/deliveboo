@@ -4,13 +4,41 @@
         <BaseLoader v-if="isLoading" />
         <!-- Shows the errors recovered -->
         <h2 v-else-if="hasErrors" class="text-center">{{ errors.http }}</h2>
-        <!-- Form to make Order -->
+        <!-- Form to make Order & Payment -->
         <div v-show="!isLoading && !hasErrors" class="col-10">
-            <div class="order-form card rounded-5 shadow">
+            <div class="card rounded-5 shadow">
                 <div class="text-center">
-                    <h3>Completa il tuo ordine</h3>
+                    <h1 class="card-title">Completa il tuo ordine</h1>
                 </div>
-                <!-- TODO form here -->
+                <!-- Order summary -->
+                <div
+                    v-if="form.cartOrder"
+                    class="order-summary card-body shadow rounded-5"
+                >
+                    <div
+                        v-for="product in form.cartOrder"
+                        :key="product.id"
+                        class="order-product shadow rounded-5"
+                    >
+                        <img
+                            class="product-image rounded-5"
+                            :src="'/storage/' + product.image"
+                            :alt="product.name"
+                        />
+                        <div class="product-info">
+                            <span>{{ product.name }}</span
+                            ><span>{{ product.price }}&euro;</span>
+                        </div>
+                        <span class="product-quantity rounded-5"
+                            >x{{ product.quantity }}</span
+                        >
+                    </div>
+                </div>
+                <div v-else class="order-summary card-body shadow rounded-5">
+                    <h2 class="order-empty">Nessun Carrello disponibile</h2>
+                </div>
+
+                <!-- Order form -->
                 <div class="card-body">
                     <form
                         @submit.prevent="sendForm"
@@ -315,8 +343,10 @@ export default {
 #payment-page {
     justify-content: center;
 
-    h3 {
+    .card-title {
         padding: 2rem 0;
+        text-align: center;
+        color: $quaternary;
     }
 
     .col-10 {
@@ -340,6 +370,55 @@ export default {
             flex: 1 1 auto;
             min-height: 1px;
             padding: 1.25rem;
+
+            &.order-summary {
+                width: 75%;
+                min-width: 250px;
+                margin: 0 auto;
+
+                .order-empty {
+                    text-align: center;
+                    color: $tertiary;
+                }
+            }
+        }
+
+        & .order-product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            border: 2px solid $secondary;
+            margin-bottom: 1rem;
+
+            .product-image {
+                max-width: 100px;
+                background-color: $secondary;
+            }
+            .product-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.2rem;
+                font-weight: bold;
+                padding: 1rem;
+            }
+            .product-quantity {
+                margin-right: 1rem;
+                padding: 0.15rem 0.5rem;
+                background-color: $quaternary;
+                color: white;
+            }
+            /* Small devices (landscape phones, 576px and up) */
+            @media (max-width: 576px) {
+                .product-image {
+                    display: none;
+                }
+                .product-info {
+                    align-items: flex-start;
+                }
+            }
         }
     }
 }
