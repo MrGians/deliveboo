@@ -119,9 +119,21 @@
                         <div id="dropin-wrapper">
                             <div id="checkout-message"></div>
                             <div id="dropin-container"></div>
-                            <button id="submit-button">Check Card</button>
+                            <button
+                                class="payment-form-btn"
+                                v-if="!form.paymentMethodNonce"
+                                id="submit-button"
+                            >
+                                Verifica Carta
+                            </button>
+                            <button
+                                v-if="form.paymentMethodNonce"
+                                class="payment-form-btn"
+                                type="submit"
+                            >
+                                Invia Ordine
+                            </button>
                         </div>
-                        <button type="submit">submit</button>
                     </form>
                 </div>
             </div>
@@ -373,12 +385,13 @@ export default {
 
     .payment-form-btn {
         display: inline-block;
+        width: 100%;
         padding: 0.6rem 1.2rem;
         border: 2px solid $quaternary;
         background-color: $quaternary;
         color: white;
         border-radius: 30px;
-        margin-left: 1rem;
+        margin: 1rem auto;
         transition: all 0.35s;
         cursor: pointer;
 
