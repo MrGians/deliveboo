@@ -29,14 +29,14 @@
         
         
 
-        <BaseModal v-if="showModal" @reset="resetCart()">
+        <BaseModal v-if="showModal" @close="closeModal()" @reset="resetCart()">
         <!--
             you can use custom content here to overwrite
             default content
         -->
             <h3 slot="header">Attenzione</h3>
             <div class="container" slot="body">
-                <p>Puoi ordinare solo da un ristorante per volta. Il carrello si svuoterà.</p>
+                <p>Puoi ordinare solo da un ristorante per volta. Vuoi iniziare un nuovo ordine? Se inizi un nuovo ordine il carrello si svuoterà.</p>
             </div>
         </BaseModal>
 
@@ -97,6 +97,7 @@ export default {
             
             if(foundOther) {
                 this.showModal = true;
+                this.removeFromCart(item);
             }
             
             if (found) {
@@ -115,18 +116,7 @@ export default {
             
             this.$store.state.cartCount++;
 
-            /*if (state.cart.length === 0 || item.restaurant_id === state.cart.item.restaurant_id) {
-                state.cart.push(item);
-            }
-            if (item.restaurant_id !== state.cart.item.restaurant_id) {
-                this.showModal = true;
-            }*/
-
-            // Se il carrello é vuoto oppure il restaurant id dell'item che si vuole aggiungere é = al restaurant id degli item già presenti nel carrello allora aggiungi al carrello.
-            // Se il restaurant id dell' item che si vuole aggiungere é diverso dal restaurant id dell'item già presente nel carrello.
-            // Allora crea un popup con due pulsanti 
-            // 1 - per cancellare tutti gli item già presenti nel carrello e aggingere quello che si desidera committare- e 
-            // 2 - con il tasto "annulla" fa sparire il popup.
+            
             this.$store.commit('saveCart');
 
         },
@@ -143,6 +133,14 @@ export default {
             this.$store.state.cart = [];
             this.$store.state.cartCount = 0;
             this.showModal = false;
+        },
+        closeModal() {
+            this.showModal = false;
+            window.history.back();
+
+        },
+        removeFromCart() {
+            this.$store.commit('removeFromCart', item);
         }
         
         

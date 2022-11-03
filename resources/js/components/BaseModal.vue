@@ -18,6 +18,7 @@
 
           <div class="modal-footer">
             <slot name="footer">
+              <button class="modal-default-button" @click="$emit('close')">Annulla</button>
               <button class="modal-default-button" @click="$emit('reset')">Continua</button>
             </slot>
           </div>
