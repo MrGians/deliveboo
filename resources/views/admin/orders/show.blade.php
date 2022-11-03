@@ -10,6 +10,7 @@
     <h6 class="card-title">Email: {{ $order->email }}</h6>
     <h6 class="card-title">Indirizzo: {{ $order->address }}</h6>
     <h6 class="card-title">Telefono: {{ $order->tel }}</h6>
+    <h6 class="card-title">Totale: {{ $order->amount }} €</h6>
     {{-- Order Products --}}
     <ul class="list-group">
       @forelse ($order->products as $product)
@@ -22,7 +23,9 @@
       @endforelse
     </ul>
     {{-- Actions --}}
-    <a href="#" class="btn btn-primary">Torna Indietro</a>
+    <a class="btn btn-secondary ml-2 my-2" href="{{ route('admin.orders.index') }}">
+      <i class="fa-solid fa-arrow-rotate-left"></i> Indietro
+    </a>
   </div>
   <div class="card-footer text-muted">
     Ordine in data: {{ $order->created_at }}
