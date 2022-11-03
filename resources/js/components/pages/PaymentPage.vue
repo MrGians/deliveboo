@@ -195,9 +195,6 @@ export default {
                     form.addEventListener("submit", () => {
                         instance.requestPaymentMethod(
                             (requestPaymentMethodErr, payload) => {
-                                if (requestPaymentMethodErr) {
-                                    console.log(requestPaymentMethodErr);
-                                }
                                 // Custom payment validation
                                 paymentMethodNonce = "";
                                 if (payload) {
