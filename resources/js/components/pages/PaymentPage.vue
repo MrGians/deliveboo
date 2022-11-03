@@ -5,14 +5,19 @@
         <!-- Shows the errors recovered -->
         <h2 v-else-if="hasErrors" class="text-center">{{ errors.http }}</h2>
         <!-- Form to make Order -->
-        <div v-show="!isLoading" class="col-10">
+        <div v-show="!isLoading && !hasErrors" class="col-10">
             <div class="order-form card rounded-5 shadow">
                 <div class="text-center">
                     <h3>Completa il tuo ordine</h3>
                 </div>
                 <!-- TODO form here -->
                 <div class="card-body">
-                    <form id="payment-form" class="col-10" novalidate>
+                    <form
+                        @submit.prevent="sendForm"
+                        id="payment-form"
+                        class="col-10"
+                        novalidate
+                    >
                         <!-- Full Name -->
                         <div class="form-group">
                             <label for="name" class="col-form-label">
@@ -110,79 +115,13 @@
                                 </span>
                             </div>
                         </div>
-                        <!-- Card Number -->
-                        <div class="form-group">
-                            <label for="card-number" class="col-form-label"
-                                >Numero Carta *</label
-                            >
-
-                            <div>
-                                <div
-                                    id="card-number"
-                                    class="shadow form-control rounded-5"
-                                ></div>
-                                <span
-                                    id="card-number-error-box"
-                                    class="invalid-feedback"
-                                    role="alert"
-                                >
-                                    <strong id="card-number-error-msg"></strong>
-                                </span>
-                            </div>
+                        <!-- Card -->
+                        <div id="dropin-wrapper">
+                            <div id="checkout-message"></div>
+                            <div id="dropin-container"></div>
+                            <button id="submit-button">Check Card</button>
                         </div>
-                        <!-- CVV -->
-                        <div class="form-group">
-                            <label for="cvv" class="col-form-label"
-                                >CVV *</label
-                            >
-                            <div>
-                                <div
-                                    id="cvv"
-                                    class="shadow form-control rounded-5"
-                                ></div>
-                                <span
-                                    id="cvv-error-box"
-                                    class="invalid-feedback"
-                                    role="alert"
-                                >
-                                    <strong id="cvv-error-msg"></strong>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- Expiration Date -->
-                        <div class="form-group">
-                            <label for="expiration-date" class="col-form-label"
-                                >Data di Scadenza *</label
-                            >
-
-                            <div>
-                                <div
-                                    id="expiration-date"
-                                    class="shadow form-control rounded-5"
-                                ></div>
-                                <span
-                                    id="expiration-date-error-box"
-                                    class="invalid-feedback"
-                                    role="alert"
-                                >
-                                    <strong
-                                        id="expiration-date-error-msg"
-                                    ></strong>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- submit button -->
-                        <div class="form-group">
-                            <div class="text-center">
-                                <input
-                                    class="payment-form-btn"
-                                    id="payment-button"
-                                    type="submit"
-                                    value="Pay"
-                                    disabled
-                                />
-                            </div>
-                        </div>
+                        <button type="submit">submit</button>
                     </form>
                 </div>
             </div>
@@ -205,13 +144,9 @@ export default {
                 address: "",
                 tel: "",
                 paymentMethodNonce: "",
-                cart: [
-                    { id: 1, name: "Pizza", price: 12, quantity: 3 },
-                    { id: 2, name: "Pasta", price: 5, quantity: 1 },
-                    { id: 3, name: "Dolce", price: 13, quantity: 1 },
-                ],
+                cartOrder: this.$route.params.cart,
             },
-            token: null,
+            isValid: false,
             authorization: "sandbox_rz76qbvt_v3t2hg846dk826w5",
             isLoading: false,
             errors: {},
@@ -223,127 +158,133 @@ export default {
         },
     },
     methods: {
-        clientToken() {
-            this.isLoading = true;
+        sendForm() {
+            this.launchBraintree();
 
-            axios
-                .get("http://127.0.0.1:8000/api/orders/token")
-                .then((res) => {
-                    this.token = res.data.token;
-                })
-                .catch(() => {
-                    this.errors = { http: "Si è verificato un errore" };
-                })
-                .then(() => {
-                    this.isLoading = false;
-                });
+            this.formValidation();
 
-            // this.launchBraintree();
+            if (this.isValid) {
+                this.makePayment();
+            }
         },
         launchBraintree() {
-            const form = document.querySelector("#payment-form");
-            const submit = document.querySelector('input[type="submit"]');
-            let formToSubmit = this.form;
-            braintree.client.create(
+            const form = document.getElementById("payment-form");
+            const button = document.querySelector("#submit-button");
+
+            let paymentMethodNonce = "";
+
+            braintree.dropin.create(
                 {
                     // Insert your tokenization key here
                     authorization: this.authorization,
+                    container: "#dropin-container",
                 },
-                function (clientErr, clientInstance) {
-                    if (clientErr) {
-                        console.error(clientErr);
-                        return;
-                    }
-
-                    // Create a hostedFields component to initialize the form
-
-                    braintree.hostedFields.create(
-                        {
-                            client: clientInstance,
-                            // Customize the Hosted Fields.
-                            // More information can be found at:
-                            // https://developers.braintreepayments.com/guides/hosted-fields/styling/javascript/v3
-                            styles: {
-                                input: {
-                                    "font-size": "14px",
-                                },
-                                "input.invalid": {
-                                    color: "red",
-                                },
-                                "input.valid": {
-                                    color: "green",
-                                },
-                            },
-                            // Configure which fields in your card form will be generated by Hosted Fields instead
-                            fields: {
-                                number: {
-                                    container: "#card-number",
-                                    placeholder: "4111 1111 1111 1111",
-                                },
-                                cvv: {
-                                    container: "#cvv",
-                                    placeholder: "123",
-                                },
-                                expirationDate: {
-                                    container: "#expiration-date",
-                                    placeholder: "10/2022",
-                                },
-                            },
-                        },
-                        function (hostedFieldsErr, instance) {
-                            if (hostedFieldsErr) {
-                                console.error(hostedFieldsErr);
-                                return;
+                (createErr, instance) => {
+                    form.addEventListener("submit", () => {
+                        instance.requestPaymentMethod(
+                            (requestPaymentMethodErr, payload) => {
+                                if (requestPaymentMethodErr) {
+                                    console.log(requestPaymentMethodErr);
+                                }
+                                // Custom payment validation
+                                paymentMethodNonce = "";
+                                if (payload) {
+                                    paymentMethodNonce = payload.nonce;
+                                    this.form.paymentMethodNonce =
+                                        paymentMethodNonce;
+                                }
                             }
-
-                            // Once the fields are initialized enable the submit button
-                            submit.removeAttribute("disabled");
-
-                            // Initialize the form submit event
-                            form.addEventListener(
-                                "submit",
-                                function (event) {
-                                    event.preventDefault();
-                                    // When the user clicks on the 'Submit payment' button this code will send the
-                                    // encrypted payment information in a variable called a payment method nonce
-                                    instance.tokenize(function (
-                                        tokenizeErr,
-                                        payload
-                                    ) {
-                                        if (tokenizeErr) {
-                                            console.error(tokenizeErr);
-                                            return;
-                                        }
-                                        formToSubmit.paymentMethodNonce =
-                                            payload.nonce;
-
-                                        axios
-                                            .head(
-                                                "http://127.0.0.1:8000/api/orders/payment",
-                                                formToSubmit
-                                            )
-                                            .then((res) => {
-                                                console.log(res.data);
-                                            })
-                                            .catch((err) => {
-                                                console.log(err);
-                                            });
-                                    });
-                                },
-                                false
-                            );
-                        }
-                    );
+                        );
+                    });
                 }
             );
+        },
+        formValidation() {
+            // | 'name' field & box errors
+            const nameInput = document.getElementById("name");
+            const nameErrorMsg = document.getElementById("name-error-msg");
+
+            // | 'email' field & box errors
+            const emailInput = document.getElementById("email");
+            const emailErrorMsg = document.getElementById("email-error-msg");
+
+            // | 'address' field & box errors
+            const addressInput = document.getElementById("address");
+            const addressErrorMsg =
+                document.getElementById("address-error-msg");
+
+            // | 'tel' field & box errors
+            const telInput = document.getElementById("tel");
+            const telErrorMsg = document.getElementById("tel-error-msg");
+
+            let isValid = true;
+            // Validate Name
+            nameInput.className = "shadow form-control rounded-5";
+            nameErrorMsg.innerText = "";
+            if (!this.form.name) {
+                nameInput.classList.add("is-invalid");
+                nameErrorMsg.innerText = "Il nome è obbligatorio";
+                isValid = false;
+            } else if (this.form.name.length > 100) {
+                nameInput.classList.add("is-invalid");
+                nameErrorMsg.innerText =
+                    "Il nome può contenere massimo 100 caratteri";
+                isValid = false;
+            }
+            // Validate Email
+            emailInput.className = "shadow form-control rounded-5";
+            emailErrorMsg.innerText = "";
+            if (!this.form.email) {
+                emailInput.classList.add("is-invalid");
+                emailErrorMsg.innerText = "l'email è obbligatoria";
+                isValid = false;
+            } else if (
+                this.form.email &&
+                !this.form.email.match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                )
+            ) {
+                emailInput.classList.add("is-invalid");
+                emailErrorMsg.innerText =
+                    "l'email deve essere in un formato valido (example@gmail.com)";
+                isValid = false;
+            }
+            // Validate Address
+            addressInput.className = "shadow form-control rounded-5";
+            addressErrorMsg.innerText = "";
+            if (!this.form.address) {
+                addressInput.classList.add("is-invalid");
+                addressErrorMsg.innerText =
+                    "L'indirizzo di consegna è obbligatorio";
+                isValid = false;
+            }
+            // Validate Tel
+            telInput.className = "shadow form-control rounded-5";
+            telErrorMsg.innerText = "";
+            if (!this.form.tel) {
+                telInput.classList.add("is-invalid");
+                telErrorMsg.innerText = "Il numero di Telefono è obbligatorio";
+                isValid = false;
+            } else if (this.form.tel && this.form.tel.length !== 9) {
+                telInput.classList.add("is-invalid");
+                telErrorMsg.innerText =
+                    "Il numero di Telefono deve essere di 9 cifre";
+                isValid = false;
+            }
+            // Validate Payment Method
+            if (!this.form.paymentMethodNonce.length) {
+                isValid = false;
+            }
+
+            return (this.isValid = isValid);
         },
         makePayment() {
             this.isLoading = true;
 
             axios
-                .post("http://127.0.0.1:8000/api/orders/payment")
+                .post("http://127.0.0.1:8000/api/orders/payment", this.form)
                 .then((res) => {
-                    // code here
+                    console.log(res.data);
                 })
                 .catch(() => {
                     this.errors = { http: "Si è verificato un errore" };
@@ -354,7 +295,6 @@ export default {
         },
     },
     mounted() {
-        this.clientToken();
         this.launchBraintree();
     },
 };
@@ -418,8 +358,19 @@ export default {
             -webkit-transition: 0.5s;
             transition: 0.5s;
             outline: none;
+
+            &.is-invalid {
+                border-color: #dc3545;
+            }
+        }
+        & .invalid-feedback {
+            width: 100%;
+            margin-top: 0.25rem;
+            font-size: 0.875em;
+            color: #dc3545;
         }
     }
+
     .payment-form-btn {
         display: inline-block;
         padding: 0.6rem 1.2rem;
