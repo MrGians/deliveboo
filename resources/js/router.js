@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 import HomePage from "./components/pages/HomePage";
 import RestaurantsPage from "./components/pages/RestaurantsPage";
 import RestaurantDetailPage from "./components/pages/RestaurantDetailPage";
+import PaymentPage from "./components/pages/PaymentPage";
 import NotFoundPage from "./components/pages/NotFoundPage";
 
 const routes = new VueRouter({
@@ -25,6 +26,7 @@ const routes = new VueRouter({
             component: RestaurantDetailPage,
             name: "restaurant-detail",
         },
+        { path: "/payment", component: PaymentPage, name: "payment" },
         { path: "*", component: NotFoundPage, name: "not-found" },
     ],
 });

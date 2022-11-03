@@ -17,7 +17,7 @@ import BaseSearchBar from "../BaseSearchBar.vue";
 import BaseCard from "../BaseCard.vue";
 import BaseLoader from "../BaseLoader.vue";
 export default {
-    name: "App",
+    name: "HomePage",
     components: {
         BaseSearchBar,
         BaseCard,
