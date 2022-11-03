@@ -29,7 +29,7 @@ class OrderController extends Controller
     {
         // Validating payment request
         $request->validate([
-            'token' => 'required',
+            'paymentMethodNonce' => 'required',
             'name' => 'required|string',
             'address' => 'required|string',
             'tel' => 'required|string|size:9',
@@ -52,8 +52,8 @@ class OrderController extends Controller
 
         // Make a Transaction
         $result = $gateway->transaction()->sale([
-            'amount' => $request->amount,
-            'paymentMethodNonce' => $request->token,
+            'amount' => $data['amount'],
+            'paymentMethodNonce' => $data['paymentMethodNonce'],
             'options' => [
             'submitForSettlement' => true,
             ],
