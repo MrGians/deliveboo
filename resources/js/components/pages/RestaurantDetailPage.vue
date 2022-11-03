@@ -1,13 +1,13 @@
 <template>
-    <section id="restaurant-detail">
-        <div class="container">
+    <section id="restaurant-detail" class="container">
+        <div>
             <!-- Card Restaurant -->
             <div id="card-restaurant" class="row justify-content-center mb-5">
-                <div class="col-md-7">
-                    <div class="card rounded-5 mt-5 mb-5 shadow">
+                <div class="col-7 p-2">
+                    <div class="card rounded-5 mt-5 mb-5 p-2 shadow">
                         <div class="text-center">
                             <div id="logo">
-                                <img class="text-logo" :src="'storage/' + detailRestaurant.logo" />
+                                <img class="text-logo" :src="'/storage/' + detailRestaurant.logo" />
                             </div>
                             <div class="card-body">
                                 <ul class="information-restaurant">
@@ -24,6 +24,11 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-5 mt-5 p-2 h-100" v-if="$store.state.cart.length > 0">
+                    <ShoppingCart></ShoppingCart>
+                </div>
+
             </div>
         </div>
         
@@ -35,38 +40,39 @@
             default content
         -->
             <h3 slot="header">Attenzione</h3>
-            <div class="container" slot="body">
+            <div class="p-2" slot="body">
                 <p>Puoi ordinare solo da un ristorante per volta. Vuoi iniziare un nuovo ordine? Se inizi un nuovo ordine il carrello si svuoterà.</p>
             </div>
         </BaseModal>
 
         <!-- Cart -->
-        <div class="container">
-            <ShoppingCart></ShoppingCart>
-        </div>
 
         <!-- Menu -->
-        <div class="container">
+        <div>
             <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <div class="card rounded-5 mb-3 pb-5 shadow">
+                <div class="col-12">
+                    <div class="card rounded-5 mb-3 pb-5 p-2 shadow">
                         <div v-for="item in detailRestaurant.products" :key="item.id" class="row restaurant_dishes">
-                            <div class="col-3">
+                            <div class="col-3 col-12 p-2">
                                 <img :src="item.image" alt="" class="restaurant_dishes_img">
                             </div>
-                            <div class="col-6">
+                            <div class="col-6 col-12 p-2">
                                 <ul class="information-dishes">
                                     <li class="name_dishes">{{ item.name }}</li>
                                     <li class="description">{{ item.description }}</li>
-                                    <li class="price-dishes"><i class="fa-solid fa-money-bill"></i>{{
+                                    <li class="price-dishes">€{{
                                             item.price.toFixed(2)
                                     }}</li>
                                 </ul>
                             </div>
-                            <div class="col-3">
-                                <button class="add-cart" @click="addToCart(item)">Aggiungi all'ordine</button>
+                            <div class="col-3 col-12 p-2 text-center">
+                                <button class="button-add-to-cart" @click="addToCart(item)">Aggiungi all'ordine</button>
                             </div>
-                            <hr>
+                            <div class="col-12 mb-3">
+                                <div class="item-bar">
+
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -164,13 +170,10 @@ export default {
 @import "./../../../sass/front.scss";
 
 /* UTILS */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
 
+.h-100 {
+    height: 100%;
+}
 .justify-content-center {
     justify-content: center;
 }
@@ -189,18 +192,23 @@ export default {
     padding: 0px 10px;
 }
 
+.col-5 {
+  flex: 0 0 41.66666667%;
+  max-width: 41.66666667%;
+}
+
 .col-6 {
     flex: 0 0 50%;
     max-width: 50%;
     padding: 0px 10px;
 }
 
-.col-md-7 {
+.col-7 {
     flex: 0 0 58.33333333%;
     max-width: 58.33333333%;
 }
 
-.col-md-12 {
+.col-12 {
     flex: 0 0 100%;
     max-width: 100%;
 }
@@ -213,7 +221,7 @@ export default {
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
+    border: 3px solid #ffbd42;
     border-radius: 0.25rem;
 }
 
@@ -229,6 +237,10 @@ export default {
     padding-bottom: 3rem;
 }
 
+.p-2 {
+  padding: 1rem;
+}
+
 /* UTILS */
 #logo {
     position: absolute;
@@ -238,9 +250,11 @@ export default {
 }
 
 
+
 /* CARD RESTAURANT */
 #card-restaurant {
     margin-bottom: 100px;
+    min-height: 700px;
 }
 
 .card {
@@ -292,8 +306,17 @@ li {
 /* CARD RESTAURANT */
 
 /* MENU */
+
+.item-bar-container {
+    padding: 0 50px;
+}
+.item-bar {
+    border-top: 1.5px solid $secondary;
+    border-radius: 5px;
+}
+
 .restaurant_dishes {
-    padding: 50px 20px;
+    padding: 0 50px;
     align-items: center;
 }
 
@@ -330,18 +353,35 @@ li {
     font-size: 17px;
 }
 
-.add-cart {
-    padding: 40px 25px;
-    background-color: #ffbd42;
+.button-add-to-cart {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid $quaternary;
+    background-color: $quaternary;
+    color: white;
     border-radius: 30px;
-    color: #fff;
-    font-weight: bold;
+    margin-left: 1rem;
+    transition: all 0.35s;
+
+    &:hover {
+        background-color: white;
+        color: $quaternary;
+    }
 }
+
+
 
 /* MENU */
 @media (min-width: 576px) {
     .container {
         max-width: 540px;
+    }
+    .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    }
+    .button-add-to-cart {
+        padding: 1rem 1.6rem;
     }
 }
 
@@ -349,11 +389,37 @@ li {
     .container {
         max-width: 720px;
     }
+    .col-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding: 0px 10px;
+    }
+    .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0px 10px;
+    }
+    .button-add-to-cart {
+        padding: 0.6rem 1.2rem;
+    }
 }
 
 @media (min-width: 992px) {
     .container {
         max-width: 960px;
+    }
+    .col-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding: 0px 10px;
+    }
+    .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0px 10px;
+    }
+    .button-add-to-cart {
+        padding: 0.6rem 1.2rem;
     }
 }
 
@@ -361,6 +427,19 @@ li {
     .container {
         max-width: 1140px;
     }
+    .col-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding: 0px 10px;
+    }
+    .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0px 10px;
+    }
+    .button-add-to-cart {
+        padding: 1rem 1.6rem;
+    }
 }
-</style>>
+</style>
 
