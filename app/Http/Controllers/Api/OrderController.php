@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use App\Models\Order;
 use App\Models\Product;
+use App\Mail\CustomerMail;
+use App\Mail\RestaurantMail;
+use App\Models\Restaurant;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Braintree\Gateway as Gateway;
 
@@ -102,6 +107,19 @@ class OrderController extends Controller
         $order_feedback = ['success' => false, 'message' => 'Transazione Fallita.'];
         if($result->success){
             $order_feedback = ['success' => true, 'message' => 'Transazione eseguita con successo.'];
+
+            // Sending Email to Restaurant Owner
+            $owner_id = Restaurant::select('user_id')->where('id', 2)->get();
+            $restaurant_mail = User::where('id', $owner_id[0]['user_id'])->get();
+            $restaurant_mail = $restaurant_mail[0]['email'];
+            $mail_to_restaurant = new RestaurantMail();
+            Mail::to($restaurant_mail)->send($mail_to_restaurant);
+
+            // Sending Email to Customer
+            $customer_mail = $data['email'];
+            $mail_to_customer = new CustomerMail();
+            Mail::to($customer_mail)->send($mail_to_customer);
+
         };
 
         return response()->json($order_feedback, 200);
