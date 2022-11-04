@@ -19,15 +19,15 @@
                 </div>
                 <ul class="list">
                     <li>
-                        <i class="fa-solid fa-location-dot"></i>
+                        <i class="bi bi-map"></i>
                         <span>{{ item.address }}</span>
                     </li>
                     <li>
-                        <i class="fa-solid fa-star"></i>
+                        <i class="bi bi-star"></i>
                         <span>Voto: <strong> 5.00</strong></span>
                     </li>
                     <li>
-                        <i class="fa-solid fa-money-check-dollar"></i>
+                        <i class="bi bi-box-seam"></i>
                         <span><strong>Consegna Gratis</strong></span>
                     </li>
                 </ul>
