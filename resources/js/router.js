@@ -8,6 +8,7 @@ import HomePage from "./components/pages/HomePage";
 import RestaurantsPage from "./components/pages/RestaurantsPage";
 import RestaurantDetailPage from "./components/pages/RestaurantDetailPage";
 import PaymentPage from "./components/pages/PaymentPage";
+import OrderSuccessPage from "./components/pages/OrderSuccessPage";
 import NotFoundPage from "./components/pages/NotFoundPage";
 
 const routes = new VueRouter({
@@ -27,10 +28,13 @@ const routes = new VueRouter({
             name: "restaurant-detail",
         },
         { path: "/payment", component: PaymentPage, name: "payment" },
+        {
+            path: "/order-success",
+            component: OrderSuccessPage,
+            name: "order-success",
+        },
         { path: "*", component: NotFoundPage, name: "not-found" },
     ],
 });
-
-
 
 export default routes;
