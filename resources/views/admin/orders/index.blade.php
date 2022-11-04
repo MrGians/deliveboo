@@ -4,7 +4,7 @@
 <header class="d-flex justify-content-between align-items-center mb-3">
     <h1>Lista Ordini</h1>
     <a href="#" class="btn btn-success">
-        <i class="fa-solid fa-chart-pie"></i>Vai alle statistiche
+        <i class="fa-solid fa-chart-pie"></i> Vai alle statistiche
     </a>
 </header>
 <table class="table table-striped table-dark">
