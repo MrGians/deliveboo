@@ -20,9 +20,9 @@
         </tr>
     </thead>
     <tbody>
-        @forelse ($orders as $order)
+        @forelse ($orders as $i => $order)
         <tr>
-            <th scope="row">{{ $order->id }}</th>
+            <th scope="row">{{ count($orders) - $i }}</th>
             <td>{{ $order->full_name }}</td>
             <td>{{ $order->address }}</td>
             <td><span class="btn btn-outline-{{ $order->status == 'Completato' ? 'success' : 'danger' }}">{{ $order->status }}</span></td>
