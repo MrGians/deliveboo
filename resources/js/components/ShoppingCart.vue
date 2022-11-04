@@ -25,13 +25,8 @@
                         Elimina
                     </button>
                 </div>
-                <div class="item-bar-container mb-5">
-                    <div class="item-bar">
-
-                    </div>
-                </div>
             </div>
-            <div class="text-center">
+            <div class="text-center total-box">
                 <div class="mb-3">
                     <strong>Totale:</strong>  
                     <span>{{ totalPrice }}</span>
@@ -78,6 +73,18 @@ export default {
 <style scoped lang="scss">
 @import './../../sass/front.scss';
 
+#cart-product {
+    border-bottom: 2px solid $secondary;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    & > * {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+}
 .card {
     
     padding: 2rem;
@@ -93,15 +100,11 @@ export default {
 
 .text-tertiary {
     color: $tertiary;
-    font-size: 30px;
+    font-size: 1.8rem;
 }
 
-.item-bar-container {
-    padding: 0 50px;
-}
-.item-bar {
-    border-top: 3px solid $secondary;
-    border-radius: 5px;
+.total-box {
+    margin-top: 1.5rem;
 }
 
 .button {
@@ -146,6 +149,12 @@ export default {
     &:hover {
         background-color: white;
         color: $quaternary;
+    }
+}
+
+@media (max-width: 992px) {
+    #cart-product {
+        flex-direction: row;
     }
 }
 

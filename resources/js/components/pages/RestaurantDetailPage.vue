@@ -1,10 +1,10 @@
 <template>
-    <section id="restaurant-detail" class="container">
-        <div>
+    <section id="restaurant-detail">
+        
             <!-- Card Restaurant -->
             <div id="card-restaurant" class="row justify-content-center mb-5">
-                <div class="col-7 p-2">
-                    <div class="card rounded-5 mt-5 mb-5 p-2 shadow">
+                <div class="col-7 head-col">
+                    <div class="card rounded-5 p-2 shadow">
                         <div class="text-center">
                             <div id="logo">
                                 <img class="text-logo" :src="'/storage/' + detailRestaurant.logo" />
@@ -25,12 +25,12 @@
                     </div>
                 </div>
                 
-                <div class="col-5 mt-5 p-2 h-100" v-if="$store.state.cart.length > 0">
+                <div class="col-5 head-col h-100" v-if="$store.state.cart.length > 0">
                     <ShoppingCart></ShoppingCart>
                 </div>
 
             </div>
-        </div>
+        
         
         
 
@@ -39,24 +39,24 @@
             you can use custom content here to overwrite
             default content
         -->
-            <h3 slot="header">Attenzione</h3>
+            <h3 slot="header" class="text-tertiary">Attenzione</h3>
             <div class="p-2" slot="body">
-                <p>Puoi ordinare solo da un ristorante per volta. Vuoi iniziare un nuovo ordine? Se inizi un nuovo ordine il carrello si svuoterà.</p>
+                <p>Puoi ordinare solo da un ristorante per volta. Vuoi iniziare un nuovo ordine? <strong>Se inizi un nuovo ordine il carrello si svuoterà.</strong></p>
             </div>
         </BaseModal>
 
         <!-- Cart -->
 
         <!-- Menu -->
-        <div>
+        
             <div class="row justify-content-center">
-                <div class="col-12">
+                <div class="col-12 foot-col">
                     <div class="card rounded-5 mb-3 pb-5 p-2 shadow">
                         <div v-for="item in detailRestaurant.products" :key="item.id" class="row restaurant_dishes">
-                            <div class="col-3 col-12 p-2">
-                                <img :src="item.image" alt="" class="restaurant_dishes_img">
+                            <div class="col-3 p-2">
+                                <img :src="'/storage/' + item.image" alt="" class="restaurant_dishes_img">
                             </div>
-                            <div class="col-6 col-12 p-2">
+                            <div class="col-6 p-2">
                                 <ul class="information-dishes">
                                     <li class="name_dishes">{{ item.name }}</li>
                                     <li class="description">{{ item.description }}</li>
@@ -65,20 +65,16 @@
                                     }}</li>
                                 </ul>
                             </div>
-                            <div class="col-3 col-12 p-2 text-center">
+                            <div class="col-3 p-2 text-center">
                                 <button class="button-add-to-cart" @click="addToCart(item)">Aggiungi all'ordine</button>
                             </div>
-                            <div class="col-12 mb-3">
-                                <div class="item-bar">
-
-                                </div>
-                            </div>
+                            
                         </div>
 
                     </div>
                 </div>
             </div>
-        </div>
+        
 
     </section>
 </template>
@@ -171,6 +167,10 @@ export default {
 
 /* UTILS */
 
+.text-tertiary {
+    color: $tertiary;
+}
+
 .h-100 {
     height: 100%;
 }
@@ -189,7 +189,7 @@ export default {
 .col-3 {
     flex: 0 0 25%;
     max-width: 25%;
-    padding: 0px 10px;
+    padding: 0px 15px;
 }
 
 .col-5 {
@@ -200,7 +200,7 @@ export default {
 .col-6 {
     flex: 0 0 50%;
     max-width: 50%;
-    padding: 0px 10px;
+    padding: 0px 15px;
 }
 
 .col-7 {
@@ -217,11 +217,10 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 3px solid #ffbd42;
+    border: 3px solid $secondary;
     border-radius: 0.25rem;
 }
 
@@ -241,12 +240,8 @@ export default {
   padding: 1rem;
 }
 
-/* UTILS */
-#logo {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translate(-50%);
+#logo > img {
+    max-width: 150px;
 }
 
 
@@ -255,15 +250,28 @@ export default {
 #card-restaurant {
     margin-bottom: 100px;
     min-height: 700px;
+
+    .head-col {
+        padding: 1rem;
+    }
+
 }
+
+.foot-col {
+    padding: 0 1rem;
+}
+
+
+
 
 .card {
     background-color: #fff;
+    overflow: hidden;
 }
 
 .text-logo {
     border-radius: 50%;
-    background-color: #2fb871;
+    background-color: $quaternary;
     padding: 20px;
     border: 1px solid #fff;
     color: #fff;
@@ -275,49 +283,44 @@ ul.information-restaurant {
 
 li {
     list-style-type: none;
-    font-size: 14px;
+    font-size: 0.8rem;
     padding-bottom: 20px;
 }
 
 .title-restaurant-card {
-    font-size: 30px;
-    color: #fc5958;
+    font-size: 1.7rem;
+    color: $tertiary;
     font-weight: bold;
     padding-bottom: 30px;
 }
 
 .category {
-    font-size: 16px;
+    font-size: 0.9rem;
     font-weight: bold;
 }
 
 .option {
     font-weight: bold;
     padding-bottom: 30px;
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 .p-iva {
     padding-bottom: 30px;
     font-size: 12px;
-    color: #666;
+    color: $primary;
 }
 
 /* CARD RESTAURANT */
 
 /* MENU */
 
-.item-bar-container {
-    padding: 0 50px;
-}
-.item-bar {
-    border-top: 1.5px solid $secondary;
-    border-radius: 5px;
-}
+
 
 .restaurant_dishes {
     padding: 0 50px;
     align-items: center;
+    border-bottom: 1.5px solid $secondary;
 }
 
 .restaurant_dishes_img {
@@ -328,7 +331,7 @@ li {
 
 .name_dishes {
     font-size: 20px;
-    color: #fc5958;
+    color: $tertiary;
     font-weight: bold;
     padding-bottom: 10px;
 }
@@ -346,7 +349,7 @@ li {
 }
 
 .fa-solid {
-    color: #ffbd42;
+    color: $secondary;
     margin-right: 10px;
 }
 
@@ -364,6 +367,7 @@ li {
     border-radius: 30px;
     margin-left: 1rem;
     transition: all 0.35s;
+    margin-bottom: 1.5rem;
 
     &:hover {
         background-color: white;
@@ -374,20 +378,55 @@ li {
 
 
 /* MENU */
-@media (min-width: 576px) {
+
+
+
+@media (max-width: 1200px) {
     .container {
-        max-width: 540px;
+        max-width: 1140px;
     }
-    .col-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
+    .col-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding: 0px 10px;
+    }
+    .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0px 10px;
     }
     .button-add-to-cart {
         padding: 1rem 1.6rem;
     }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+    .col-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding: 0px 10px;
+    }
+    .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0px 10px;
+    }
+    .button-add-to-cart {
+        padding: 0.6rem 1.2rem;
+    }
+    #card-restaurant {
+        flex-direction: column;
+        & > .head-col {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
     .container {
         max-width: 720px;
     }
@@ -406,42 +445,23 @@ li {
     }
 }
 
-@media (min-width: 992px) {
+@media (max-width: 576px) {
     .container {
-        max-width: 960px;
+        max-width: 540px;
     }
-    .col-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-        padding: 0px 10px;
-    }
-    .col-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-        padding: 0px 10px;
-    }
-    .button-add-to-cart {
-        padding: 0.6rem 1.2rem;
-    }
-}
-
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1140px;
-    }
-    .col-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-        padding: 0px 10px;
-    }
-    .col-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-        padding: 0px 10px;
+    .restaurant_dishes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & > [class^="col-"] {
+            max-width: 100%;
+            flex: 0 0 100%;
+        }
     }
     .button-add-to-cart {
         padding: 1rem 1.6rem;
     }
 }
+
 </style>
 
