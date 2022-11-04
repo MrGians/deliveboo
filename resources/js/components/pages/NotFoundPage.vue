@@ -11,13 +11,9 @@
 </template>
 
 <script>
-import BaseHeader from '../BaseHeader.vue';
 
 export default {
-    name: "App",
-    components: {
-        BaseHeader
-    },
+    name: "NotFoundPage",
 };
 </script>
 
