@@ -196,6 +196,9 @@ export default {
         hasErrors() {
             return Object.keys(this.errors).length;
         },
+        hasRouteParams() {
+            return Object.keys(this.$route.params).length;
+        },
     },
     methods: {
         sendForm() {
@@ -332,6 +335,16 @@ export default {
         },
     },
     mounted() {
+        if (!this.hasRouteParams) {
+            let appStorage = JSON.parse(localStorage.getItem("cart"));
+
+            if (!appStorage || !appStorage.length) {
+                this.isLoading = true;
+                this.$router.push({ name: "home" });
+            } else {
+                this.form.cartOrder = appStorage;
+            }
+        }
         this.launchBraintree();
     },
 };
