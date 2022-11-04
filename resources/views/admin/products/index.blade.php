@@ -20,9 +20,9 @@
         </tr>
     </thead>
     <tbody>
-        @forelse ($products as $product)
+        @forelse ($products as $i => $product)
         <tr>
-            <th scope="row">{{ $product->id }}</th>
+            <th scope="row">{{ $i+1 }}</th>
             <td>{{ $product->name }}</td>
             <td>{{ $product->price }}</td>
             <td class="align-middle">
