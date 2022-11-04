@@ -320,16 +320,23 @@ export default {
         },
         makePayment() {
             this.isLoading = true;
-
+            let checkOrder = null;
             axios
                 .post("http://127.0.0.1:8000/api/orders/payment", this.form)
                 .then((res) => {
-                    console.log(res.data);
+                    checkOrder = res.data;
                 })
                 .catch(() => {
                     this.errors = { http: "Si è verificato un errore" };
                 })
                 .then(() => {
+                    if (checkOrder.success) {
+                        localStorage.removeItem("cart");
+                        this.$router.push({
+                            name: "order-success",
+                            params: { success: true },
+                        });
+                    }
                     this.isLoading = false;
                 });
         },

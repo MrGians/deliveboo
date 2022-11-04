@@ -17,6 +17,16 @@
 <script>
 export default {
     name: "OrderSuccessPage",
+    computed: {
+        hasRouteParams() {
+            return Object.keys(this.$route.params).length;
+        },
+    },
+    mounted() {
+        if (!this.hasRouteParams) {
+            this.$router.push({ name: "home" });
+        }
+    },
 };
 </script>
 
