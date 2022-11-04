@@ -322,6 +322,8 @@ li {
 
 .restaurant_dishes_img {
     max-width: 100%;
+    height: auto;
+
 }
 
 .name_dishes {
