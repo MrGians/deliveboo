@@ -17,10 +17,8 @@
           </div>
 
           <div class="modal-footer">
-            <slot name="footer">
-              <button class="button button-confirm" @click="$emit('reset')">Continua</button>
-              <button class="button button-back" @click="$emit('close')">Annulla</button>
-            </slot>
+            <button class="button button-confirm" @click="$emit('reset')">Continua</button>
+            <button class="button button-back" @click="$emit('close')">Annulla</button>
           </div>
         </div>
       </div>
@@ -39,6 +37,12 @@ export default {
 
 <style scoped lang="scss">
 @import './../../sass/front.scss';
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .modal-mask {
   position: fixed;
   z-index: 9998;
