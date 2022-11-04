@@ -1,13 +1,12 @@
 <template>
     <div id="not-found-page">
-        <header>
-            <div id="card-container" class="not-fpund-card shadow text-center">
-                <h3>Ops, pagina non trovata</h3>
-                <p>Sembra che la pagina che cercavi non esista. Torna alla home per scegliere fra Fortunatamente,
-                    però, abbiamomigliaia di ristoranti pronti a consegnare a casa tua!</p>
-                <button type="submit" form="nameform" value="Home" class="home-btn">Home</button>
-            </div>
-        </header>
+        <div class="not-found-card shadow text-center my-5">
+            <h2>Ops, pagina non trovata</h2>
+            <p>Sembra che la pagina che cercavi non esista. Torna alla home per continuare a navigare.</p>
+            <router-link :to="{ name: 'home' }">
+                <button class="home-btn">Home</button>
+            </router-link>
+        </div>
     </div>
 </template>
 
@@ -25,29 +24,36 @@ export default {
 <style scoped lang="scss">
 @import "./../../../sass/front.scss";
 
-#title,
-h3 {
-    color: $tertiary;
-    font-size: 2rem;
-}
+
 
 #not-found-page {
-    position: relative;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 5rem auto;
 
-    .not-fpund-card {
-        width: 40em;
+    .not-found-card {
+        width: 50%;
         background-color: $body-bg;
-        padding: 3.5em;
-        border-radius: 30px;
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+
+        h2 {
+            color: $tertiary;
+        }
+
+        p {
+            margin: 2rem;
+        }
     }
-    
-    p {
-        margin: 2rem;
+
+    /* Medium devices (tablets, 768px and up) */
+    @media (max-width: 768px) {
+        .not-found-card {
+            width: 100%;
+        }
     }
+
 
     .home-btn {
         display: inline-block;
