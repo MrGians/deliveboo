@@ -3,9 +3,9 @@
 @section('content')
   <h1 class="mb-4">{{ $product->name }}</h1>
   <hr/>
-  <div class="card mb-3">
+  <div class="card overflow-hidden mb-3">
     <div class="row no-gutters">
-      <div class="col-md-4">
+      <div class="col-md-4 bg-warning">
         @if($product->image)
         <img class="img-fluid" src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}">
         @else
@@ -18,7 +18,7 @@
           <p class="card-text">{{ $product->description }}</p>
           <p class="card-text"><small class="text-muted">Creato il: {{ $product->created_at }}</small></p>
           <p class="card-text"><small class="text-muted">Ultima Modifica: {{ $product->updated_at }}</small></p>
-          <p class="card-text"><strong>Prezzo: </strong><em>{{ $product->price }}</em></p>
+          <p class="card-text"><strong>Prezzo: </strong><em>&euro;{{ $product->price }}</em></p>
           <p class="card-text">
             <strong>Stato: </strong>
             <strong class="text-{{ $product->is_visible ? 'success' : 'danger' }}">{{ $product->is_visible ? 'Pubblicato' : 'Non Pubblicato' }}</strong>
