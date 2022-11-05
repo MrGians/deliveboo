@@ -103,6 +103,9 @@ export default {
             color: white;
             background-color: $tertiary;
             border: 2px solid black;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            cursor: pointer;
         }
 
         #checkboxes {
@@ -132,6 +135,7 @@ export default {
                     height: 100%;
                     color: white;
                     background-color: $secondary;
+                    cursor: pointer;
                 }
                 & label.selected {
                     background-color: $quaternary;
