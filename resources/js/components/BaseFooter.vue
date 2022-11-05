@@ -11,7 +11,7 @@
                     alt="Visa Payment">
             </div>
             <div class="bottom-footer">
-                <p>Developed with &hearts; from Team proj-1
+                <p>Developed with &hearts; from Boolean Class #68 Team #1
                     <a href="https://github.com/Gabridg">Gabriele Del Guerzo</a>,
                     <a href="https://github.com/MrGians">Gianluca Mura</a>,
                     <a href="https://github.com/GiuseppeBergamo">Giuseppe Bergamo</a>,
@@ -34,10 +34,9 @@ export default {
 @import "./../../sass/front.scss";
 
 footer {
-    height: 450px;
     background-image: url('/img/footer.png');
     background-repeat: no-repeat;
-    background-position: bottom center;
+    background-position: center;
     background-size: cover;
     padding-top: 50px;
     margin-top: 250px;
@@ -47,6 +46,7 @@ footer {
         justify-content: center;
         align-items: center;
         color: $body-bg;
+        padding-top: 5rem;
 
         .payment-card-meth {
             display: block;
@@ -58,7 +58,8 @@ footer {
     }
 
     .bottom-footer {
-        padding-top: 80px;
+        padding-top: 1.5rem;
+        padding-bottom: 5rem;
         color: #fff;
 
         a {
@@ -66,6 +67,19 @@ footer {
 
             &:hover {
                 color: $tertiary;
+            }
+        }
+
+    }
+
+    /* Small devices (landscape phones, 576px and up) */
+    @media (max-width: 576px) {
+        .top-footer {
+            display: block;
+            margin-top: 5rem;
+
+            .payment-card-meth {
+                display: inline;
             }
         }
 
