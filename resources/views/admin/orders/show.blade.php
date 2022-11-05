@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card text-center">
+<div class="card bg-dark text-white text-center">
   <div class="card-header">
     <span>Ordine N° {{ $order->id }}</span><span>| Status: {{ $order->status }}</span>
   </div>
@@ -14,9 +14,9 @@
     {{-- Order Products --}}
     <ul class="list-group">
       @forelse ($order->products as $product)
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item border-dark text-dark d-flex justify-content-between align-items-center">
         {{ $product->name }}
-        <span class="badge badge-primary badge-pill">x{{ $product->pivot->quantity }}</span>
+        <span class="badge badge-success badge-pill">x{{ $product->pivot->quantity }}</span>
       </li>
       @empty
           <li>Nessun Prodotto presente nell'ordine</li>
