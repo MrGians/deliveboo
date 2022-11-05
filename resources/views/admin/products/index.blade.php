@@ -4,7 +4,7 @@
 <header class="d-flex justify-content-between align-items-center mb-3">
     <h1>Lista Prodotti</h1>
     <a href="{{ route('admin.products.create') }}" class="btn btn-success">
-        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-plus"></i> Crea nuovo Prodotto
     </a>
 </header>
 <table class="table table-striped table-dark">
