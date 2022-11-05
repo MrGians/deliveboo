@@ -9,8 +9,12 @@ if (document.querySelector("form.product-form")) {
 
     // | 'description' field & box errors
     const descriptionInput = document.getElementById("description");
-    const descriptionErrorBox = document.getElementById("description-error-box");
-    const descriptionErrorMsg = document.getElementById("description-error-msg");
+    const descriptionErrorBox = document.getElementById(
+        "description-error-box"
+    );
+    const descriptionErrorMsg = document.getElementById(
+        "description-error-msg"
+    );
 
     // | 'price' field & box errors
     const priceInput = document.getElementById("price");
@@ -42,7 +46,7 @@ if (document.querySelector("form.product-form")) {
     };
 
     const resetImage = () => {
-        imageInput.className = "form-control";
+        imageInput.className = "";
         imageErrorBox.classList.add("d-none");
         imageErrorMsg.innerText = "";
     };
@@ -60,7 +64,8 @@ if (document.querySelector("form.product-form")) {
         if (descriptionInput.validity.valueMissing) {
             descriptionInput.classList.add("is-invalid");
             descriptionErrorBox.classList.remove("d-none");
-            descriptionErrorMsg.innerText = "La descrizione del prodotto è obbligatoria";
+            descriptionErrorMsg.innerText =
+                "La descrizione del prodotto è obbligatoria";
         }
     };
 
@@ -76,13 +81,20 @@ if (document.querySelector("form.product-form")) {
             priceErrorBox.classList.remove("d-none");
 
             if (priceInput.validity.valueMissing) {
-                priceErrorMsg.innerText = "Il prezzo del prodotto è obbligatorio";
-            } else if (priceInput.validity.badInput || isNaN(priceInput.value)) {
-                priceErrorMsg.innerText = "Il prezzo del prodotto deve essere un numero";
+                priceErrorMsg.innerText =
+                    "Il prezzo del prodotto è obbligatorio";
+            } else if (
+                priceInput.validity.badInput ||
+                isNaN(priceInput.value)
+            ) {
+                priceErrorMsg.innerText =
+                    "Il prezzo del prodotto deve essere un numero";
             } else if (priceInput.validity.rangeUnderflow) {
-                priceErrorMsg.innerText = "Il prezzo del prodotto deve essere almeno '0.01'";
+                priceErrorMsg.innerText =
+                    "Il prezzo del prodotto deve essere almeno '0.01'";
             } else if (priceInput.validity.rangeOverflow) {
-                priceErrorMsg.innerText = "Il prezzo del prodotto deve essere massimo '999.99'";
+                priceErrorMsg.innerText =
+                    "Il prezzo del prodotto deve essere massimo '999.99'";
             }
         }
     };
@@ -90,12 +102,16 @@ if (document.querySelector("form.product-form")) {
     const validateImage = () => {
         const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
 
-        if (imageInput.validity.valueMissing || !allowedExtensions.exec(imageInput.value)) {
+        if (
+            imageInput.validity.valueMissing ||
+            !allowedExtensions.exec(imageInput.value)
+        ) {
             imageInput.classList.add("is-invalid");
             imageErrorBox.classList.remove("d-none");
 
             if (imageInput.validity.valueMissing) {
-                imageErrorMsg.innerText = "L'immagine del prodotto è obbligatoria";
+                imageErrorMsg.innerText =
+                    "L'immagine del prodotto è obbligatoria";
             } else if (!allowedExtensions.exec(imageInput.value)) {
                 imageErrorMsg.innerText =
                     "L'immagine del prodotto deve essere di un'estensione valida (jpeg,jpg,png,svg)";
@@ -107,7 +123,12 @@ if (document.querySelector("form.product-form")) {
     const submitForm = (event) => {
         // Submit for Create Form
         if (!formEdit) {
-            if (nameInput.value && descriptionInput.value && priceInput.value && imageInput.value) {
+            if (
+                nameInput.value &&
+                descriptionInput.value &&
+                priceInput.value &&
+                imageInput.value
+            ) {
                 event.submit();
             }
         }

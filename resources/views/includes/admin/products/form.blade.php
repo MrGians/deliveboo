@@ -37,7 +37,7 @@
             </div>
         </div>
         {{-- Image --}}
-        <div class="col-11">
+        <div class="col-9">
             <div class="form-group">
                 <label for="image" class="d-block">Immagine *</label>
                 <input type="file" class="@error('image') is-invalid @enderror" id="image" name="image" required>
@@ -47,7 +47,7 @@
             </div>
         </div>
         {{-- image-preview --}}
-        <div class="col-1">
+        <div class="col-3">
             <img src="{{ $product->image ? asset('storage/'.$product->image) : asset('storage/products_image/placeholder.png') }}" 
                 alt="{{ $product->name }}" class="img-fluid" id="thumb">
         </div>
