@@ -24,7 +24,7 @@
         <tr>
             <th scope="row">{{ $i+1 }}</th>
             <td>{{ $product->name }}</td>
-            <td>{{ $product->price }}</td>
+            <td>{{ $product->price }}&euro;</td>
             <td class="align-middle">
                 <form action="{{ route('admin.products.isVisible', $product) }}" method="POST">
                   @method('PATCH')
