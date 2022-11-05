@@ -65,8 +65,8 @@
             <div class="modal-content">
                 <p></p>
                 <div class="btn-box">
-                    <button id="delete-confirm">Si</button>
-                    <button id="delete-go-back">No</button>
+                    <button id="delete-confirm" class="btn btn-success">Si</button>
+                    <button id="delete-go-back" class="btn btn-danger">No</button>
                 </div>
             </div>
         </div>
