@@ -51,8 +51,20 @@ header {
         color: $tertiary;
     }
 
-    #access:hover {
+    #access {
+        display: inline-block;
+        padding: 0.6rem 1.2rem;
+        border: 2px solid $tertiary;
+        background-color: $tertiary;
         color: white;
+        border-radius: 30px;
+        margin-left: 1rem;
+        transition: all 0.35s;
+
+        &:hover {
+            background-color: white;
+            color: $tertiary;
+        }
     }
 }
 </style>
