@@ -45,10 +45,11 @@ class OrderController extends Controller
         ]);
         
         $data = $request->all();
+        $cart_order = $request->cartOrder;
 
         // Calculate Cart Total Amount
         $cart_amount = 0;
-        foreach($request->cartOrder as $cart_product){
+        foreach($cart_order as $cart_product){
             $product = Product::find($cart_product['id']);
 
             $cart_amount += $product->price * $cart_product['quantity'];
@@ -58,7 +59,7 @@ class OrderController extends Controller
         // Saving Products IDs & Products Quantity from Cart Order
         $cart_products_ids = [];
         $cart_products_quantity = [];
-        foreach($request->cartOrder as $cart_product){
+        foreach($cart_order as $cart_product){
             $cart_products_ids[] = $cart_product['id'];
             $cart_products_quantity[] = $cart_product['quantity'];
         };
@@ -109,15 +110,15 @@ class OrderController extends Controller
             $order_feedback = ['success' => true, 'message' => 'Transazione eseguita con successo.'];
 
             // Sending Email to Restaurant Owner
-            $owner_id = Restaurant::select('user_id')->where('id', 2)->get();
+            $owner_id = Restaurant::select('user_id')->where('id', $order_restaurant_id)->get();
             $restaurant_mail = User::where('id', $owner_id[0]['user_id'])->get();
             $restaurant_mail = $restaurant_mail[0]['email'];
-            $mail_to_restaurant = new RestaurantMail();
+            $mail_to_restaurant = new RestaurantMail($new_order);
             Mail::to($restaurant_mail)->send($mail_to_restaurant);
 
             // Sending Email to Customer
             $customer_mail = $data['email'];
-            $mail_to_customer = new CustomerMail();
+            $mail_to_customer = new CustomerMail($new_order, $order_restaurant_id);
             Mail::to($customer_mail)->send($mail_to_customer);
 
         };
