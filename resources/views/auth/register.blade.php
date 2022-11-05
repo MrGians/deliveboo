@@ -63,7 +63,7 @@
                                     <div class="card shadow rounded-5">
                                       <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
-                                          <button class="shadow-none btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                          <button class="shadow-none btn  btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                             Seleziona categorie *
                                           </button>
                                         </h2>
@@ -143,7 +143,7 @@
                         {{-- Register button --}}
                         <div class="form-group row">
                             <div class="col-md-8 mx-auto text-center">
-                                <button type="submit" class="btn btn-primary w-50 rounded-pill">
+                                <button type="submit" class="btn btn-success w-50 rounded-pill">
                                     Registrati
                                 </button>
                             </div>
@@ -157,7 +157,7 @@
                         </div> 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 mx-auto text-center">
-                                <a class=" btn btn-primary w-50 rounded-pill" href="{{ route('login') }}">Accedi</a>
+                                <a class=" btn btn-warning text-white w-50 rounded-pill" href="{{ route('login') }}">Accedi</a>
                             </div>
                         </div>
                     </form>
